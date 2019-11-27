@@ -1,0 +1,30 @@
+<div ng-app="app" layout="row" ng-controller="sideNavController" ng-cloak>
+
+
+    <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-is-locked-open="$mdMedia('gt-md')" layout="column">
+        <md-list>
+            <md-subheader class="md-no-sticky">My Features</md-subheader>
+            <md-list-item class="secondary-button-padding" ng-click="alert('clicked')"><p> Courses</p></md-list-item>
+            <md-list-item class="secondary-button-padding" ng-click="golink('rsi')"><p>Contacts</a>
+            </p></md-list-item>
+            <md-list-item class="secondary-button-padding" ng-click="golink('vol')" md-ink-ripple="#FF0400"><p>
+                Calender</p>
+            </md-list-item>
+            <md-list-item class="secondary-button-padding" ng-click="golink('price')"><p>price</a></p></md-list-item>
+            <md-list-item class="secondary-button-padding" ng-click="golink('fallshort')"><p>price fall 14 days </a></p>
+            </md-list-item>
+            <md-list-item class="secondary-button-padding" ng-click="golink('falllong')"><p>price 1.5 years </a></p>
+            </md-list-item>
+
+        </md-list>
+
+        <md-list>
+            <md-list-item ng-repeat="todo in algos" class="secondary-button-padding"
+                          ng-click="golink(todo.id ,todo.value)">
+                <p>{{todo.id }} : {{todo.value }}</p></md-list-item>
+
+        </md-list>
+
+    </md-sidenav>
+
+</div>

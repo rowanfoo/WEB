@@ -1,0 +1,86 @@
+<html>
+
+
+<head>
+
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+
+    <link rel="stylesheet"
+          href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.css">
+    <!-- Angular Material requires Angular.js Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-messages.min.js"></script>
+
+    <!-- Angular Material Library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.js"></script>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-route.js"></script>
+
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="http://cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.css"
+          rel="stylesheet" type="text/css"/>
+
+
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="http://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript"
+            src="http://cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js"></script>
+
+    <script type="text/javascript"
+            src="/webserver/newwork/static/app.js"></script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.6/ngStorage.min.js"></script>
+
+    <style>
+        .mat-sidenav {
+            min-width: 50px
+        }
+    </style>
+
+</head>
+
+<body ng-app="app" layout="row" ng-controller="sideNavController" ng-cloak>
+
+
+<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-is-locked-open="$mdMedia('gt-md')" layout="column">
+    <md-list>
+        <md-subheader class="md-no-sticky">My Features</md-subheader>
+        <md-list-item class="secondary-button-padding" ng-click="alert('clicked')"><p> Courses</p></md-list-item>
+        <md-list-item class="secondary-button-padding" ng-click="golink('rsi')"><p>Contacts</a>
+        </p></md-list-item>
+        <md-list-item class="secondary-button-padding" ng-click="golink('vol')" md-ink-ripple="#FF0400"><p>Calender</p>
+        </md-list-item>
+        <md-list-item class="secondary-button-padding" ng-click="golink('price')"><p>price</a></p></md-list-item>
+        <md-list-item class="secondary-button-padding" ng-click="golink('fallshort')"><p>price fall 14 days </a></p>
+        </md-list-item>
+        <md-list-item class="secondary-button-padding" ng-click="golink('falllong')"><p>price 1.5 years </a></p>
+        </md-list-item>
+
+    </md-list>
+
+    <md-list>
+        <md-list-item ng-repeat="todo in algos" class="secondary-button-padding"
+                      ng-click="golink(todo.id ,todo.value)">
+            <p>{{todo.id }} : {{todo.value }}</p></md-list-item>
+
+    </md-list>
+
+</md-sidenav>
+
+
+<div layout="column" layout-fill>
+
+    <div ng-view>
+
+        <h1>hii</h1>
+    </div>
+</div>
+
+</body>
+</html>
+
+
