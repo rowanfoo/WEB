@@ -1,0 +1,109 @@
+<html>
+
+
+<!--
+Index 3 works with app1.js  , This show  the normal way how to load uirouter works normal
+-->
+
+<head>
+
+   <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+   <meta content="utf-8" http-equiv="encoding">
+
+   <link rel="stylesheet"
+         href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.css">
+   <!-- Angular Material requires Angular.js Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-messages.min.js"></script>
+
+
+    <!--    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-route.js"></script>-->
+    <!--    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.min.js"></script>-->
+
+    <script src="//unpkg.com/@uirouter/angularjs/release/angular-ui-router.min.js"></script>
+
+    <!-- Angular Material Library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.js"></script>
+
+
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="http://cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.css"
+          rel="stylesheet" type="text/css"/>
+
+
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="http://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript"
+            src="http://cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js"></script>
+
+    <script type="text/javascript"
+            src="/webserver/newwork/static/app1.js"></script>
+    <script type="text/javascript"
+            src="/webserver/newwork/static/home/main.js"></script>
+
+    <script type="text/javascript"
+            src="/webserver/newwork/static/login/login.js"></script>
+    <script type="text/javascript"
+            src="/webserver/newwork/static/app-service/authentication.service.js"></script>
+
+    <script type="text/javascript"
+            src="/webserver/newwork/static/list/view.js"></script>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.6/ngStorage.min.js"></script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/auth0/angular-jwt/master/dist/angular-jwt.js"></script>
+
+    <style>
+        .mat-sidenav {
+            min-width: 50px
+        }
+    </style>
+
+</head>
+<body ng-app="app" layout="row" ng-cloak>
+
+<!--<body ng-app="app" layout="row" ng-controller="sideNavController" ng-cloak>-->
+
+
+<!--<div layout="column" layout-fill ui-view="sidebar">-->
+
+<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-is-locked-open="$mdMedia('gt-md')" layout="column"
+            ui-view="sidebar">
+    <md-list>
+        <md-list-item ng-repeat="todo in algos" class="secondary-button-padding"
+                      ng-click="golink(todo.id ,todo.value)">
+            <p>{{todo.id }} : {{todo.value }}</p></md-list-item>
+
+    </md-list>
+</md-sidenav>
+<!--</div>-->
+<div layout="column" layout-fill ui-view="content"></div>
+
+
+<!--<div ng-view>-->
+
+<!--    <h1>hii</h1>-->
+<!--</div>-->
+
+<!--<div ui-view="content"></div>-->
+
+<!--<div>-->
+<!--    &lt;!&ndash;    <ui-view></ui-view>&ndash;&gt;-->
+<!--    &lt;!&ndash;    <ui-view&ndash;&gt;-->
+<!--    &lt;!&ndash;    ="mylogin" ></ui-view>&ndash;&gt;-->
+
+<!--    <ui-view-->
+<!--    ="mylogin" >-->
+
+<!--    -->
+<!--    -->
+<!--    -->
+<!--    -->
+<!--</div>-->
+
+</body>
+</html>
+
+
