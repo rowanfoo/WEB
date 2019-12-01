@@ -1,0 +1,22 @@
+<!--<h1>hello</h1>-->
+<!--<input type="button" value="New Item" ng-click="newItem()"/>-->
+
+<!--<div ui-view=></div>-->
+<!--&lt;!&ndash;<div ui-view="content"></div>&ndash;&gt;-->
+<!--&lt;!&ndash;<div ui-view="sidebar></div>&ndash;&gt;-->
+<!--<div ui-view=""></div>-->
+
+<div layout="row">
+    <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-is-locked-open="$mdMedia('gt-md')" layout="column"
+                ui-view="sidebar">
+        <md-list>
+            <md-list-item ng-repeat="todo in algos" class="secondary-button-padding"
+                          ng-click="golink(todo.id ,todo.value)">
+                <p>{{todo.id }} : {{todo.value }}</p></md-list-item>
+
+        </md-list>
+    </md-sidenav>
+    <!--</div>-->
+    <div layout="column" layout-fill ui-view="content"></div>
+
+</div>
