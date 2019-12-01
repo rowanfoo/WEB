@@ -1,0 +1,58 @@
+<!--<script type="text/javascript">-->
+
+<!--    var module = angular.module('app', ['ngMaterial', 'ngRoute']);-->
+
+<!--    module.controller('loginController', ['$scope', '$routeParams', function ($scope, $routeParams) {-->
+<!--        var type = $routeParams.type-->
+
+<!--        console.log('-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;HERE IN CONTROLLER-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;' + type);-->
+
+
+<!--    }]);-->
+
+
+<!--</script>-->
+
+
+<!--<div layout="column" layout-fill>-->
+<!--    <div layout-padding>-->
+<!--        <md-toolbar layout="row" layout-align="start center">Course Library</md-toolbar>-->
+<!--    </div>-->
+
+<!--    <md-content flex layout-padding>-->
+<!--        <h1>hello</h1>-->
+
+
+<!--    </md-content>-->
+<!--</div>-->
+
+<table id="example" class="table table-bordered table-hover">
+    <thead>
+    <tr>
+        <th>code</th>
+        <th>name</th>
+        <th>type</th>
+        <th>message</th>
+        <th>date</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr ng-repeat="datas in  data">
+
+        <td> {{datas.code}}</td>
+        <td> {{datas.stock.name }}</td>
+        <td> {{datas.type }}</td>
+        <td> {{datas.message}}</td>
+        <!--        <td> abc</td>-->
+        <td> {{datas.date}}</td>
+    </tr>
+
+
+    </tbody>
+</table>
+
+<!--"code": "TGR.AX",-->
+<!--"date": "2019-09-04",-->
+<!--"type": "RSI below 30% ",-->
+<!--"message": "RSI  21.839080459770237"-->
