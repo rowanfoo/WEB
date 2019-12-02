@@ -35,21 +35,37 @@
             src="http://cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js"></script>
 
     <script type="text/javascript"
-            src="/webserver/newwork/static/app.js"></script>
+            src="/WEB/static/app.js"></script>
     <script type="text/javascript"
-            src="/webserver/newwork/static/home/main.js"></script>
+            src="/WEB/static/home/main.js"></script>
 
     <script type="text/javascript"
-            src="/webserver/newwork/static/login/login.js"></script>
+            src="/WEB/static/login/login.js"></script>
+
+    <!--    SERVICES-->
     <script type="text/javascript"
-            src="/webserver/newwork/static/app-service/authentication.service.js"></script>
+            src="/WEB/static/app-service/authentication.service.js"></script>
+    <script type="text/javascript"
+            src="/WEB/static/app-service/CoreData.js"></script>
 
     <script type="text/javascript"
-            src="/webserver/newwork/static/list/view.js"></script>
+            src="/WEB/static/list/view.js"></script>
 
+    <script type="text/javascript"
+            src="/WEB/static/chart/intervalchart.js"></script>
+
+    <script type="text/javascript"
+            src="/WEB/static/chart/mychart4.js"></script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.6/ngStorage.min.js"></script>
     <script type="text/javascript" src="https://cdn.rawgit.com/auth0/angular-jwt/master/dist/angular-jwt.js"></script>
+
+    <!--    HIGHSTOCK-->
+    <script src="http://code.highcharts.com/stock/highstock.js"></script>
+    <script src="https://code.highcharts.com/stock/indicators/indicators.js"></script>
+    <script src="https://code.highcharts.com/stock/indicators/ema.js"></script>
+    <script src="https://code.highcharts.com/stock/indicators/rsi.js"></script>
+
 
     <style>
         .mat-sidenav {
@@ -60,9 +76,13 @@
 </head>
 <body ng-app="app" layout="row" ng-cloak>
 
+
 <div layout-fill ui-view></div>
 
 </body>
 </html>
+
+
+
 
 

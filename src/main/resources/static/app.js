@@ -6,13 +6,13 @@ module.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
     $stateProvider
         .state('login', {
             url: '/login',
-            templateUrl: '/webserver/newwork/static/login/login.html',
+            templateUrl: '/WEB/static/login/login.html',
             controller: 'loginController'
 
         })
         .state('main', {
             url: '/main',
-            templateUrl: '/webserver/newwork/static/home/main.html',
+            templateUrl: '/WEB/static/home/main.html',
             controller: 'sideNavController'
 
         })
@@ -20,16 +20,32 @@ module.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
             url: '/viewlist/:type/:id',
             views: {
                 "content": {
-                    templateUrl: '/webserver/newwork/static/list/view.html',
+                    templateUrl: '/WEB/static/list/view.html',
                     controller: 'viewController'
+                }
+            }
+        })
+        .state('main.viewchart', {
+            url: '/viewchart',
+            views: {
+                "content": {
+                    templateUrl: '/WEB/static/chart/chart.html',
+                    controller: 'intervalController'
                 }
 
             }
 
+
         });
+    // .state('viewchart', {
+    //     url: '/viewchart',
+    //     templateUrl: '/WEB/static/chart/chart.html',
+    //     controller: 'intervalController'
+    // });
 
 });
-
+// $location.path("main/viewchart");
+// var url = 'main/viewlist/' + type + '/' + id;
 
 module.run(function ($rootScope, $http, $location, $localStorage) {
     // if ($localStorage.currentUser) {
@@ -42,6 +58,7 @@ module.run(function ($rootScope, $http, $location, $localStorage) {
 //         $location.path('/login');
 //         console.log('---RUN-   DONE---------------');
 //     }
+    //$location.path("/viewchart");
     console.log('---ROUTE----------------');
     $location.path('/login');
 //    $location.path('/main');

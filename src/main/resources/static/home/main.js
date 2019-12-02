@@ -6,7 +6,7 @@ var module = angular.module('app');
 module.controller('sideNavController', Controller);
 
 
-function Controller($scope, $location, $http) {
+function Controller($scope, $rootScope, $location, $http) {
     console.log('HERE IN CONTROLLER');
     $scope.code = '';
     var counter = 0;
@@ -25,6 +25,11 @@ function Controller($scope, $location, $http) {
     $scope.golink2 = function (type, id) {
         console.log('---goto path----' + type + "-------------" + id);
     };
+    // $scope.mychartbutton = function () {
+    //     console.log('-----sideNavController--------viewController -GOING ROUTE------1');
+    //     $location.path("main/viewchart");
+    //
+    // }
 
 
     $http.get('http://localhost:8090/items').then(function (data) {
@@ -32,9 +37,11 @@ function Controller($scope, $location, $http) {
         console.log("hello world--------" + mydata);
         console.log("hello world--------" + mydata.length);
         console.log(JSON.stringify(mydata, null, "    "));
+        $rootScope.algoscope = [];
 
         mydata.forEach(function (obj) {
             console.log(obj.id);
+            $rootScope.algoscope.push(obj.value);
             $scope.algos.push({id: obj.id, value: obj.value});
         });
 

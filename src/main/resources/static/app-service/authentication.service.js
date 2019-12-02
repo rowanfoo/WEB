@@ -10,7 +10,7 @@ function Service($http, $localStorage) {
 
     return service;
 
-    function Login(username, password, onSuccess , onFail) {
+    function Login(username, password, onSuccess, onFail) {
         var encodedCredentials = btoa("client:client");
         var basicHeader = "Basic " + encodedCredentials;
         var headers = {
@@ -19,9 +19,9 @@ function Service($http, $localStorage) {
         };
 
         var body = "grant_type=password&username={0}&password={1}";
-        body = body.replace('{0}',  username);
+        body = body.replace('{0}', username);
         body = body.replace('{1}', password);
-         console.log('  ----send form  ' + body);
+        console.log('  ----send form  ' + body);
 
         $http.post('http://localhost:8080/oauth/token', body,
             {
@@ -32,29 +32,28 @@ function Service($http, $localStorage) {
     };
 
 
+    // $http.post('/api/authenticate',body)
+    //     .then(   )
+    // .success(function (response) {
+    //     // login successful if there's a token in the response
+    //     if (response.token) {
+    //         // store username and token in local storage to keep user logged in between page refreshes
+    //         $localStorage.currentUser = { username: username, token: response.token };
+    //
+    //         // add jwt token to auth header for all requests made by the $http service
+    //         $http.defaults.headers.common.Authorization = 'Bearer ' + response.token;
+    //
+    //         // execute callback with true to indicate successful login
+    //         callback(true);
+    //     } else {
+    //         // execute callback with false to indicate failed login
+    //         callback(false);
+    //     }
+    // });
+}
 
-        // $http.post('/api/authenticate',body)
-        //     .then(   )
-            // .success(function (response) {
-            //     // login successful if there's a token in the response
-            //     if (response.token) {
-            //         // store username and token in local storage to keep user logged in between page refreshes
-            //         $localStorage.currentUser = { username: username, token: response.token };
-            //
-            //         // add jwt token to auth header for all requests made by the $http service
-            //         $http.defaults.headers.common.Authorization = 'Bearer ' + response.token;
-            //
-            //         // execute callback with true to indicate successful login
-            //         callback(true);
-            //     } else {
-            //         // execute callback with false to indicate failed login
-            //         callback(false);
-            //     }
-            // });
-    }
-
-    function Logout() {
-        // remove user from local storage and clear http auth header
-        delete $localStorage.currentUser;
-        $http.defaults.headers.common.Authorization = '';
-    }
+function Logout() {
+    // remove user from local storage and clear http auth header
+    delete $localStorage.currentUser;
+    $http.defaults.headers.common.Authorization = '';
+}
