@@ -1,9 +1,8 @@
 var module = angular.module('app');
-
 module.controller('wishlistController', Controller);
 
 
-function Controller($scope, $location, $http, $rootScope) {
+function Controller($scope, $location, $http, $rootScope, WishList) {
     console.log('H------------------------------wishlistController------------------------------R');
     $scope.alert = function (arg) {
     }
@@ -24,24 +23,20 @@ function Controller($scope, $location, $http, $rootScope) {
     }
 
 
-    console.log('HERE IN CONTROLLER 1');
-    var wishlisturl = 'http://localhost:8045/wishlistcategorys';
+    console.log('HERE IN CONTROLLER ------------------------------wishlistController--------------1');
 
-    $http.get(wishlisturl).then(function (data) {
-        console.log('HERE IN CONTROLLER 2');
-
-        console.log(JSON.stringify(data, null, "    "));
-        $scope.wishlistchartlist = [];
-
-        for (i in data.data) {
-            $scope.wishlistchartlist.push(data.data[i]);
-
-        }
-
-        $scope.wishlistlist = $scope.wishlistchartlist;
-
+    WishList.GetAllWishCategory().then(function (value) {
+        console.log('HERE IN CONTROLLER ----------wishlistController---WISHLIST----RESULT-------****');
+        $scope.wishlistlist = value;
     });
 
+
+    console.log('HERE IN CONTROLLER ------------------------------wishlistController--------------2');
+
+    //
+    //
+    console.log(JSON.stringify($scope.wishlistlist, null, "    "));
+    console.log('HERE IN CONTROLLER ------------------------------wishlistController---WISHLIST----RESULT-------****');
 
     $scope.updateMode = function () {
 
