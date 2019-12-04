@@ -36,7 +36,34 @@ module.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
             }
 
 
+        })
+        .state('wishmain', {
+            url: '/wishlist',
+            templateUrl: '/WEB/static/wishlist/main.html',
+            controller: 'wishlistController'
+
+
+        })
+        .state('wishmain.create', {
+            url: '/wishcreate',
+            views: {
+                "content": {
+                    templateUrl: '/WEB/static/wishlist/wishlistcreate/wishlistcreate.html',
+                    controller: 'wishlistcreateController'
+                }
+
+            }
+
+
         });
+
+    // .state('wishlistmain-1', {
+    //     url: '/wishlist-create',
+    //     templateUrl: '/WEB/static/wishlist/wishlistcreate/wishlistcreate.html',
+    //     controller: 'wishlistcreateController'
+    //
+    //
+    // });
     // .state('viewchart', {
     //     url: '/viewchart',
     //     templateUrl: '/WEB/static/chart/chart.html',
@@ -59,8 +86,12 @@ module.run(function ($rootScope, $http, $location, $localStorage) {
 //         console.log('---RUN-   DONE---------------');
 //     }
     //$location.path("/viewchart");
-    console.log('---ROUTE----------------');
-    $location.path('/login');
+    console.log('---ROUTE------------1----');
+    //$location.path('/login');
+    $location.path('/wishlist');
+//    $location.path('/wishlist/wishcreate');
+//     $location.path('/wishlist-create');
+
 //    $location.path('/main');
 
     console.log('---ROUTE-  DEADD---------------');
