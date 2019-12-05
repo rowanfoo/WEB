@@ -40,11 +40,7 @@ function Controller($scope, $location, $http, $rootScope, WishList) {
     //console.log('HERE IN CONTROLLER ------------------------------wishlistController---WISHLIST----RESULT-------****');
 
 
-    $scope.selectbox = function () {
 
-        alert(':' + $scope.weapon);
-
-    }
 
     $scope.updateMode = function () {
 
