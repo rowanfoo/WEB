@@ -55,6 +55,18 @@ module.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
             }
 
 
+        })
+        .state('wishmain.wishchart', {
+            url: '/wishchart',
+            views: {
+                "content": {
+                    templateUrl: '/WEB/static/chart/chart.html',
+                    controller: 'intervalController'
+                }
+
+            }
+
+
         });
 
     // .state('wishlistmain-1', {

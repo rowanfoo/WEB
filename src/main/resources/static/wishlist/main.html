@@ -60,16 +60,39 @@
 <div layout="row" layout-fill>
 
 
-    <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-is-locked-open="$mdMedia('gt-md')" layout="column"
-                ui-view="sidebar">
+    <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-is-locked-open="$mdMedia('gt-md')" layout="column">
         <md-list>
             <!--            <md-list-item class="secondary-button-padding" ng-click="createnews()"><p> wislist </p>-->
             <!--            </md-list-item>-->
 
-            <!--            <md-list-item class="secondary-button-padding" ng-click="createnews()"><p> charts </p>-->
-            <!--            </md-list-item>-->
+            <md-list-item class="secondary-button-padding" ng-click="createnews()"><p> charts </p>
+            </md-list-item>
             <md-subheader class="md-no-sticky">My Features</md-subheader>
             <md-list-item class="secondary-button-padding" ng-click="createnews()"><p> All Stock </p></md-list-item>
+
+
+            <!--            <md-list-item class="secondary-button-padding" ng-click="">-->
+            <md-select ng-model="selectitem" placeholder="wishlist charts" ng-change="updateMode()">
+                <md-option ng-value="item" ng-repeat="item in wishlistlist">{{item}}</md-option>
+            </md-select>
+            <!--            </md-list-item>-->
+
+
+            <md-card-content>
+                <div layout="row" layout-align="space-between center">
+                    <span>What is your favorite weapon?</span>
+                    <md-select ng-model="selectitem" placeholder="Weapon" class="md-no-underline"
+                               ng-change="updateMode()">
+                        <md-option value="mywishlist">mywishlist</md-option>
+                        <md-option value="sword">Sword</md-option>
+                        <md-option value="wand">Wand</md-option>
+                        <md-option value="pen">Pen?</md-option>
+                    </md-select>
+                </div>
+
+
+            </md-card-content>
+
 
         </md-list>
     </md-sidenav>

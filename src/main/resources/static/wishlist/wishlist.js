@@ -8,7 +8,7 @@ function Controller($scope, $location, $http, $rootScope, WishList) {
     }
 
     $scope.createnews = function () {
-        console.log('H------------------------------CLICKE ME---5---------------------------R');
+        //console.log('H------------------------------CLICKE ME---5---------------------------R');
         //$location.path('/wishlist/wishcreate/');
         $location.path('/wishlist/wishcreate');
 
@@ -22,29 +22,50 @@ function Controller($scope, $location, $http, $rootScope, WishList) {
     $scope.editnews = function () {
     }
 
-
-    console.log('HERE IN CONTROLLER ------------------------------wishlistController--------------1');
+    $scope.selectedWishchart = '';
+    //console.log('HERE IN CONTROLLER ------------------------------wishlistController--------------1');
 
     WishList.GetAllWishCategory().then(function (value) {
-        console.log('HERE IN CONTROLLER ----------wishlistController---WISHLIST----RESULT-------****');
+        ///  console.log('HERE IN CONTROLLER ----------wishlistController---WISHLIST----RESULT-------****');
         $scope.wishlistlist = value;
+        //  $scope.wishlistchartlist = value;
     });
 
 
-    console.log('HERE IN CONTROLLER ------------------------------wishlistController--------------2');
+    // console.log('HERE IN CONTROLLER ------------------------------wishlistController--------------2');
 
     //
     //
-    console.log(JSON.stringify($scope.wishlistlist, null, "    "));
-    console.log('HERE IN CONTROLLER ------------------------------wishlistController---WISHLIST----RESULT-------****');
+    //console.log(JSON.stringify($scope.wishlistlist, null, "    "));
+    //console.log('HERE IN CONTROLLER ------------------------------wishlistController---WISHLIST----RESULT-------****');
+
+
+    $scope.selectbox = function () {
+
+        alert(':' + $scope.weapon);
+
+    }
 
     $scope.updateMode = function () {
 
-        $http.get(wishlisturl + '?category=' + $scope.selectedWishlistchartlist).then(function (data) {
-            $scope.wishlistcatcode = data.data[0].code.split(',');
-            $location.path('/wishlistchart');
+        // $http.get(wishlisturl + '?category=' + $scope.selectedWishlistchartlist).then(function (data) {
+        //     $scope.wishlistcatcode = data.data[0].code.split(',');
+        //     $location.path('/wishlistchart');
+        //
+        // });
+
+        console.log('---------wishlistController---WISHLIST----VAL-------***12*' + $scope.selectitem);
+        WishList.GetWishCodes($scope.selectitem).then(function (value) {
+            console.log('---------wishlistController---WISHLIST----updateMode-------***12*');
+            var codes = value.split(",");
+            $rootScope.algoscope = codes;
+
+//            $scope.wishlist.code = value;
+            $location.path('/wishlist/wishchart');
 
         });
+
+
     }; // eof updateMode
 
     $scope.alldata = [];

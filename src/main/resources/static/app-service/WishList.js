@@ -32,14 +32,23 @@ function Service($http, $localStorage, $q) {
         var wishlisturl = 'http://localhost:8045/wishcategorycodes';
         var code = '';
         var q = $q.defer();
+        // $http.get(wishlisturl + '?category=' + category).then(function (data) {
+        //     console.log(JSON.stringify(data, null, "    "));
+        //     for (i in data.data) {
+        //         //   console.log('----DATA-------' +  data.data[i].code);
+        //         code = code + ',' + data.data[i].code;
+        //     }
+        //     code = code.substring(1, code.length);
+        //     q.resolve(code);
+        // });
         $http.get(wishlisturl + '?category=' + category).then(function (data) {
             console.log(JSON.stringify(data, null, "    "));
-            for (i in data.data) {
-                //   console.log('----DATA-------' +  data.data[i].code);
-                code = code + ',' + data.data[i].code;
-            }
-            code = code.substring(1, code.length);
-            q.resolve(code);
+            // for (i in data.data) {
+            //     //   console.log('----DATA-------' +  data.data[i].code);
+            //     code = code + ',' + data.data[i].code;
+            // }
+            // code = code.substring(1, code.length);
+            q.resolve(data.data[0].code);
         });
         return q.promise;
     }

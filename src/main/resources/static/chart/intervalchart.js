@@ -5,7 +5,7 @@ module.controller('intervalController', Controller);
 function Controller($scope, $rootScope, $http, $interval, CoreData, HIGHCHART) {
 
     console.log('-----------HERE IN mychartController CONTROLLER-----------');
-
+    console.log('-----------HERE IN mychartController CONTROLLER-----------' + $rootScope.algoscope);
     var rsicode = $rootScope.algoscope;
     // rsicode = [];
     // rsicode.push('BHP.AX');

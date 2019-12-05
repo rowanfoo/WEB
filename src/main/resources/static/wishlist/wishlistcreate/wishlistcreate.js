@@ -3,7 +3,7 @@ var module = angular.module('app');
 module.controller('wishlistcreateController', Controller);
 
 
-function Controller($scope, $location, $http, submitform, $rootScope, WishList) {
+function Controller($scope, $location, $http, submitform, $rootScope, WishList, Utility) {
 
     console.log(" -----------------STUDENT CONTROLLER-----------");
 
