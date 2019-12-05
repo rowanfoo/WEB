@@ -3,6 +3,8 @@ var module = angular.module('app', ['ngMaterial', 'ui.router', 'ngStorage', 'ang
 
 module.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
 
+    $httpProvider.interceptors.push('myInterceptor');
+
     $stateProvider
         .state('login', {
             url: '/login',
@@ -99,15 +101,20 @@ module.run(function ($rootScope, $http, $location, $localStorage) {
 //     }
     //$location.path("/viewchart");
     console.log('---ROUTE------------1----');
-    //$location.path('/login');
-    $location.path('/wishlist');
+//    $location.path('/login');
+//    $location.path('/wishlist');
 //    $location.path('/wishlist/wishcreate');
 //     $location.path('/wishlist-create');
 
-//    $location.path('/main');
+    $location.path('/main');
 
     console.log('---ROUTE-  DEADD---------------');
+    $rootScope.$on("unauthorized", function (event, next) {
+        console.log('---NOT ALLOWED TO ENTER----------');
+        console.log('---NOT ALLOWED TO ENTER----------' + next);
+        $location.path('/login');
 
+    });
     //
     //   $location.path('/main');
     // redirect to login page if not logged in and trying to access a restricted page
