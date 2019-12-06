@@ -3,6 +3,7 @@ module.controller('viewController', Controller);
 
 
 function Controller($scope, $rootScope, $http, $state, $location) {
+    $scope.loading = true;
     console.log('----------viewController -HERE IN CONTROLLER----------viewController-');
 
     // var type = $routeParams.type;
@@ -19,7 +20,7 @@ function Controller($scope, $rootScope, $http, $state, $location) {
     }
 
 
-    $http.get('http://localhost:8080/' + type + '/' + id + '?sector=200').then(function (data) {
+    $http.get($rootScope.config.algoturl + type + '/' + id + '?sector=200').then(function (data) {
         // $http.get('http://192.168.0.10:10500/' + type).then(function (data) {
         //    console.log(JSON.stringify(data, null, "    "))
         $scope.data = data.data
@@ -32,7 +33,7 @@ function Controller($scope, $rootScope, $http, $state, $location) {
 
         });
 
-
+        $scope.loading = false;
     });
 
 
