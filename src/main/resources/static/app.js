@@ -89,6 +89,7 @@ module.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
 // var url = 'main/viewlist/' + type + '/' + id;
 
 module.run(function ($rootScope, $http, $location, $localStorage) {
+    setconfig($rootScope);
     // if ($localStorage.currentUser) {
     //     $http.defaults.headers.common.Authorization = 'Bearer ' + $localStorage.currentUser.token;
     // }
