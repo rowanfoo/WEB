@@ -3,9 +3,7 @@ var module = angular.module('app');
 module.controller('wishlistcreateController', Controller);
 
 
-function Controller($scope, $location, $http, submitform, $rootScope) {
-
-//              console.log( ' SUBMIT  investigate-create    ----'+JSON.stringify(    $scope.config , null, "    ") );
+function Controller($scope, $location, $http, submitform, $rootScope, WishList, Utility) {
 
     console.log(" -----------------STUDENT CONTROLLER-----------");
 
@@ -13,7 +11,6 @@ function Controller($scope, $location, $http, submitform, $rootScope) {
         code: '',
         category: ''
     };
-
 
     $scope.createstock = function () {
         var wishlisturl = 'http://localhost:8045/';
@@ -28,27 +25,13 @@ function Controller($scope, $location, $http, submitform, $rootScope) {
         console.log("----end ---");
     };
 
-    $scope.callback = function (value) {
+    $scope.callback = function (selectedcategory) {
 
-        console.log('-----------------CALLBACK----------------');
-        $scope.code = '';
-        $scope.wishlist.category = value;
-        var wishlisturl = 'http://localhost:8045/wishcategorycodes';
-
-        $http.get(wishlisturl + '?category=' + value).then(function (data) {
-
-            console.log(JSON.stringify(data, null, "    "));
-
-
-            for (i in data.data) {
-                //   console.log('----DATA-------' +  data.data[i].code);
-                $scope.code = $scope.code + ',' + data.data[i].code;
-
-            }
-            $scope.code = $scope.code.substring(1, $scope.code.length);
-            $scope.wishlist.code = $scope.code;
-
+        WishList.GetWishCodes(selectedcategory).then(function (value) {
+            console.log('HERE IN CONTROLLER ----------wishlistController---WISHLIST----RESULT-------***12*');
+            $scope.wishlist.code = value;
         });
+
     }
 
 

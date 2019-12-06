@@ -1,0 +1,38 @@
+<div ng-app="myApp" ng-controller="myCtrl">
+    <form class="well input-form" name="inputform" ng-submit="myFunc()">
+        <ol>
+            <li ng-repeat="element in ma">
+                <!--                <input type="text" ng-model="investigate.value"/>-->
+                MA: <input type="text" ng-model="element.value"/>
+            </li>
+        </ol>
+        <input type="button" value="New Item" ng-click="newItem()"/>
+        <br/>
+        <p>--------------------------------------------</p>
+        <ol>
+            <li ng-repeat="elementx in rsi">
+                <!--                <input type="text" ng-model="investigate.value"/>-->
+                RSI: <input type="text" ng-model="elementx.value"/>
+            </li>
+        </ol>
+        <input type="button" value="New Item" ng-click="newItem2()"/>
+        <p>--------------------------------------------</p>
+
+        <ol>
+            <li ng-repeat="elementx in falltoday">
+                <!--                <input type="text" ng-model="investigate.value"/>-->
+                fall today: <input type="text" ng-model="elementx.value"/>
+            </li>
+        </ol>
+        <input type="button" value="New Item" ng-click="newItem3()"/>
+
+
+        <b>Click here to see ng-model value:</b><br/>
+        <input type="button" value="submit" ng-click="show(elements)">
+        <p>
+            <button type="submit" class="btn btn-info btn-fill pull-left">Submit</button>
+        </p>
+    </form>
+</div>
+
+
