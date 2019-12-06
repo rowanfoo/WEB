@@ -36,20 +36,25 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.6/ngStorage.min.js"></script>
     <script type="text/javascript" src="https://cdn.rawgit.com/auth0/angular-jwt/master/dist/angular-jwt.js"></script>
 
-
-
+<!--Main APP-->
+    <script type="text/javascript"
+            src="/WEB/static/app.js"></script>
+<!--!!! note must be first line , so that ngmodule can load in as JS is interepreted -->
+    <script type="text/javascript"
+            src="/WEB/static/app-service/interceptor.js"></script>
 
     <script type="text/javascript"
             src="/WEB/static/app-static/config.js"></script>
     <!--    SERVICES-->
     <script type="text/javascript"
             src="/WEB/static/app-service/Utility.js"></script>
-    <script type="text/javascript"
-            src="/WEB/static/app-service/interceptor.js"></script>
+
     <script type="text/javascript"
             src="/WEB/static/app-service/authentication.service.js"></script>
     <script type="text/javascript"
             src="/WEB/static/app-service/CoreData.js"></script>
+    <script type="text/javascript"
+            src="/WEB/static/app-service/user.js"></script>
     <script type="text/javascript"
             src="/WEB/static/app-service/WishList.js"></script>
     <script type="text/javascript"
@@ -62,8 +67,6 @@
             src="/WEB/static/chart/mychart4.js"></script>
 
     <!--    Controllers -->
-    <script type="text/javascript"
-            src="/WEB/static/app.js"></script>
     <script type="text/javascript"
             src="/WEB/static/home/main.js"></script>
 
