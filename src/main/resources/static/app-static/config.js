@@ -10,17 +10,6 @@ var wishurl='http://rowanfoo.ddns.net:10400/';
 
 function setconfig($rootScope){
     console.log('----setconfig-----');
-
-    // $rootScope.config={
-    //     data: serverurl + '/data',
-    //     wishlist: wishlisturl,
-    //     wishcategorycodes: wishlisturl + '/wishcategorycodes',
-    //     wishcategory: wishlisturl + '/wishlistcategorys',
-    //     algobycodes: algoturl + '/algobycodes'
-    //
-    //
-    //
-    // };
     $rootScope.config={
         algoturl: algoturl,
         oauthurl: oauthurl,
