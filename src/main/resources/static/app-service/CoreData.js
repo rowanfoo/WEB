@@ -2,14 +2,20 @@ angular
     .module('app')
     .factory('CoreData', Service);
 
-function Service($http, $localStorage) {
+function Service($http,$rootScope, $localStorage) {
     var service = {};
 
     service.GetData = getData;
     return service;
+    function getData(date, code) {
+        console.log('-------getData------------' );
+        var serverurl = $rootScope.config.algoturl;
+        //    function getData($http, url) {
+//        http://rowanfoo.ddns.net:10100/dategt?date=2019-01-01&code=ABC.AX
+        var codeurl = serverurl + 'dategt?'+'date='+ date+'&code=' + code;
+        console.log('-------codueurl------------' + codeurl);
 
-    function getData($http, url) {
-        var myurl = url
+        var myurl = codeurl
         var seriesOptions = [];
         var mydate = [];
         console.log("START-----getData : ");
