@@ -29,7 +29,7 @@
             <!-- Individual menu options and buttons-->
             <md-menu-content>
                 <md-menu-item>
-                    <md-button> Share</md-button>
+                    <md-button ng-click="gofav()"> Favourite</md-button>
                 </md-menu-item>
 
                 <md-menu-item>
@@ -41,34 +41,12 @@
 
         </md-menu>
     </div>
-
-    <!--    <div>-->
-    <!--        <md-menu md-position-mode="target-right target">-->
-    <!--            &lt;!&ndash; Trigger for menu &ndash;&gt;-->
-    <!--            &lt;!&ndash;            <md-button ng-click="$mdOpenMenu()"> Logoutss1ss2s</md-button>&ndash;&gt;-->
-
-
-    <!--            <md-menu-content>-->
-    <!--                <md-menu-item>-->
-    <!--                    <md-button ng-click="$mdOpenMenu()"> Logoutss1ss2s</md-button>-->
-    <!--                </md-menu-item>-->
-
-    <!--            </md-menu-content>-->
-
-
-    <!--        </md-menu>-->
-
-
-    <!--    </div>-->
-
     <md-button ng-click="$mdOpenMenu()"> Logout</md-button>
 </div>
 
 <br>
 
 <div layout="row" layout-fill>
-
-
     <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-is-locked-open="$mdMedia('gt-md')" layout="column"
                 ui-view="sidebar">
         <md-list>
@@ -81,6 +59,6 @@
     <!--</div>-->
     <div layout="column" layout-fill ui-view="content"></div>
 
+
 </div>
-<md-button ng-click="mychartbutton()"> Actions</md-button>
-<button type="button"  class="btn btn-primary" ng-click="mychartbutton()">ROUTE A</button>
+<md-button ng-click="mychartbutton()"> Charts</md-button>
