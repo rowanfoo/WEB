@@ -2,12 +2,10 @@ angular
     .module('app')
     .factory('AuthenticationService', Service);
 
-function Service($http, $localStorage) {
+function Service($http,$rootScope, $localStorage) {
     var service = {};
-
     service.Login = Login;
     service.Logout = Logout;
-
     return service;
 
     function Login(username, password, onSuccess, onFail) {
@@ -22,34 +20,15 @@ function Service($http, $localStorage) {
         body = body.replace('{0}', username);
         body = body.replace('{1}', password);
         console.log('  ----send form  ' + body);
+        var oauthurl = $rootScope.config.oauthurl;
 
-        $http.post('http://localhost:8080/oauth/token', body,
+        $http.post(oauthurl+'oauth/token', body,
             {
                 headers: headers
             })
             .then(onSuccess, onFail)
 
     };
-
-
-    // $http.post('/api/authenticate',body)
-    //     .then(   )
-    // .success(function (response) {
-    //     // login successful if there's a token in the response
-    //     if (response.token) {
-    //         // store username and token in local storage to keep user logged in between page refreshes
-    //         $localStorage.currentUser = { username: username, token: response.token };
-    //
-    //         // add jwt token to auth header for all requests made by the $http service
-    //         $http.defaults.headers.common.Authorization = 'Bearer ' + response.token;
-    //
-    //         // execute callback with true to indicate successful login
-    //         callback(true);
-    //     } else {
-    //         // execute callback with false to indicate failed login
-    //         callback(false);
-    //     }
-    // });
 }
 
 function Logout() {
