@@ -2,52 +2,39 @@ angular
     .module('app')
     .factory('WishList', Service);
 
-function Service($http, $localStorage, $q) {
-
+function Service($rootScope , $http, $localStorage, $q) {
     var service = {};
     service.GetAllWishCategory = getAllWishCategory;
     service.GetWishCodes = getWishCodes;
-
-
     return service;
+    //var wishlisturl = $rootScope.config.wishurl;
 
     function getAllWishCategory() {
-        var wishlisturl = 'http://localhost:8045/wishlistcategorys';
-        console.log('HERE IN Service WishList 1');
+        var wishlisturl = $rootScope.config.wishurl;
+//        var wishlisturl = 'http://localhost:8045/wishlistcategorys';
+        console.log('---RUN-   getAllWishCategory-----1--');
+        console.log('---RUN-   getAllWishCategory-----1--'+wishlisturl);
+        wishlisturl=wishlisturl+'wishlistcategorys';
+        console.log('---RUN-   getAllWishCategory-------'+ wishlisturl);
         var q = $q.defer();
         var seriesOptions = [];
         $http.get(wishlisturl).then(function (data) {
-            console.log('------------HTTTPP--getData---------- ');
             data.data.forEach(function (value) {
-                console.log('--------------getData---VAL------- ' + value);
                 seriesOptions.push(value);
             });
             q.resolve(seriesOptions);
         });
         return q.promise;
-        console.log('------------EXIT -----Service WishList----- ');
     }
 
     function getWishCodes(category) {
-        var wishlisturl = 'http://localhost:8045/wishcategorycodes';
+        var wishlisturl = $rootScope.config.wishurl;
+       // var wishlisturl = 'http://localhost:8045/wishcategorycodes';
+        wishlisturl=wishlisturl+'wishcategorycodes';
         var code = '';
         var q = $q.defer();
-        // $http.get(wishlisturl + '?category=' + category).then(function (data) {
-        //     console.log(JSON.stringify(data, null, "    "));
-        //     for (i in data.data) {
-        //         //   console.log('----DATA-------' +  data.data[i].code);
-        //         code = code + ',' + data.data[i].code;
-        //     }
-        //     code = code.substring(1, code.length);
-        //     q.resolve(code);
-        // });
         $http.get(wishlisturl + '?category=' + category).then(function (data) {
             console.log(JSON.stringify(data, null, "    "));
-            // for (i in data.data) {
-            //     //   console.log('----DATA-------' +  data.data[i].code);
-            //     code = code + ',' + data.data[i].code;
-            // }
-            // code = code.substring(1, code.length);
             q.resolve(data.data[0].code);
         });
         return q.promise;
