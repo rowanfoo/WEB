@@ -2,7 +2,7 @@
 var module = angular.module('app', ['ngMaterial']);
 module.controller('commentController', CONTROLLER);
 
-function CONTROLLER($scope, $mdDialog) {
+function CONTROLLER($scope, $mdDialog ,CommentCreate) {
 
     $scope.name = 'BHP>>>AX';
 
@@ -10,13 +10,18 @@ function CONTROLLER($scope, $mdDialog) {
     $scope.showComment = function (code) {
         console.log('--------code---------' + code);
         $mdDialog.show({
-            templateUrl: "/WEB/static/dialog.html",
+          //  templateUrl: "/WEB/static/dialog.html",
+            templateUrl: "/WEB/static/comment/dialog/commentDialog.html",
             parent: angular.element(document.body),
             clickOutsideToClose: true,
             locals: {aTitle: code},
             controller: function ($scope, $http, aTitle) {
-                $scope.mycode = aTitle;
+//                $scope.mycode = aTitle;
+                CommentCreate.Createcontroller  ($scope, $http, aTitle)
             }
+            // controller:CommentCreate.Createcontroller  ($scope, $http, aTitle)
+
+
         });
     };
 

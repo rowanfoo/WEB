@@ -2,37 +2,30 @@
 
     <md-toolbar>
         <div class="md-toolbar-tools">
-            <h2>{{data.code}}</h2>
+            <h2>{{code}}</h2>
         </div>
     </md-toolbar>
 
-
     <md-dialog-content class="md-dialog-content">
+
         <form class="well input-form" name="inputform" ng-submit="myFunc()">
-
-
             <p>
                 <mat-form-field style="width: 2600px;">
-                    <textarea matInput md-input-name="crap" ng-model="investigate.crap" rows="5" cols="60"
-                              formControlName="description" matTextareaAutosize matAutosizeMinRows=1
-                              matAutosizeMaxRows=5 placeholder="crap"></textarea>
+                    <md-select ng-model="comment.type" placeholder="Weapon" class="md-no-underline"
+                               ng-change="selectbox()">
+                        <md-option value="mywishlist" ng-selected="true">mywishlist</md-option>
+                        <md-option value="sword">Sword</md-option>
+                        <md-option value="wand">Wand</md-option>
+                        <md-option value="pen">Pen?</md-option>
+                    </md-select>
                 </mat-form-field>
             </p>
+            <input type="hidden" name="comment user" value="100" ng-model="comment.userid"/>
             <p>
                 <mat-form-field style="width: 2600px;">
-                    <textarea matInput md-input-name="why" ng-model="investigate.why" rows="5" cols="60"
+                    <textarea matInput md-input-name="crap" ng-model="comment.text" rows="5" cols="60"
                               formControlName="description" matTextareaAutosize matAutosizeMinRows=1
                               matAutosizeMaxRows=5 placeholder="why"></textarea>
-                </mat-form-field>
-            </p>
-            <p>
-                <mat-form-field style="width: 2600px;">
-                    <md-checkbox md-input-name="watch"
-                                 ng-model="investigate.watch"
-                                 ng-true-value="'Y'"
-                                 ng-false-value="'N'"
-                    >Watch
-                    </md-checkbox>
                 </mat-form-field>
             </p>
 
