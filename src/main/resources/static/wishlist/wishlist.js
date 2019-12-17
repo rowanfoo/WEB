@@ -27,8 +27,6 @@ function Controller($scope, $location, $http, $rootScope, WishList) {
             $rootScope.algoscope = codes;
             $location.path('/wishlist/wishchart');
         });
-
-
     }; // eof updateMode
 
     $scope.alldata = [];
