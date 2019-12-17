@@ -34,10 +34,7 @@ module.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
                     templateUrl: '/WEB/static/chart/chart.html',
                     controller: 'intervalController'
                 }
-
             }
-
-
         })
         .state('wishmain', {
             url: '/wishlist',
@@ -53,10 +50,7 @@ module.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
                     templateUrl: '/WEB/static/wishlist/wishlistcreate/wishlistcreate.html',
                     controller: 'wishlistcreateController'
                 }
-
             }
-
-
         })
         .state('wishmain.wishchart', {
             url: '/wishchart',
@@ -65,12 +59,17 @@ module.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
                     templateUrl: '/WEB/static/chart/chart.html',
                     controller: 'intervalController'
                 }
-
             }
-
-
-        });
-
+        })
+        .state('wishmain.wishdetail', {
+        url: '/wishdetail/:codes',
+        views: {
+            "content": {
+                templateUrl: '/WEB/static/wishlist/detail/view.html',
+                controller: 'wishlistDetailController'
+            }
+        }
+    });
     // .state('wishlistmain-1', {
     //     url: '/wishlist-create',
     //     templateUrl: '/WEB/static/wishlist/wishlistcreate/wishlistcreate.html',
@@ -103,11 +102,11 @@ module.run(function ($rootScope, $http, $location, $localStorage) {
     //$location.path("/viewchart");
     console.log('---ROUTE------------1----');
 //    $location.path('/login');
-//    $location.path('/wishlist');
+    $location.path('/wishlist');
 //    $location.path('/wishlist/wishcreate');
 //     $location.path('/wishlist-create');
 
-    $location.path('/main');
+  //  $location.path('/main');
 
     console.log('---ROUTE-  DEADD---------------');
     $rootScope.$on("unauthorized", function (event, next) {

@@ -39,8 +39,14 @@ function Controller($scope, $location, $http, $rootScope, WishList) {
     //console.log(JSON.stringify($scope.wishlistlist, null, "    "));
     //console.log('HERE IN CONTROLLER ------------------------------wishlistController---WISHLIST----RESULT-------****');
 
+    $scope.detailModel=function () {
+      //  console.log('------------WISHLIST----detail-------***12*' + $scope.selectitem);
+        WishList.GetWishCodes($scope.selectitem).then(function (value) {
+            console.log('---------wishlistController---WISHLIST----detailModel-------***12*' + '/wishlist/wishdetail/'+value);
 
-
+            $location.path('/wishlist/wishdetail/'+value);
+        });
+    };
 
     $scope.updateMode = function () {
 
@@ -52,8 +58,9 @@ function Controller($scope, $location, $http, $rootScope, WishList) {
 
         console.log('---------wishlistController---WISHLIST----VAL-------***12*' + $scope.selectitem);
         WishList.GetWishCodes($scope.selectitem).then(function (value) {
-            console.log('---------wishlistController---WISHLIST----updateMode-------***12*');
+          //  console.log('---------wishlistController---WISHLIST----updateMode-------***12*');
             var codes = value.split(",");
+
             $rootScope.algoscope = codes;
 
 //            $scope.wishlist.code = value;
