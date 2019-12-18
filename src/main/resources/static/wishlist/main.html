@@ -67,6 +67,8 @@
 
             <md-list-item class="secondary-button-padding" ng-click="createnews()"><p> charts </p>
             </md-list-item>
+
+
             <md-subheader class="md-no-sticky">My Features</md-subheader>
             <md-list-item class="secondary-button-padding" ng-click="createnews()"><p> All Stock </p></md-list-item>
 
@@ -76,8 +78,9 @@
                 <md-option ng-value="item" ng-repeat="item in wishlistlist">{{item}}</md-option>
             </md-select>
             <!--            </md-list-item>-->
-
-
+            <md-select ng-model="selectitem" placeholder="wishlist details" ng-change="detailModel()">
+                <md-option ng-value="item" ng-repeat="item in wishlistlist">{{item}}</md-option>
+            </md-select>
 
 
         </md-list>
@@ -86,3 +89,5 @@
     <div layout="column" layout-fill ui-view="content"></div>
 
 </div>
+<md-button ng-click="mychartbutton()"> Actions</md-button>
+<button type="button"  class="btn btn-primary" ng-click="mychartbutton()">ROUTE A</button>
