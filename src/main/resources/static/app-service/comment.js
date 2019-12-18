@@ -17,7 +17,7 @@ function Service($rootScope, $http, $q, submitform) {
         console.log('---RUN-   getAllIdeasbyUserid-----1--' + commenturl);
         var q = $q.defer();
         var seriesOptions = [];
-        $http.get(wishlisturl).then(function (data) {
+        $http.get(commenturl).then(function (data) {
             data.data.forEach(function (value) {
                 seriesOptions.push(value);
             });
@@ -32,7 +32,7 @@ function Service($rootScope, $http, $q, submitform) {
         console.log('---RUN-   getAllCommentsbyUserid-----1--' + commenturl);
         var q = $q.defer();
         var seriesOptions = [];
-        $http.get(wishlisturl).then(function (data) {
+        $http.get(commenturl).then(function (data) {
             data.data.forEach(function (value) {
                 seriesOptions.push(value);
             });
@@ -58,12 +58,11 @@ function Service($rootScope, $http, $q, submitform) {
 
     function getAllCommentbyCode(userid, code) {
         var commenturl = $rootScope.config.commenturl + +'/userid/' + userid + '/code/' + code;
-
-        console.log('---RUN-   getAllCommentbyCode-----1--' + commenturl);
-        wishlisturl = wishlisturl + '/code/' + code;
         var q = $q.defer();
         var seriesOptions = [];
-        $http.get(wishlisturl).then(function (data) {
+        $http.get(commenturl).then(function (data) {
+            console.log(JSON.stringify(data, null, "    "));
+
             data.data.forEach(function (value) {
                 seriesOptions.push(value);
             });
