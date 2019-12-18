@@ -1,10 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<table id="example" class="table table-bordered table-hover">
+    <img ng-if="loading"
+         src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
+    <thead>
+    <tr>
+        <th>code</th>
+        <th>shares</th>
+        <th>market cap</th>
+        <th>eps</th>
+        <th>pe</th>
+        <th>dividend yield</th>
+        <th>year high</th>
+        <th>year low</th>
+    </tr>
+    </thead>
+    <tbody>
 
-</body>
-</html>
+    <tr>
+        <td> {{fundamental.code}}</td>
+        <td> {{fundamental.number_of_shares}}</td>
+        <td> {{fundamental.market_cap}}</td>
+        <td> {{fundamental.eps}}</td>
+        <td> {{fundamental.pe}}</td>
+        <td> {{fundamental.annual_dividend_yield}}</td>
+        <td> {{fundamental.year_high_date}}</td>
+        <td> {{fundamental.year_low_price}}</td>
+
+    </tr>
+
+
+    </tbody>
+</table>
+<!--<comment code="BHP.AX" userid="rowanf"></comment>-->
+<!--<comment code="BHP.AX"></comment>-->
+MYCODE:{{mycode}}
+<comment code="mycode" userid="rowanf"></comment>
+<!--<comment code="code" userid="rowanf"></comment>-->
+<md-button ng-click="mychartbutton()"> Actions</md-button>
+<button type="button"  class="btn btn-primary" ng-click="mychartbutton()">ROUTE A</button>
+
+<!--"code": "TGR.AX",-->
+<!--"date": "2019-09-04",-->
+<!--"type": "RSI below 30% ",-->
+<!--"message": "RSI  21.839080459770237"-->
