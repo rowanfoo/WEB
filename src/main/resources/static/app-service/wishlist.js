@@ -2,17 +2,18 @@ angular
     .module('app')
     .factory('WishList', Service);
 
-function Service($http, $localStorage, $q) {
+function Service($http,$rootScope, $localStorage, $q) {
 
     var service = {};
     service.GetAllWishCategory = getAllWishCategory;
     service.GetWishCodes = getWishCodes;
-
+    service.GetWishDetails = getWishDetails;
 
     return service;
 
     function getAllWishCategory() {
-        var wishlisturl = 'http://localhost:8045/wishlistcategorys';
+//        var wishlisturl = 'http://localhost:8045/wishlistcategorys';
+        var wishlisturl = $rootScope.config.wishurl+'wishlistcategorys';
         console.log('HERE IN Service WishList 1');
         var q = $q.defer();
         var seriesOptions = [];
@@ -29,7 +30,8 @@ function Service($http, $localStorage, $q) {
     }
 
     function getWishCodes(category) {
-        var wishlisturl = 'http://localhost:8045/wishcategorycodes';
+       // var wishlisturl = 'http://localhost:8045/wishcategorycodes';
+        var wishlisturl = $rootScope.config.wishurl+'wishcategorycodes';
         var code = '';
         var q = $q.defer();
         // $http.get(wishlisturl + '?category=' + category).then(function (data) {

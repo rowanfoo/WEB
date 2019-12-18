@@ -22,6 +22,12 @@ function Controller($scope, $rootScope, $location, $http,User) {
         $location.path(url);
     };
 
+
+    $scope.fav = function () {
+
+        $location.path('/wishlist');
+    };
+
     $scope.golink2 = function (type, id) {
         console.log('---goto path----' + type + "-------------" + id);
     };
@@ -51,4 +57,4 @@ function Controller($scope, $rootScope, $location, $http,User) {
     // });
 
 
-};
+}

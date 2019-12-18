@@ -25,7 +25,8 @@ function Controller($scope, $rootScope, $http, $interval, CoreData, HIGHCHART) {
     //         rsivalue.push(value.message)
     //     });
     //     console.log('------------RSICODE XX------------ ' + rsicode);
-    var serverurl = "http://localhost:8080/";
+    //var serverurl = "http://localhost:8080/";
+    var serverurl = $rootScope.config.algoturl;
     var counter = 0;
     callAtInterval();
     var myinterval = $interval(callAtInterval, 15000);
@@ -46,7 +47,7 @@ function Controller($scope, $rootScope, $http, $interval, CoreData, HIGHCHART) {
 
         $scope.code = code;
         //    $scope.message = rsivalue[counter++];
-        var intervalurl = serverurl + "/dategt?date=2019-01-01&code=" + code;
+        var intervalurl = serverurl + "dategt?date=2019-01-01&code=" + code;
 
         console.log('------INTERVAL-------HTTP--------- ' + intervalurl);
 
@@ -65,8 +66,7 @@ function Controller($scope, $rootScope, $http, $interval, CoreData, HIGHCHART) {
         // });
 
 
-    };
-
+    }
 }
 
 // ;
