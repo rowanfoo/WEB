@@ -8,6 +8,7 @@ function Service($rootScope, $http, $localStorage, $q, submitform) {
     service.SaveFundamental = saveFundamental;
     return service;
 
+
     //var wishlisturl = $rootScope.config.wishurl;
 
     function getFundamentalCode(code) {
