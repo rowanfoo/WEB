@@ -23,21 +23,16 @@ function Service($http, $rootScope, $q, Config, $mdDialog) {
 
         Config.GetConfig('comment', '0').then(function (data) {
             $scope.config = data
-
             //           console.log(JSON.stringify($scope.config, null, "    "));
         });
 
 
         $scope.myFunc = function () {
             console.log('-----------submit---------');
-
             //    Config.Save($scope.comment);
-
             console.log(JSON.stringify($scope.comment, null, "    "));
             $mdDialog.hide();
         }
-
-
     };
 
 
