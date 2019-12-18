@@ -2,17 +2,19 @@ angular
     .module('app')
     .factory('Comment', Service);
 
-function Service($rootScope , $http, $q) {
-     var service = {};
-    // service.GetAllWishCategory = getAllWishCategory;
-    // service.GetWishCodes = getWishCodes;
-     return service;
-    // //var wishlisturl = $rootScope.config.wishurl;
-    //
+function Service($rootScope, $http, $q, submitform) {
+    var service = {};
+    service.GetAllIdeasbyUserid = getAllIdeasbyUserid;
+    service.GetAllCommentsbyUserid = getAllCommentsbyUserid;
+    service.GetAllCommentbyType = getAllCommentbyType;
+    service.GetAllCommentbyCode = getAllCommentbyCode;
+    service.SaveComment = saveComment;
+
+    return service;
+
     function getAllIdeasbyUserid(userid) {
-        var wishlisturl = $rootScope.config.wishurl;
-        console.log('---RUN-   getAllComment-----1--'+wishlisturl);
-        wishlisturl=wishlisturl+'wishlistcategorys';
+        var commenturl = $rootScope.config.commenturl + '/idea/' + userid;
+        console.log('---RUN-   getAllIdeasbyUserid-----1--' + commenturl);
         var q = $q.defer();
         var seriesOptions = [];
         $http.get(wishlisturl).then(function (data) {
@@ -23,73 +25,56 @@ function Service($rootScope , $http, $q) {
         });
         return q.promise;
     }
-    function getAllCommentbyType(type) {
-        var wishlisturl = $rootScope.config.wishurl;
 
-        wishlisturl=wishlisturl+'/type/'+type;
-        var q = $q.defer();
-        var seriesOptions = [];
-        $http.get(wishlisturl).then(function (data) {
-            data.data.forEach(function (value) {
-                seriesOptions.push(value);
-            });
-            q.resolve(seriesOptions);
-        });
-        return q.promise;
-    }
-     function getAllCommentbyUserid(userid) {
-          var wishlisturl = $rootScope.config.wishurl;
-          console.log('---RUN-   getAllComment-----1--'+wishlisturl);
-          wishlisturl=wishlisturl+'/userid/'+userid;
-          var q = $q.defer();
-          var seriesOptions = [];
-          $http.get(wishlisturl).then(function (data) {
-               data.data.forEach(function (value) {
-                    seriesOptions.push(value);
-               });
-               q.resolve(seriesOptions);
-          });
-          return q.promise;
-     }
-    function getAllCommentbyCode(code) {
-        var wishlisturl = $rootScope.config.wishurl;
-        console.log('---RUN-   getAllComment-----1--'+wishlisturl);
-        wishlisturl=wishlisturl+'/code/'+code;
-        var q = $q.defer();
-        var seriesOptions = [];
-        $http.get(wishlisturl).then(function (data) {
-            data.data.forEach(function (value) {
-                seriesOptions.push(value);
-            });
-            q.resolve(seriesOptions);
-        });
-        return q.promise;
-    }
-    // function getAllCommentByDate(code , date) {
-    //     var wishlisturl = $rootScope.config.wishurl;
-    //     console.log('---RUN-   getAllComment-----1--'+wishlisturl);
-    //     wishlisturl=wishlisturl+'wishlistcategorys';
-    //     var q = $q.defer();
-    //     var seriesOptions = [];
-    //     $http.get(wishlisturl).then(function (data) {
-    //         data.data.forEach(function (value) {
-    //             seriesOptions.push(value);
-    //         });
-    //         q.resolve(seriesOptions);
-    //     });
-    //     return q.promise;
-    // }
+    function getAllCommentsbyUserid(userid) {
+        var commenturl = $rootScope.config.commenturl + '/userid/' + userid;
 
-    function saveComment(code , comment) {
-        var wishlisturl = $rootScope.config.wishurl;
-        wishlisturl=wishlisturl+'/';
-        var code = '';
+        console.log('---RUN-   getAllCommentsbyUserid-----1--' + commenturl);
         var q = $q.defer();
-        $http.get(wishlisturl + '?category=' + category).then(function (data) {
-            console.log(JSON.stringify(data, null, "    "));
-            q.resolve(data.data[0].code);
+        var seriesOptions = [];
+        $http.get(wishlisturl).then(function (data) {
+            data.data.forEach(function (value) {
+                seriesOptions.push(value);
+            });
+            q.resolve(seriesOptions);
         });
         return q.promise;
+    }
+
+
+    function getAllCommentbyType(userid) {
+        var commenturl = $rootScope.config.commenturl + '/all/' + userid;
+        console.log('---RUN-   getAllCommentbyType-----1--' + commenturl);
+        var q = $q.defer();
+        var seriesOptions = [];
+        $http.get(wishlisturl).then(function (data) {
+            data.data.forEach(function (value) {
+                seriesOptions.push(value);
+            });
+            q.resolve(seriesOptions);
+        });
+        return q.promise;
+    }
+
+    function getAllCommentbyCode(userid, code) {
+        var commenturl = $rootScope.config.commenturl + +'/userid/' + userid + '/code/' + code;
+
+        console.log('---RUN-   getAllCommentbyCode-----1--' + commenturl);
+        wishlisturl = wishlisturl + '/code/' + code;
+        var q = $q.defer();
+        var seriesOptions = [];
+        $http.get(wishlisturl).then(function (data) {
+            data.data.forEach(function (value) {
+                seriesOptions.push(value);
+            });
+            q.resolve(seriesOptions);
+        });
+        return q.promise;
+    }
+
+    function saveComment(comment) {
+        var commenturl = $rootScope.config.commenturl;
+        submitform.sendData('PUT', commenturl, category);
     }
 
 
