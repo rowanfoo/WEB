@@ -2,7 +2,7 @@ var module = angular.module('app');
 module.controller('viewController', Controller);
 
 
-function Controller($scope, $rootScope, $http, $state, $location, CommentCreate, $mdDialog) {
+function Controller($scope, $rootScope, $http, $state, $location, CommentCreate, $mdDialog, Fundamental, Comment) {
     $scope.loading = true;
     var type = $state.params.type;
     var id = $state.params.id;
@@ -30,7 +30,15 @@ function Controller($scope, $rootScope, $http, $state, $location, CommentCreate,
             }
         });
     };
+    $scope.detail = function (code) {
+        $scope.mycode = code;
+        var userid = 'rowanf'
 
+        Fundamental.getFundamentalCode(code).then(function (data) {
+            $scope.fundamental = data;
+        });
+
+    };
 
     $http.get($rootScope.config.algoturl + type + '/' + id + '?sector=200').then(function (data) {
         // $http.get('http://192.168.0.10:10500/' + type).then(function (data) {
