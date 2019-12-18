@@ -26,7 +26,7 @@ module.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
             }
         })
         .state('main.viewdetail', {
-            url: '/viewlist/:code',
+            url: '/viewdetail/:code',
             views: {
                 "content": {
                     templateUrl: '/WEB/static/list/detail/detail.html',
