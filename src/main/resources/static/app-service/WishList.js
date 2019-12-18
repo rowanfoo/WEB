@@ -53,23 +53,6 @@ function Service($http, $localStorage, $q) {
         return q.promise;
     }
 
-    function getWishDetails(codes) {
-
-        var wishlisturl = $rootScope.config.algoturl+'/wishlist/metadata/'+codes
-
-        var q = $q.defer();
-
-        $http.get(wishlisturl).then(function (data) {
-            console.log(JSON.stringify(data, null, "    "));
-            // for (i in data.data) {
-            //     //   console.log('----DATA-------' +  data.data[i].code);
-            //     code = code + ',' + data.data[i].code;
-            // }
-            // code = code.substring(1, code.length);
-            q.resolve(data);
-        });
-        return q.promise;
-    }
 
 }
 
