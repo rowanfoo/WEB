@@ -34,9 +34,12 @@ function Controller($scope, $rootScope, $http, $state, $location, CommentCreate,
         $scope.mycode = code;
         var userid = 'rowanf'
 
-        Fundamental.getFundamentalCode(code).then(function (data) {
-            $scope.fundamental = data;
-        });
+        // Fundamental.getFundamentalCode(code).then(function (data) {
+        //     $scope.fundamental = data;
+        // });
+        var url = 'main/viewdetail/' + code;
+        $location.path(url);
+
 
     };
 
