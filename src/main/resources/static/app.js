@@ -25,6 +25,15 @@ module.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
                 }
             }
         })
+        .state('main.viewdetail', {
+            url: '/viewlist/:code',
+            views: {
+                "content": {
+                    templateUrl: '/WEB/static/list/detail/detail.html',
+                    controller: 'viewDetailController'
+                }
+            }
+        })
         .state('main.viewchart', {
             url: '/viewchart',
             views: {
