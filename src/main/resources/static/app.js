@@ -79,14 +79,24 @@ module.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
                     controller: 'intervalController'
                 }
             }
+        })
+        .state('wishmain.wishdetail', {
+            url: '/wishdetail/:codes',
+            views: {
+                "content": {
+                    templateUrl: '/WEB/static/wishlist/detail/view.html',
+                    controller: 'wishlistDetailController'
+                }
+            }
         });
+
 });
 
 module.run(function ($rootScope, $http, $location, $localStorage) {
     setconfig($rootScope);
 
- var ss =   moment().subtract('year', 2).format('YYYY-MM-DD').toString() ;
-console.log("--------mydate---------"+ ss);
+    var ss = moment().subtract('year', 2).format('YYYY-MM-DD').toString();
+    console.log("--------mydate---------" + ss);
     // if ($localStorage.currentUser) {
     //     $http.defaults.headers.common.Authorization = 'Bearer ' + $localStorage.currentUser.token;
     // }
