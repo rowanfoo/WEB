@@ -1,8 +1,8 @@
 //templateUrl: '/wishlistview/resources/wishlistview/route//wishlistcreate.html',
 angular.module('app').component('comment', {
     templateUrl: '/WEB/static/app-component/comment.html',
-    bindings: {code: '<', userid: '@'},
-    // bindings: {code: '@'},
+    // bindings: {code: '<', userid: '@'},
+    bindings: {code: '<'},
     controller: ['$scope', '$http', '$rootScope', 'Comment', function ($scope, $http, $rootScope, Comment) {
         console.log('-----------------COMPONENT Comment----3-----------');
         //     console.log('-----------------COMPONENT Comment---1-----13-------' + $scope.code);
@@ -29,7 +29,7 @@ angular.module('app').component('comment', {
         $scope.showcomment = false;
         $scope.ma = [];
         $scope.comments = [];
-        $scope.comments.push({value: 'hello word'});
+        //  $scope.comments.push({value: 'hello word'});
         // $scope.comments.push({value: 'this is my contents'});
         // $scope.comments.push({value: 'this is MORE contents'});
         // $scope.comment = {value: ''};
@@ -41,10 +41,10 @@ angular.module('app').component('comment', {
             //   console.log('--------anydata-----------' + this.userid);
             // console.log('--------anydata-----------' + $scope.code);
             $scope.code = this.code;
-            $scope.userid = this.userid;
+//            $scope.userid = this.userid;
             // console.log('--------anydata*******' + $scope.code);
-
-            Comment.GetAllCommentbyCode($scope.userid, $scope.code).then(function (data) {
+            Comment.GetAllCommentbyCode($scope.code).then(function (data) {
+                // Comment.GetAllCommentbyCode($scope.userid, $scope.code).then(function (data) {
                 console.log('--------comment COMPONENT*******');
 
                 data.forEach(function (data) {
@@ -78,8 +78,6 @@ angular.module('app').component('comment', {
             $scope.comments.push({value: $scope.comment.value});
             $scope.comment.value = '';
             $scope.ma = [];
-
-
         };
 
 
