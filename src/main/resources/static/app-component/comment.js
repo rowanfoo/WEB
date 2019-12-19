@@ -50,7 +50,8 @@ angular.module('app').component('comment', {
                 data.forEach(function (data) {
                     $scope.comments.push(
                         {
-                            value: data.text
+                            value: data.text,
+                            userid: data.userid
                         }
                     );
                 });

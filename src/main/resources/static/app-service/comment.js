@@ -61,6 +61,8 @@ function Service($rootScope, $http, $q, submitform) {
         // function getAllCommentbyCode(userid, code) {
 //        var commenturl = $rootScope.config.commenturl + +'/userid/' + userid + '/code/' + code;
         var commenturl = $rootScope.config.commenturl + '/code/' + code;
+
+        console.log('---RUN-   getAllCommentbyCode-----1--' + commenturl);
         var q = $q.defer();
         var seriesOptions = [];
         $http.get(commenturl).then(function (data) {
