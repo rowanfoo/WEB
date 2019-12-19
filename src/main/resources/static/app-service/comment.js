@@ -56,12 +56,15 @@ function Service($rootScope, $http, $q, submitform) {
         return q.promise;
     }
 
-    function getAllCommentbyCode(userid, code) {
-        var commenturl = $rootScope.config.commenturl + +'/userid/' + userid + '/code/' + code;
+    function getAllCommentbyCode(code) {
+
+        // function getAllCommentbyCode(userid, code) {
+//        var commenturl = $rootScope.config.commenturl + +'/userid/' + userid + '/code/' + code;
+        var commenturl = $rootScope.config.commenturl + '/code/' + code;
         var q = $q.defer();
         var seriesOptions = [];
         $http.get(commenturl).then(function (data) {
-            console.log(JSON.stringify(data, null, "    "));
+//            console.log(JSON.stringify(data, null, "    "));
 
             data.data.forEach(function (value) {
                 seriesOptions.push(value);
