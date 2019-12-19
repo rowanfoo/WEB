@@ -40,7 +40,7 @@ function Controller($scope, $location, $http, $rootScope, WishList) {
     //console.log('HERE IN CONTROLLER ------------------------------wishlistController---WISHLIST----RESULT-------****');
 
     $scope.detailModel = function () {
-        //  console.log('------------WISHLIST----detail-------***12*' + $scope.selectitem);
+        console.log('------------WISHLIST----detail-------***12*' + $scope.selectitem);
         WishList.GetWishCodes($scope.selectitem).then(function (value) {
             console.log('---------wishlistController---WISHLIST----detailModel-------***12*' + '/wishlist/wishdetail/' + value);
 

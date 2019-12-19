@@ -12,10 +12,10 @@ function Service($rootScope , $http, $localStorage, $q) {
     function getAllWishCategory() {
         var wishlisturl = $rootScope.config.wishurl;
 //        var wishlisturl = 'http://localhost:8045/wishlistcategorys';
-        console.log('---RUN-   getAllWishCategory-----1--');
-        console.log('---RUN-   getAllWishCategory-----1--'+wishlisturl);
+       // console.log('---RUN-   getAllWishCategory-----1--');
+       // console.log('---RUN-   getAllWishCategory-----1--'+wishlisturl);
         wishlisturl=wishlisturl+'wishlistcategorys';
-        console.log('---RUN-   getAllWishCategory-------'+ wishlisturl);
+       // console.log('---RUN-   getAllWishCategory-------'+ wishlisturl);
         var q = $q.defer();
         var seriesOptions = [];
         $http.get(wishlisturl).then(function (data) {
@@ -29,6 +29,7 @@ function Service($rootScope , $http, $localStorage, $q) {
 
     function getWishCodes(category) {
         var wishlisturl = $rootScope.config.wishurl;
+
        // var wishlisturl = 'http://localhost:8045/wishcategorycodes';
         wishlisturl=wishlisturl+'wishcategorycodes';
         var code = '';
