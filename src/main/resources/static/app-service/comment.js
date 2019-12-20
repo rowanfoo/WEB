@@ -9,7 +9,6 @@ function Service($rootScope, $http, $q, submitform) {
     service.GetAllCommentbyType = getAllCommentbyType;
     service.GetAllCommentbyCode = getAllCommentbyCode;
     service.SaveComment = saveComment;
-
     return service;
 
     function getAllIdeasbyUserid(userid) {
@@ -28,8 +27,6 @@ function Service($rootScope, $http, $q, submitform) {
 
     function getAllCommentsbyUserid(userid) {
         var commenturl = $rootScope.config.commenturl + '/userid/' + userid;
-
-        console.log('---RUN-   getAllCommentsbyUserid-----1--' + commenturl);
         var q = $q.defer();
         var seriesOptions = [];
         $http.get(commenturl).then(function (data) {
@@ -44,7 +41,6 @@ function Service($rootScope, $http, $q, submitform) {
 
     function getAllCommentbyType(userid) {
         var commenturl = $rootScope.config.commenturl + '/all/' + userid;
-        console.log('---RUN-   getAllCommentbyType-----1--' + commenturl);
         var q = $q.defer();
         var seriesOptions = [];
         $http.get(wishlisturl).then(function (data) {
@@ -57,17 +53,10 @@ function Service($rootScope, $http, $q, submitform) {
     }
 
     function getAllCommentbyCode(code) {
-
-        // function getAllCommentbyCode(userid, code) {
-//        var commenturl = $rootScope.config.commenturl + +'/userid/' + userid + '/code/' + code;
         var commenturl = $rootScope.config.commenturl + '/code/' + code;
-
-        console.log('---RUN-   getAllCommentbyCode-----1--' + commenturl);
         var q = $q.defer();
         var seriesOptions = [];
         $http.get(commenturl).then(function (data) {
-//            console.log(JSON.stringify(data, null, "    "));
-
             data.data.forEach(function (value) {
                 seriesOptions.push(value);
             });
@@ -80,8 +69,6 @@ function Service($rootScope, $http, $q, submitform) {
         var commenturl = $rootScope.config.commenturl;
         submitform.sendData('PUT', commenturl, category);
     }
-
-
 }
 
 

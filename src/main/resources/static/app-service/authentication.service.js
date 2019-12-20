@@ -2,7 +2,7 @@ angular
     .module('app')
     .factory('AuthenticationService', Service);
 
-function Service($http,$rootScope, $localStorage) {
+function Service($http, $rootScope) {
     var service = {};
     service.Login = Login;
     service.Logout = Logout;
@@ -22,7 +22,7 @@ function Service($http,$rootScope, $localStorage) {
         console.log('  ----send form  ' + body);
         var oauthurl = $rootScope.config.oauthurl;
 
-        $http.post(oauthurl+'oauth/token', body,
+        $http.post(oauthurl + 'oauth/token', body,
             {
                 headers: headers
             })

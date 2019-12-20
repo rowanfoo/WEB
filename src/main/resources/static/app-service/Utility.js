@@ -2,7 +2,7 @@ angular
     .module('app')
     .factory('Utility', Service);
 
-function Service($http, $localStorage) {
+function Service($http) {
     var service = {};
 
     service.Comma = comma;

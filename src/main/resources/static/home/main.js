@@ -1,12 +1,11 @@
 $(document).ready(function () {
     $('#example').DataTable();
 });
+
 var module = angular.module('app');
 module.controller('sideNavController', Controller);
 
-
-function Controller($scope, $rootScope, $location, $http,User) {
-    console.log('HERE IN CONTROLLER');
+function Controller($scope, $rootScope, $location, $http, User) {
     $scope.code = '';
     var counter = 0;
     $scope.notes = [];
@@ -17,11 +16,11 @@ function Controller($scope, $rootScope, $location, $http,User) {
         $location.path(url);
     };
 
-
     $scope.gofav = function () {
-           $location.path('/wishlist');
+        $location.path('/wishlist');
     };
+
     User.GetUserAlgo('rowan').then(function (data) {
-        $scope.algos  = data;
+        $scope.algos = data;
     });
 };

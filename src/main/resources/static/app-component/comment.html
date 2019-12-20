@@ -4,28 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-
-<!-- Angular Material requires Angular.js Libraries -->
-<!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular.min.js"></script>-->
-<!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-animate.min.js"></script>-->
-<!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-aria.min.js"></script>-->
-<!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-messages.min.js"></script>-->
-<!--<script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.js"></script>-->
-<!--&lt;!&ndash; Angular Material Library &ndash;&gt;-->
-<!--<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>-->
-<!--<link href="http://cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.css"-->
-<!--      rel="stylesheet" type="text/css"/>-->
-<!--<link rel="stylesheet"-->
-<!--      href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.css">-->
-
-
-<!--<script type="text/javascript"-->
-<!--        src="/WEB/static/comp1.js"></script>-->
-
 <body ng-app="app" ng-controller="commentController">
-<!--//<input type="button" value="COMMENT" ng-click="showComment()"/>-->
-
-<!--//<div  ng-if="showcomment" >-->
 <input type="button" value="ADD" ng-click="newItem()"/>
 <form class="well input-form" name="inputform" ng-submit="mySumbit()">
     <ol>
@@ -35,7 +14,6 @@
     </ol>
     <button type="submit" class="btn btn-info btn-fill pull-left">Submit</button>
 </form>
-
 <md-content layout-padding md-colors="{background: 'default-background-hue-3'}" ng-repeat="element in comments">
     {{element.value}}
     <br>
@@ -45,8 +23,5 @@
 
 </md-content>
 <br>
-<!--</div>-->
-
-
 </body>
 </html>
