@@ -53,9 +53,22 @@ module.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
                     controller: 'multichartController'
                 }
             }
-
-
         })
+        .state('main.listchart', {
+            url: '/listchart/:code',
+            views: {
+                "list": {
+                    templateUrl: '/WEB/static/chart/listchart.html',
+                    controller: 'listchartController'
+                }
+            }
+        })
+        // .state('listchart', {
+        //     url: '/listchart/:code',
+        //     templateUrl: '/WEB/static/chart/listchart.html',
+        //     controller: 'listchartController'
+        //
+        // })
 
         .state('wishmain', {
             url: '/wishlist',
@@ -114,7 +127,11 @@ module.run(function ($rootScope, $http, $location, $localStorage) {
 
     $location.path('/main');
 
-    console.log('---ROUTE-  DEADD---------------');
+//    $location.path('/main/listchart/BHP.AX,RIO.AX');
+
+//    $location.path('/listchart/BHP.AX,RIO.AX');
+
+    //  console.log('---ROUTE-  DEADD---------------');
     $rootScope.$on("unauthorized", function (event, next) {
         console.log('---NOT ALLOWED TO ENTER----------');
         console.log('---NOT ALLOWED TO ENTER----------' + next);
