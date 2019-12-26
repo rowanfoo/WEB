@@ -27,7 +27,8 @@ function getMin(dataset) {
  * Create the chart when all data is loaded
  * @returns {undefined}
  */
-function createChart(seriesOptions, name , date ) {
+function createChart(seriesOptions, name, date) {
+    console.log('--------------am i mad v2-------')
     var date = new Date();
     // create the chart
     // chart = new  Highcharts.StockChart('container', {

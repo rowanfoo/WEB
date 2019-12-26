@@ -2,9 +2,9 @@ angular
     .module('app')
     .factory('HIGHCHARTMINI', Service);
 
-function Service($http) {
+function Service($http, $localStorage) {
     var service = {};
-    service.CreateChart = createChart;
+    service.CreateChart = createChartx;
     return service;
 };
 
@@ -27,27 +27,25 @@ function getMin(dataset) {
  * Create the chart when all data is loaded
  * @returns {undefined}
  */
-function createChart(seriesOptions, name, date) {
+function createChartx(seriesOptions, name) {
+
+// function createChart(seriesOptions, name, date) {
+    console.log('--------------am i mad-------')
     var date = new Date();
     // create the chart
     // chart = new  Highcharts.StockChart('container', {
     new Highcharts.StockChart(name, {
 
-        title: {
-            text: name
-        },
         legend: {
             enabled: false
         },
-        scrollbar: {
-            enabled: false
-        },
+
         xAxis: {
             min: Date.UTC(date.getFullYear() - 1, 1, 1, 16, 00), //previous day  at 16.00
             max: new Date().getTime() //get actual time
-            labels: {
-                enabled: false
-            }
+        },
+        scrollbar: {
+            enabled: false
         },
 
 
@@ -91,16 +89,7 @@ function createChart(seriesOptions, name, date) {
             //
             // }
 
-        },
-            {
-                type: 'sma',
-                name: 'sma50',
-                linkedTo: 'aapl',
-
-                params: {
-                    period: 100
-                }
-            }
+        }
 
 
         ]

@@ -16,7 +16,6 @@ function Controller($scope, $rootScope, $http, $state, $location, CommentCreate,
     };
 
     $scope.list = function (code) {
-        alert('LIST charts: ' + code);
         $location.path('/main/listchart/' + code);
     };
 

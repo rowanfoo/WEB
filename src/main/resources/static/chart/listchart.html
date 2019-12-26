@@ -1,11 +1,18 @@
-<!--<div id="maincontainer" ng-repeat="datas in  chartname">-->
-<!--    &lt;!&ndash;    <div id="{{datas.name}}" style="min-width: 310px; max-width: 600px; height: 400px; margin: 0 auto"></div>&ndash;&gt;-->
-<!--    <div id="{{datas}}" style="display: inline-block; width: 225px; height: 175px; margin: 0;">{{datas }}</div>-->
+<div layout="row" ng-repeat="datas in  chartname">
+    <!--<div id="maincontainer" layout="row" ng-repeat="datas in  chartname" flex="25" layout-wrap>-->
+    <!--    <div id="{{datas.name}}" style="min-width: 310px; max-width: 600px; height: 400px; margin: 0 auto"></div>-->
+    <!--    <h3>xxx{{datas}}xxx</h3>-->
+    <!--    <div id="{{datas}}" style="display: inline-block; width: 225px; height: 175px; margin: 0; >-->
+    <!--      <h3> {{datas}} </h3>-->
 
-<!--</div>-->
-<div id="BHP.AX" style="display: inline-block; width: 225px; height: 175px; "></div>
-<div id="RIO.AX" style="display: inline-block; width: 225px; height: 175px; "></div>
+    <!--    </div>-->
+    <div id="{{datas}}" style="display: inline-block; width: 225px; height: 175px; margin: 0;"><h3> {{datas}} </h3>,
+    </div>
 
+    <!--    <div>-->
+    <!--        <h3> {{datas}} </h3>,-->
+    <!--    </div>-->
 
+</div>
 
 
