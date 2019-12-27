@@ -39,9 +39,13 @@ function createChartx(seriesOptions, name) {
         legend: {
             enabled: false
         },
+        title: {
+            text: name,
+            style: {"color": "#333333", "fontSize": "10px"}
+        },
 
         xAxis: {
-            min: Date.UTC(date.getFullYear() - 1, 1, 1, 16, 00), //previous day  at 16.00
+            min: Date.UTC(date.getFullYear(), 1, 1, 16, 00), //previous day  at 16.00
             max: new Date().getTime() //get actual time
         },
         scrollbar: {
@@ -68,9 +72,9 @@ function createChartx(seriesOptions, name) {
             // },
             // top: 50,
             // height: 400,
-            opposite: false,
-            min: getMin(seriesOptions),
-            max: getMax(seriesOptions)
+            // opposite: false,
+            // min: getMin(seriesOptions),
+            // max: getMax(seriesOptions)
             // min: 20,
             // max: 50
         }
