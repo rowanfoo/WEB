@@ -20,13 +20,13 @@ function CONTROLLER($scope, $rootScope, $http, $localStorage, $location, jwtHelp
     };
 
     function onSuccess(data) {
-        console.log('  ----token 2 ' + data.data.access_token);
-        console.log('  ----token 2 token ' + jwtHelper.decodeToken(data.data.access_token));
-        console.log(JSON.stringify(jwtHelper.decodeToken(data.data.access_token), null, "    "));
-        console.log('  ----token 3 ' + jwtHelper.decodeToken(data.data.access_token).user_name);
-        console.log('  ----token 3 ' + jwtHelper.getTokenExpirationDate(data.data.access_token));
-        console.log('  ----token 3 ' + jwtHelper.isTokenExpired(data.data.access_token));
-        $localStorage.currentUser = jwtHelper.decodeToken(data.data.access_token).user_name;
+        // console.log('  ----token 2 ' + data.data.access_token);
+        // console.log('  ----token 2 token ' + jwtHelper.decodeToken(data.data.access_token));
+        // console.log(JSON.stringify(jwtHelper.decodeToken(data.data.access_token), null, "    "));
+        // console.log('  ----token 3 ' + jwtHelper.decodeToken(data.data.access_token).user_name);
+        // console.log('  ----token 3 ' + jwtHelper.getTokenExpirationDate(data.data.access_token));
+        // console.log('  ----token 3 ' + jwtHelper.isTokenExpired(data.data.access_token));
+        // $localStorage.currentUser = jwtHelper.decodeToken(data.data.access_token).user_name;
         $http.defaults.headers.common.Authorization = 'Bearer ' + data.data.access_token;
         $scope.loading = false;
         // $rootScope.$broadcast('$locationChangeStart', $scope.name)
