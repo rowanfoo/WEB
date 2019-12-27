@@ -42,8 +42,6 @@ module.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
                     controller: 'intervalController'
                 }
             }
-
-
         })
         .state('main.multichart', {
             url: '/multichart/:code',
@@ -100,9 +98,7 @@ module.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
             templateUrl: ' /WEB/static/user/useralgo.html',
             controller: 'useralgocontroller'
         });
-
-})
-;
+});
 
 module.run(function ($rootScope, $http, $location, $localStorage) {
     setconfig($rootScope);
