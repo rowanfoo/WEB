@@ -8,6 +8,7 @@ function CONTROLLER($scope, $http, User, $localStorage) {
     $scope.rsi = [];
     $scope.falltoday = [];
 
+    $scope.testuser = true;
 
     console.log("-----------useralgocontroller-------------");
     console.log("-----------useralgocontroller------USER-------" + $localStorage.currentUser);
