@@ -94,6 +94,11 @@ module.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
                     controller: 'wishlistDetailController'
                 }
             }
+        })
+        .state('useralgo', {
+            url: '/useralgo',
+            templateUrl: ' /WEB/static/user/useralgo.html',
+            controller: 'useralgocontroller'
         });
 
 })
