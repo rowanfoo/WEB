@@ -20,6 +20,11 @@ function Controller($scope, $rootScope, $location, $http, User) {
         $location.path('/wishlist');
     };
 
+
+    $scope.goconfig = function () {
+        $location.path('/useralgo');
+    };
+
     User.GetUserAlgo('rowan').then(function (data) {
         $scope.algos = data;
     });
