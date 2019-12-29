@@ -41,12 +41,17 @@ function Controller($scope, $rootScope, $http, $state, $location, CommentCreate,
     };
 
     $http.get($rootScope.config.algoturl + type + '/' + id + '?sector=200').then(function (data) {
-        // $http.get('http://192.168.0.10:10500/' + type).then(function (data) {
+        //  $http.get('http://192.168.0.10:10500/' + type).then(function (data) {
         console.log(JSON.stringify(data, null, "    "));
         $scope.data = data.data
+
+        //
         $rootScope.algoscope = [];
         $scope.data.forEach(function (item, index) {
             $rootScope.algoscope.push(item.code);
+            console.log("=====================" + item.code + '-------' + item.news.length);
+
+
         });
         $scope.loading = false;
     });

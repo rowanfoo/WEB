@@ -23,6 +23,7 @@
         <th>message</th>
         <th>s</th>
         <th>date</th>
+        <th>news</th>
     </tr>
     </thead>
     <tbody>
@@ -38,10 +39,23 @@
             <md-icon md-font-icon="fa fa-signal" ng-click="chartdetail(datas.code)" style="font-size: 20px"></md-icon>
             <md-icon md-font-icon="fa fa-file-word-o" ng-click="comment(datas.code)" style="font-size: 20px"></md-icon>
             <md-icon md-font-icon="fa fa-book" ng-click="detail(datas.code)" style="font-size: 20px"></md-icon>
+            <!--            <md-icon ng-hide="datas.news.length" md-font-icon="fa fa-inbox" ng-click="detail(datas.code)"-->
+            <!--                     style="font-size: 20px"></md-icon>-->
+            <md-icon ng-show="datas.news.length" tooltip="datas.news" md-font-icon="fa fa-inbox"
+                     ng-click="detail(datas.code)"
+                     style="font-size: 20px"></md-icon>
+
 
         </td>
 
         <td> {{datas.date}}</td>
+        <td>
+            <table id="example" class="table table-bordered table-hover">
+                <tr ng-repeat="news in  datas.news">
+                    <td> {{news.title}}</td>
+                </tr>
+            </table>
+        </td>
 
     </tr>
 
