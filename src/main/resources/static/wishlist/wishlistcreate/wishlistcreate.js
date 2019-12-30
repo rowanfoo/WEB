@@ -3,7 +3,8 @@ var module = angular.module('app');
 module.controller('wishlistcreateController', Controller);
 
 
-function Controller($scope, $location, $http, submitform, $rootScope, WishList, Utility) {
+//function Controller($scope, $location, $http, submitform, $rootScope, WishList, Utility) {
+function Controller($scope, $location, $http, submitform, $rootScope, WishList) {
 
     console.log(" -----------------STUDENT CONTROLLER-----------");
 
@@ -13,7 +14,8 @@ function Controller($scope, $location, $http, submitform, $rootScope, WishList, 
     };
 
     $scope.createstock = function () {
-        var wishlisturl = 'http://localhost:8045/';
+        // var wishlisturl = 'http://localhost:8045/';
+        var wishlisturl = $rootScope.config.wishurl;
         console.log("----createstock ---");
 
         if ($scope.wishlist.category == '') {
