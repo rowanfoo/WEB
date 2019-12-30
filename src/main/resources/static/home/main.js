@@ -10,7 +10,7 @@ function Controller($scope, $rootScope, $location, $http, User) {
     var counter = 0;
     $scope.notes = [];
     $scope.algos = [];
-
+    $scope.loading = true;
     $scope.golink = function (type, id) {
         var url = 'main/viewlist/' + type + '/' + id;
         $location.path(url);
@@ -27,5 +27,6 @@ function Controller($scope, $rootScope, $location, $http, User) {
 
     User.GetUserAlgo('rowan').then(function (data) {
         $scope.algos = data;
+        $scope.loading = false;
     });
 };
