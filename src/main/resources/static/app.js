@@ -97,6 +97,11 @@ module.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
             url: '/useralgo',
             templateUrl: ' /WEB/static/user/useralgo.html',
             controller: 'useralgocontroller'
+        })
+        .state('newsmain', {
+            url: '/news',
+            templateUrl: ' /WEB/static/news/news.html',
+            controller: 'newsController'
         });
 });
 
@@ -115,7 +120,8 @@ module.run(function ($rootScope, $http, $location, $localStorage) {
 //     }
     //$location.path("/viewchart");
 //    console.log('---ROUTE------------1----');
-    $location.path('/login');
+//    $location.path('/login');
+    $location.path('/news');
 //    $location.path('/wishlist');
 //    $location.path('/wishlist/wishcreate');
 //     $location.path('/wishlist-create');
