@@ -12,6 +12,8 @@ function Service($rootScope, $http, $q) {
     function getAllWishCategory() {
         var wishlisturl = $rootScope.config.wishurl;
         wishlisturl = wishlisturl + 'wishlistcategorys';
+
+        console.log('-----------getAllWishCategory-----url------------' + wishlisturl);
         var q = $q.defer();
         var seriesOptions = [];
         $http.get(wishlisturl).then(function (data) {

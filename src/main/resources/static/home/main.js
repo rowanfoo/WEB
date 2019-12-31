@@ -11,6 +11,7 @@ function Controller($scope, $rootScope, $location, $http, User) {
     $scope.notes = [];
     $scope.algos = [];
     $scope.loading = true;
+    console.log("------------------main--------------sideNavController---------------------");
     $scope.golink = function (type, id) {
         var url = 'main/viewlist/' + type + '/' + id;
         $location.path(url);
@@ -28,5 +29,6 @@ function Controller($scope, $rootScope, $location, $http, User) {
     User.GetUserAlgo('rowan').then(function (data) {
         $scope.algos = data;
         $scope.loading = false;
+        console.log(JSON.stringify($scope.algos, null, "    "));
     });
 };
