@@ -2,3 +2,20 @@
     <h2>news</h2>
     <stockcomponent selectedcode="callback"></stockcomponent>
 </div>
+
+<table id="example" class="table table-bordered table-hover">
+    <thead>
+    <tr>
+        <th>date</th>
+        <th>news</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr ng-repeat="datas in  news">
+
+        <td> {{datas.date}}</td>
+        <td> {{datas.title }}</td>
+    </tr>
+    </tbody>
+</table>
