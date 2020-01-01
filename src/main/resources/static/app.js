@@ -120,8 +120,8 @@ module.run(function ($rootScope, $http, $location, $localStorage) {
 //     }
     //$location.path("/viewchart");
 //    console.log('---ROUTE------------1----');
-//    $location.path('/login');
-    $location.path('/news');
+    $location.path('/login');
+    //$location.path('/news');
 //    $location.path('/wishlist');
 //    $location.path('/wishlist/wishcreate');
 //     $location.path('/wishlist-create');
