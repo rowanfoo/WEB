@@ -32,11 +32,24 @@
         <input type="button" value="New Item" ng-click="newItem3()" ng-disabled="testuser"/>
 
 
+        <p>--------------------------------------------</p>
+
+        <ol>
+            <li ng-repeat="elementx in volumex">
+                <!--                <input type="text" ng-model="investigate.value"/>-->
+               volume x: <input type="text" ng-model="elementx.value" ng-disabled="testuser"/>
+            </li>
+        </ol>
+        <input type="button" value="New Item" ng-click="newItem4()" ng-disabled="testuser"/>
+
+
         <b>Click here to see ng-model value:</b><br/>
         <input type="button" value="submit" ng-click="show(elements)" ng-disabled="testuser">
         <p>
             <button type="submit" class="btn btn-info btn-fill pull-left" ng-disabled="testuser">Submit</button>
         </p>
+
+
     </form>
     <div class="alert alert-info">
         <h3> Only Registered user can add and change the configuration.</h3>
