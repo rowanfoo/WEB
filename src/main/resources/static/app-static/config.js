@@ -11,6 +11,7 @@ var configurl = 'http://rowanfoo.ddns.net:10500/config/';
 var commenturl = 'http://rowanfoo.ddns.net:10100/comment';
 var fundamentalurl = 'http://rowanfoo.ddns.net:10100/fundamental';
 
+var newsurl = 'http://rowanfoo.ddns.net:10900/news';
 
 function setconfig($rootScope) {
     console.log('----setconfig-----');
@@ -21,7 +22,8 @@ function setconfig($rootScope) {
         wishurl: wishurl,
         configurl: configurl,
         commenturl: commenturl,
-        fundamentalurl: fundamentalurl
+        fundamentalurl: fundamentalurl,
+        newsurl: newsurl
     };
 
 }
