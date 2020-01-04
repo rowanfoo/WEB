@@ -8,7 +8,7 @@ function CONTROLLER($scope, $http, User, $localStorage) {
     $scope.rsi = [];
     $scope.falltoday = [];
     $scope.volumex = [];
-    $scope.testuser = true;
+    $scope.testuser = false;
 
     console.log("-----------useralgocontroller-------------");
     console.log("-----------useralgocontroller------USER-------" + $localStorage.currentUser);
@@ -42,20 +42,22 @@ function CONTROLLER($scope, $http, User, $localStorage) {
 
 
     $scope.myFunc = function () {
-        console.log(' submit ----work  ');
-        var arrs = $scope.ma.concat($scope.rsi).concat($scope.falltoday);
+        console.log(' submit ----save user algo  ');
+        var arrs = $scope.ma.concat($scope.rsi).concat($scope.falltoday).concat($scope.volumex);
+        //console.log(JSON.stringify($scope.element, null, "    "));
+        // console.log(JSON.stringify(arrs, null, "    "));
+        // // $http.put('http://localhost:8080/investigatem', $scope.elements).then(
+        // // $http.put('http://localhost:8090/investigatem', arrs).then(
+        // $http.put('http://localhost:8080/user', arrs).then(
+        //     function (response) {
+        //         console.log('work  ' + response.data);
+        //     }
+        // ).catch(function (response) {
+        //     console.log('errr  ' + response.data);
+        // })
+        //
 
-        // console.log(JSON.stringify($scope.elements, null, "    "));
-        console.log(JSON.stringify(arrs, null, "    "));
-        // $http.put('http://localhost:8080/investigatem', $scope.elements).then(
-        // $http.put('http://localhost:8090/investigatem', arrs).then(
-        $http.put('http://localhost:8080/user', arrs).then(
-            function (response) {
-                console.log('work  ' + response.data);
-            }
-        ).catch(function (response) {
-            console.log('errr  ' + response.data);
-        })
+        User.SaveUserAlgo(arrs);
 
     };
 
@@ -81,7 +83,7 @@ function CONTROLLER($scope, $http, User, $localStorage) {
 
         if ($scope.ma.length == 0) $scope.ma = [{id: 'ma', value: ''}];
         if ($scope.rsi.length == 0) $scope.rsi = [{id: 'rsi', value: ''}];
-        if ($scope.falltoday.length == 0) $scope.falltoday = [{id: 'falltoday', value: ''}];
+        if ($scope.falltoday.length == 0) $scope.falltoday = [{id: 'falldaily', value: ''}];
         if ($scope.volumex.length == 0) $scope.volumex = [{id: 'volumex', value: ''}];
 
     });
