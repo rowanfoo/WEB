@@ -30,5 +30,10 @@ function Controller($scope, $rootScope, $location, $http, User) {
         $scope.algos = data;
         $scope.loading = false;
         console.log(JSON.stringify($scope.algos, null, "    "));
+    }, function (err) {
+        $scope.loading = false;
+        console.log("------------------main------GetUserAlgo--------ERRR---------------------");
+        console.log(JSON.stringify(err, null, "    "));
+
     });
 };
