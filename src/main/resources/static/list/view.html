@@ -21,16 +21,17 @@
         <th>name</th>
         <th>type</th>
         <th>message</th>
-        <th>s</th>
-        <th>date</th>
+        <th>indicator</th>
         <th>news</th>
+        <th>date</th>
+
     </tr>
     </thead>
     <tbody>
 
     <tr ng-repeat="datas in  data">
 
-        <td> {{datas.code}}</td>
+        <!--        <td> {{datas.code}}</td>-->
         <!--        <td> {{datas.code}}</td>-->
         <!--        <td> {{datas.code.substring( 0,datas.code.indexOf( '.' ) )}}</td>-->
 
@@ -59,7 +60,7 @@
 
         </td>
 
-        <td> {{datas.date}}</td>
+
         <td>
             <table id="example" class="table table-bordered table-hover">
                 <tr ng-repeat="news in  datas.news">
@@ -67,7 +68,7 @@
                 </tr>
             </table>
         </td>
-
+        <td> {{datas.date}}</td>
     </tr>
 
 
