@@ -77,7 +77,7 @@ function CONTROLLER($scope, $http, User, $localStorage) {
             if (id == 'ma') $scope.ma.push({id: obj.id, value: obj.value});
             else if (id == 'rsi') $scope.rsi.push({id: obj.id, value: obj.value});
             else if (id == 'volumex') $scope.volumex.push({id: obj.id, value: obj.value});
-            else if (id == 'falltoday') $scope.falltoday.push({id: obj.id, value: obj.value});
+            else if (id == 'falldaily') $scope.falltoday.push({id: obj.id, value: obj.value});
         });
 //
 
