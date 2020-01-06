@@ -11,7 +11,6 @@ function Controller($scope, $rootScope, $http, $state, $location, CommentCreate,
         $location.path("main/viewchart");
     };
     $scope.chartdetail = function (code) {
-        alert('helo world  -1: ' + code);
         $location.path("main/multichart/" + code);
     };
 
@@ -20,7 +19,6 @@ function Controller($scope, $rootScope, $http, $state, $location, CommentCreate,
     };
 
     $scope.comment = function (code) {
-        alert('comment: ' + code);
         $mdDialog.show({
             //  templateUrl: "/WEB/static/dialog.html",
             templateUrl: "/WEB/static/comment/dialog/commentDialog.html",
@@ -42,7 +40,7 @@ function Controller($scope, $rootScope, $http, $state, $location, CommentCreate,
 
     $http.get($rootScope.config.algoturl + type + '/' + id + '?sector=200').then(function (data) {
         //  $http.get('http://192.168.0.10:10500/' + type).then(function (data) {
-        console.log(JSON.stringify(data, null, "    "));
+        // console.log(JSON.stringify(data, null, "    "));
         $scope.data = data.data
 
         //
