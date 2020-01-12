@@ -67,7 +67,7 @@ function Service($rootScope, $http, $q, submitform) {
 
     function saveComment(comment) {
         var commenturl = $rootScope.config.commenturl;
-        submitform.sendData('PUT', commenturl, category);
+        submitform.sendData('PUT', commenturl, comment);
     }
 }
 
