@@ -2,7 +2,7 @@ angular
     .module('app')
     .factory('CommentCreate', Service);
 
-function Service($http, $q, Config, $mdDialog) {
+function Service($http, $q, Config, $mdDialog, Comment) {
     var service = {};
     service.Createcontroller = createcontroller;
     return service;
@@ -23,10 +23,12 @@ function Service($http, $q, Config, $mdDialog) {
         });
 
         $scope.myFunc = function () {
-            console.log('-----------submit---------');
+            console.log('-----------submit--x1-------');
             //    Config.Save($scope.comment);
             console.log(JSON.stringify($scope.comment, null, "    "));
+            Comment.SaveComment($scope.comment);
             $mdDialog.hide();
+
         }
     };
 }
