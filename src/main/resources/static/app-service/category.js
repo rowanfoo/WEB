@@ -23,7 +23,8 @@ function Service($rootScope, $http, $q) {
     }
 
     function getAllCategoryTag(tag) {
-        var categoryurl = $rootScope.config.categoryurl + '/tag?name=' + tag;
+        //var categoryurl = $rootScope.config.categoryurl + '/tag?name=' + tag;
+        var categoryurl = 'http://rowanfoo.ddns.net:10100/tag/category/'+tag;
         var q = $q.defer();
         var seriesOptions = [];
         $http.get(categoryurl).then(function (data) {
