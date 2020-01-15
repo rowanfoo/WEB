@@ -20,7 +20,7 @@ module.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
             url: '/viewlist/:type/:id',
             views: {
                 "content": {
-                    templateUrl: '/WEB/static/list/view.html',
+                    templateUrl: '/WEB/static/list/detail.html',
                     controller: 'viewController'
                 }
             }
@@ -88,7 +88,7 @@ module.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
             url: '/wishdetail/:codes',
             views: {
                 "content": {
-                    templateUrl: '/WEB/static/wishlist/detail/view.html',
+                    templateUrl: '/WEB/static/wishlist/detail/detail.html',
                     controller: 'wishlistDetailController'
                 }
             }
@@ -102,6 +102,20 @@ module.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
             url: '/news',
             templateUrl: ' /WEB/static/news/news.html',
             controller: 'newsController'
+        })
+        .state('category', {
+            url: '/category',
+            templateUrl: '/WEB/static/category/main.html',
+            controller: 'categoryController'
+        })
+        .state('category.detail', {
+            url: '/detail',
+            views: {
+                "content": {
+                    templateUrl: '/WEB/static/category/detail.html',
+                    controller: 'categoryDetailController'
+                }
+            }
         });
 });
 
@@ -120,13 +134,14 @@ module.run(function ($rootScope, $http, $location, $localStorage) {
 //     }
     //$location.path("/viewchart");
 //    console.log('---ROUTE------------1----');
-    $location.path('/login');
+    //  $location.path('/login');
     //$location.path('/news');
 //    $location.path('/wishlist');
 //    $location.path('/wishlist/wishcreate');
 //     $location.path('/wishlist-create');
 
 //    $location.path('/main');
+    $location.path('/category');
 
 //    $location.path('/main/listchart/BHP.AX,RIO.AX');
 

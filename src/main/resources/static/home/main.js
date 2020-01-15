@@ -22,6 +22,11 @@ function Controller($scope, $rootScope, $location, $http, User) {
     };
 
 
+    $scope.goCat = function () {
+        console.log("-------------------------sideNavController------------goCat---------");
+        $location.path('/category');
+    };
+
     $scope.goconfig = function () {
         $location.path('/useralgo');
     };
