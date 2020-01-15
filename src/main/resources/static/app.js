@@ -116,6 +116,15 @@ module.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
                     controller: 'categoryDetailController'
                 }
             }
+        })
+        .state('category.tags', {
+            url: '/categorydetail/:codes',
+            views: {
+                "content": {
+                    templateUrl: '/WEB/static/wishlist/detail/detail.html',
+                    controller: 'wishlistDetailController'
+                }
+            }
         });
 });
 
