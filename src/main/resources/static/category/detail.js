@@ -18,7 +18,7 @@ function Controller($scope, $rootScope, $http, $state, $location, Category) {
     // console.log('-----------HERE INviewController  CONTROLLER-----------' + type + '----------' + id);
 
     Category.GetAllCategory().then(function (data) {
-       // console.log(JSON.stringify(data, null, "    "));
+        console.log(JSON.stringify(data, null, "    "));
         $scope.category = data;
         //     $scope.loading = false;
     })
@@ -32,6 +32,12 @@ function Controller($scope, $rootScope, $http, $state, $location, Category) {
             $scope.tags = data;
             //     $scope.loading = false;
         })
+
+    }
+    $scope.myFunc=function () {
+        console.log('---c---xx---'+ $scope.selectcategory);
+        console.log('---c---xx---'+ $scope.selecttags);
+
 
     }
 

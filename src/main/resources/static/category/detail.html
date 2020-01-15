@@ -1,19 +1,22 @@
 <!--<div class="md-padding" layout="row">-->
 <div class="p-2" layout="row">
-    <md-select ng-model="selectcategory" placeholder="Select your category" ng-change="updateMode() " style="width:350px;">
-        <md-option ng-repeat="item in category">{{item}}</md-option>
-    </md-select>
 
-    <input type="text"/>
+    <form  ng-submit="myFunc()" >
+<!--        <input list="browsers" name="browser">-->
+        <md-select ng-model="selectcategory" placeholder="Select your category" ng-change="updateMode() " style="width:350px;">
+            <md-option ng-repeat="item in category">{{item}}</md-option>
+        </md-select>
 
-    <form action="/action_page.php" method="get">
-        <input list="browsers" name="browser">
+<!--        <input ng-model="tags"  type="text" name="state" id="state" list="browsers">-->
+
+<!--        <input ng-model="tags" list="browsers" name="browser">-->
+        <input ng-model="selecttags" list="browsers" name="browser">
         <datalist id="browsers">
-            <option value="Internet Explorer">
-            <option value="Firefox">
-            <option value="Chrome">
-            <option value="Opera">
-            <option   ng-repeat="datas in  tags" value="{{datas.code}}">
+<!--            <option value="Internet Explorer">-->
+<!--            <option value="Firefox">-->
+<!--            <option value="Chrome">-->
+<!--            <option value="Opera">-->
+            <option   ng-repeat="datas in  tags" value="{{datas}}">
 <!--            <tr ng-repeat="datas in  data">-->
 <!--                <td> {{datas.code}}</td>-->
 <!--            </tr>-->
