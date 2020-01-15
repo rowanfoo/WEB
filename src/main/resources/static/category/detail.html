@@ -1,10 +1,26 @@
 <!--<div class="md-padding" layout="row">-->
 <div class="p-2" layout="row">
-    <md-select ng-model="category" placeholder="Select your category" ng-change="updateMode() " style="width:350px;">
+    <md-select ng-model="selectcategory" placeholder="Select your category" ng-change="updateMode() " style="width:350px;">
         <md-option ng-repeat="item in category">{{item}}</md-option>
     </md-select>
 
     <input type="text"/>
+
+    <form action="/action_page.php" method="get">
+        <input list="browsers" name="browser">
+        <datalist id="browsers">
+            <option value="Internet Explorer">
+            <option value="Firefox">
+            <option value="Chrome">
+            <option value="Opera">
+            <option   ng-repeat="datas in  tags" value="{{datas.code}}">
+<!--            <tr ng-repeat="datas in  data">-->
+<!--                <td> {{datas.code}}</td>-->
+<!--            </tr>-->
+
+        </datalist>
+        <input type="submit">
+    </form>
 </div>
 
 
