@@ -1,60 +1,62 @@
 <!--<div class="md-padding" layout="row">-->
 <div class="p-2" layout="row">
 
-    <form  ng-submit="myFunc()" >
-<!--        <input list="browsers" name="browser">-->
-        <md-select ng-model="selectcategory" placeholder="Select your category" ng-change="updateMode() " style="width:350px;">
+    <form ng-submit="myFunc()">
+        <!--        <input list="browsers" name="browser">-->
+        <md-select ng-model="selectcategory" placeholder="Select your category" ng-change="updateMode() "
+                   style="width:350px;">
             <md-option ng-repeat="item in category">{{item}}</md-option>
         </md-select>
 
-<!--        <input ng-model="tags"  type="text" name="state" id="state" list="browsers">-->
+        <!--        <input ng-model="tags"  type="text" name="state" id="state" list="browsers">-->
 
-<!--        <input ng-model="tags" list="browsers" name="browser">-->
+        <!--        <input ng-model="tags" list="browsers" name="browser">-->
         <input ng-model="selecttags" list="browsers" name="browser">
         <datalist id="browsers">
-<!--            <option value="Internet Explorer">-->
-<!--            <option value="Firefox">-->
-<!--            <option value="Chrome">-->
-<!--            <option value="Opera">-->
-            <option   ng-repeat="datas in  tags" value="{{datas}}">
-<!--            <tr ng-repeat="datas in  data">-->
-<!--                <td> {{datas.code}}</td>-->
-<!--            </tr>-->
+            <!--            <option value="Internet Explorer">-->
+            <!--            <option value="Firefox">-->
+            <!--            <option value="Chrome">-->
+            <!--            <option value="Opera">-->
+            <option ng-repeat="datas in  tags" value="{{datas}}">
+                <!--            <tr ng-repeat="datas in  data">-->
+                <!--                <td> {{datas.code}}</td>-->
+                <!--            </tr>-->
 
         </datalist>
         <input type="submit">
     </form>
 </div>
+<div layout="column" layout-fill ui-view="details"></div>
 
 
-<table id="example" class="table table-bordered table-hover">
-    <!--    <img ng-if="loading"-->
-    <!--         src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>-->
-    <!--    <thead>-->
-    <!--    <tr>-->
-    <!--        <th>code</th>-->
-    <!--        <th>change</th>-->
-    <!--        <th>20 ma</th>-->
-    <!--        <th>50 ma</th>-->
-    <!--        <th>100 ma</th>-->
-    <!--        <th>200 ma</th>-->
-    <!--    </tr>-->
-    <!--    </thead>-->
-    <!--    <tbody>-->
+<!--<table id="example" class="table table-bordered table-hover">-->
+<!--    &lt;!&ndash;    <img ng-if="loading"&ndash;&gt;-->
+<!--    &lt;!&ndash;         src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>&ndash;&gt;-->
+<!--    &lt;!&ndash;    <thead>&ndash;&gt;-->
+<!--    &lt;!&ndash;    <tr>&ndash;&gt;-->
+<!--    &lt;!&ndash;        <th>code</th>&ndash;&gt;-->
+<!--    &lt;!&ndash;        <th>change</th>&ndash;&gt;-->
+<!--    &lt;!&ndash;        <th>20 ma</th>&ndash;&gt;-->
+<!--    &lt;!&ndash;        <th>50 ma</th>&ndash;&gt;-->
+<!--    &lt;!&ndash;        <th>100 ma</th>&ndash;&gt;-->
+<!--    &lt;!&ndash;        <th>200 ma</th>&ndash;&gt;-->
+<!--    &lt;!&ndash;    </tr>&ndash;&gt;-->
+<!--    &lt;!&ndash;    </thead>&ndash;&gt;-->
+<!--    &lt;!&ndash;    <tbody>&ndash;&gt;-->
 
-    <!--    <tr ng-repeat="datas in  data">-->
-    <!--        <td> {{datas.code}}</td>-->
-    <!--        <td> {{datas.change}}</td>-->
-    <!--        <td> {{datas.twenty}}</td>-->
-    <!--        <td> {{datas.fifty}}</td>-->
-    <!--        <td> {{datas.onehundred}}</td>-->
-    <!--        <td> {{datas.twohundred}}</td>-->
-    <!--        &lt;!&ndash;        &lt;!&ndash;        <td> abc</td>&ndash;&gt;&ndash;&gt;-->
-    <!--        &lt;!&ndash;        <td> {{datas.200ma}}</td>&ndash;&gt;-->
-    <!--        &lt;!&ndash;        <td> {{datas.oneyear}}</td>&ndash;&gt;-->
-    <!--        &lt;!&ndash;        <td> {{datas.twoyear}}</td>&ndash;&gt;-->
-    <!--    </tr>-->
+<!--    &lt;!&ndash;    <tr ng-repeat="datas in  data">&ndash;&gt;-->
+<!--    &lt;!&ndash;        <td> {{datas.code}}</td>&ndash;&gt;-->
+<!--    &lt;!&ndash;        <td> {{datas.change}}</td>&ndash;&gt;-->
+<!--    &lt;!&ndash;        <td> {{datas.twenty}}</td>&ndash;&gt;-->
+<!--    &lt;!&ndash;        <td> {{datas.fifty}}</td>&ndash;&gt;-->
+<!--    &lt;!&ndash;        <td> {{datas.onehundred}}</td>&ndash;&gt;-->
+<!--    &lt;!&ndash;        <td> {{datas.twohundred}}</td>&ndash;&gt;-->
+<!--    &lt;!&ndash;        &lt;!&ndash;        &lt;!&ndash;        <td> abc</td>&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+<!--    &lt;!&ndash;        &lt;!&ndash;        <td> {{datas.200ma}}</td>&ndash;&gt;&ndash;&gt;-->
+<!--    &lt;!&ndash;        &lt;!&ndash;        <td> {{datas.oneyear}}</td>&ndash;&gt;&ndash;&gt;-->
+<!--    &lt;!&ndash;        &lt;!&ndash;        <td> {{datas.twoyear}}</td>&ndash;&gt;&ndash;&gt;-->
+<!--    &lt;!&ndash;    </tr>&ndash;&gt;-->
 
 
-    <!--    </tbody>-->
-</table>
+<!--    &lt;!&ndash;    </tbody>&ndash;&gt;-->
+<!--</table>-->
