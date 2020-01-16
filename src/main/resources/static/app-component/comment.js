@@ -21,7 +21,7 @@ angular.module('app').component('comment', {
                         }
                     );
                 });
-                console.log(JSON.stringify($scope.comments, null, "    "));
+                //console.log(JSON.stringify($scope.comments, null, "    "));
             });
         };
 
