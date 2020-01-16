@@ -18,25 +18,34 @@ function Controller($scope, $rootScope, $http, $state, $location, Category) {
     // console.log('-----------HERE INviewController  CONTROLLER-----------' + type + '----------' + id);
 
     Category.GetAllCategory().then(function (data) {
-        console.log(JSON.stringify(data, null, "    "));
+        // console.log(JSON.stringify(data, null, "    "));
         $scope.category = data;
         //     $scope.loading = false;
     })
 
 
-    $scope.updateMode=function () {
-        console.log("----------SELECt cATEGORy-------"+ $scope.selectcategory);
+    $scope.updateMode = function () {
+        console.log("----------SELECt cATEGORy-------" + $scope.selectcategory);
 
-        Category.GetAllCategoryTag( $scope.selectcategory).then(function (data) {
-            console.log(JSON.stringify(data, null, "    "));
+        Category.GetAllCategoryTag($scope.selectcategory).then(function (data) {
+            // console.log(JSON.stringify(data, null, "    "));
             $scope.tags = data;
             //     $scope.loading = false;
         })
 
     }
-    $scope.myFunc=function () {
-        console.log('---c---xx---'+ $scope.selectcategory);
-        console.log('---c---xx---'+ $scope.selecttags);
+    $scope.myFunc = function () {
+        console.log('---c---xx---' + $scope.selectcategory);
+        console.log('---c---xx---' + $scope.selecttags);
+
+
+        Category.GetCategoryTagStocks($scope.selectcategory, $scope.selecttags).then(function (data) {
+            //   console.log(JSON.stringify(data, null, "    "));
+            // $scope.tags = data;
+
+            $location.path('/category/categorydetail/' + data);
+            //     $scope.loading = false;
+        })
 
 
     }
