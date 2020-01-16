@@ -20,7 +20,7 @@ module.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
             url: '/viewlist/:type/:id',
             views: {
                 "content": {
-                    templateUrl: '/WEB/static/list/detail.html',
+                    templateUrl: '/WEB/static/list/view.html',
                     controller: 'viewController'
                 }
             }
@@ -120,8 +120,8 @@ module.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
         .state('category.tags', {
             url: '/categorydetail/:codes',
             views: {
-                "content": {
-                    templateUrl: '/WEB/static/wishlist/detail/detail.html',
+                "detail": {
+                    templateUrl: '/WEB/static/wishlist/detail/view.html',
                     controller: 'wishlistDetailController'
                 }
             }
@@ -149,8 +149,8 @@ module.run(function ($rootScope, $http, $location, $localStorage) {
 //    $location.path('/wishlist/wishcreate');
 //     $location.path('/wishlist-create');
 
-//    $location.path('/main');
-    $location.path('/category');
+    $location.path('/main');
+    //  $location.path('/category');
 
 //    $location.path('/main/listchart/BHP.AX,RIO.AX');
 
