@@ -1,5 +1,5 @@
 //var module = angular.module('app', ['ngMaterial', 'ngRoute', 'ngStorage', 'angular-jwt']);
-var module = angular.module('app', ['ngMaterial', 'ui.router', 'ngStorage', 'angular-jwt']);
+var module = angular.module('app', ['ngMaterial', 'ui.router', 'ngStorage', 'angular-jwt','ui.bootstrap','ui.utils']);
 
 module.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
     // $mdIconProvider.defaultIconSet('img/icons/sets/core-icons.svg', 24);
