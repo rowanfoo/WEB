@@ -9,12 +9,16 @@ function Controller($scope, $rootScope, $http, $state, $location, WishList) {
     // var type = $routeParams.type;
     // var id = $routeParams.id;
     var codes = $state.params.codes;
-    console.log('----------viewController -HERE IN CONTROLLER----------CODES-' + codes);
+
     WishList.GetWishDetails(codes).then(function (data) {
         $scope.data = data;
         $scope.loading = false;
     })
     // console.log('-----------HERE INviewController  CONTROLLER-----------' + type + '----------' + id);
 
-
+    // $scope.dataTableOpt = {
+    //     //custom datatable options
+    //     // or load data through ajax call also
+    //     "aLengthMenu": [[20, 50, 100, -1], [20, 50, 100, 'All']],
+    // };
 };

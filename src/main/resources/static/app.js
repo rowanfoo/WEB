@@ -88,7 +88,7 @@ module.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
             url: '/wishdetail/:codes',
             views: {
                 "content": {
-                    templateUrl: '/WEB/static/wishlist/detail/detail.html',
+                    templateUrl: '/WEB/static/wishlist/detail/view.html',
                     controller: 'wishlistDetailController'
                 }
             }

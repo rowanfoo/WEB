@@ -12,7 +12,11 @@
 </div>
 
 
-<table id="example" class="table table-bordered table-hover">
+<!--<table id="example" class="table table-bordered table-hover">-->
+<div class="panel-body">
+    <table class="table table-bordered bordered table-striped table-condensed datatable" ui-jq="dataTable"
+           ui-options="dataTableOpt">
+
     <img ng-if="loading"
          src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
     <thead>
@@ -30,11 +34,6 @@
     <tbody>
 
     <tr ng-repeat="datas in  data">
-
-        <!--        <td> {{datas.code}}</td>-->
-        <!--        <td> {{datas.code}}</td>-->
-        <!--        <td> {{datas.code.substring( 0,datas.code.indexOf( '.' ) )}}</td>-->
-
         <td><a
                 href="http://bigcharts.marketwatch.com/advchart/frames/frames.asp?show=&insttype=Stock&symb=AU%3A{{datas.code.substring(
             0,datas.code.indexOf( '.' )
@@ -74,7 +73,7 @@
 
     </tbody>
 </table>
-
+</div>
 <!--<md-button ng-click="list(algoscope)"> List</md-button>-->
 <!--<md-button ng-click="mychartbutton()"> Actions</md-button>-->
 <!--<button type="button"  class="btn btn-primary" ng-click="mychartbutton()">ROUTE A</button>-->

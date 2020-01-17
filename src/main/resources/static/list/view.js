@@ -47,10 +47,16 @@ function Controller($scope, $rootScope, $http, $state, $location, CommentCreate,
         $rootScope.algoscope = [];
         $scope.data.forEach(function (item, index) {
             $rootScope.algoscope.push(item.code);
-            console.log("=====================" + item.code + '-------' + item.news.length);
+            // console.log("=====================" + item.code + '-------' + item.news.length);
 
 
         });
         $scope.loading = false;
     });
+    $scope.dataTableOpt = {
+        //custom datatable options
+        // or load data through ajax call also
+        "aLengthMenu": [[20, 50, 100, -1], [20, 50, 100, 'All']],
+    };
+
 };

@@ -42,7 +42,7 @@ function Service($rootScope, $http, $q) {
         var wishlisturl = $rootScope.config.algoturl + '/wishlist/metadata/' + codes;
         var q = $q.defer();
         $http.get(wishlisturl).then(function (data) {
-            console.log(JSON.stringify(data, null, "    "));
+            //console.log(JSON.stringify(data, null, "    "));
             q.resolve(data.data);
         });
         return q.promise;
