@@ -1,36 +1,73 @@
 <!--<table id="example" class="table table-bordered table-hover">-->
-    <div class="panel-body">
-        <table class="table table-bordered bordered table-striped table-condensed datatable" ui-jq="dataTable"
-               ui-options="dataTableOpt">
-<!--    <img ng-if="loading"-->
-<!--         src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>-->
+
+<div class="p-2">
+    <md-button class="md-raised" ng-click="mychartbutton()">
+        <md-icon md-font-icon="fa fa-clock-o"></md-icon>
+    </md-button>
+
+    <md-button class="md-raised" ng-click="list(algoscope)">
+        <md-icon md-font-icon="fa fa-th-list"></md-icon>
+    </md-button>
+
+</div>
+
+
+<div layout="row">
+    <label>Technical</label>
+    <input type="checkbox" ng-model="checkchange" ng-change="checkchangefunc()">change
+    <input type="checkbox"
+           ng-model="checktwentyma"
+           ng-change="cchecktwentymafunc()">20 ma
+    <input type="checkbox" ng-model="checkfifty" ng-change="fiftyfunc()">50 ma
+    <input type="checkbox" ng-model="checkhundred" ng-change="hundredfunc()">100 ma
+    <input type="checkbox" ng-model="checktwohundred" ng-change="twohundredfunc()">200 ma
+    <input type="checkbox" ng-model="checkyearchange" ng-change="yearchangefunc()">yearchange
+    <label>fundamental</label>
+    <input type="checkbox" ng-model="checkmarketcap" ng-change="marketcapfunc()">marketcap
+    <input type="checkbox" ng-model="checkpe" ng-change="pefunc()">pe
+    <input type="checkbox" ng-model="checkyield" ng-change="yieldfunc()">yield
+</div>
+
+
+<table datatable="ng" id='details' dt-options="dataTableOpt" class="table table-striped table-bordered">
+    <!--        <table class="table table-bordered bordered table-striped table-condensed datatable" ui-jq="dataTable"-->
+    <!--               ui-options="dataTableOpt">-->
+    <img ng-if="loading"
+         src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
     <thead>
     <tr>
         <th>code</th>
-<!--        <th>change</th>-->
-<!--        <th>20 ma</th>-->
-<!--        <th>50 ma</th>-->
-<!--        <th>100 ma</th>-->
-<!--        <th>200 ma</th>-->
+        <th>change%</th>
+        <th>20 ma</th>
+        <th>50 ma</th>
+        <th>100 ma</th>
+        <th>200 ma</th>
+        <th>yearchange%</th>
+        <th>marketcap</th>
+        <th>pe</th>
+        <th>yield%</th>
+
     </tr>
     </thead>
     <tbody>
 
     <tr ng-repeat="datas in  data">
         <td> {{datas.code}}</td>
-<!--        <td> {{datas.change}}</td>-->
-<!--        <td> {{datas.twenty}}</td>-->
-<!--        <td> {{datas.fifty}}</td>-->
-<!--        <td> {{datas.onehundred}}</td>-->
-<!--        <td> {{datas.twohundred}}</td>-->
-        <!--        &lt;!&ndash;        <td> abc</td>&ndash;&gt;-->
+        <td> {{datas.change}}</td>
+        <td> {{datas.twenty}}</td>
+        <td> {{datas.fifty}}</td>
+        <td> {{datas.onehundred}}</td>
+        <td> {{datas.twohundred}}</td>
+        <td> {{datas.yearchange}}</td>
+        <td> {{datas.marketcap}}</td>
+        <td> {{datas.pe}}</td>
+        <td> {{datas.yield}}</td>
+
+        <!--        <td> abc</td>-->
         <!--        <td> {{datas.200ma}}</td>-->
         <!--        <td> {{datas.oneyear}}</td>-->
         <!--        <td> {{datas.twoyear}}</td>-->
     </tr>
-
-
     </tbody>
 </table>
-</div>
 

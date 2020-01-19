@@ -5,22 +5,26 @@
 
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
     <meta content="utf-8" http-equiv="encoding">
-<!--    must put jquey import first if not datatable wont work-->
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <!--                    DATATABLE-->
+    <!--    must put jquey import first if not datatable wont work-->
+    <script type="text/javascript"
+            src="/WEB/static/js1/jquery.min.js"></script>
+    <!--            Angular libarary-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular.min.js"></script>
+    <script type="text/javascript"
+            src="/WEB/static/js1/angular-datatables.min.js"></script>
+    <script type="text/javascript"
+            src="/WEB/static/js1/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="/WEB/static/js1/bootstrap.min.css">
+    <link rel="stylesheet" href="/WEB/static/js1/datatables.bootstrap.css">
+
 
     <!-- Angular Material requires Angular.js Libraries -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular.min.js"></script>
-
-
+    <!--    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular.min.js"></script>-->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-animate.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-aria.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-messages.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.js"></script>
-
-
-    <!--    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-route.js"></script>-->
-    <!--    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.min.js"></script>-->
-
     <script src="//unpkg.com/@uirouter/angularjs/release/angular-ui-router.min.js"></script>
 
 
@@ -32,9 +36,6 @@
 
 
     <!-- Angular Material Library -->
-    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-    <link href="http://cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.css"
-          rel="stylesheet" type="text/css"/>
     <link rel="stylesheet"
           href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.css">
 
@@ -55,7 +56,6 @@
     <!--    SERVICES-->
     <script type="text/javascript"
             src="/WEB/static/app-service/Utility.js"></script>
-
     <script type="text/javascript"
             src="/WEB/static/app-service/authentication.service.js"></script>
     <script type="text/javascript"
@@ -143,30 +143,9 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.js"></script>
 
-<!--DATATABLE-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.0.0/ui-bootstrap-tpls.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-utils/0.1.1/angular-ui-utils.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css">
-
-    <!--    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>-->
-    <!--    <script type="text/javascript" src="http://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>-->
-    <!--    <script type="text/javascript"-->
-    <!--            src="http://cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js"></script>-->
-
-
     <style>
         .mat-sidenav {
             min-width: 50px
-        }
-
-        table tr th {
-            background: #337ab7;
-            color: white;
-            text-align: left;
-            vertical-align: center;
         }
     </style>
 

@@ -7,6 +7,7 @@ var oauthurl = 'http://rowanfoo.ddns.net:10200/';
 var userurl = 'http://rowanfoo.ddns.net:10300/';
 //var userurl = 'http://localhost:8090/';
 var wishurl = 'http://rowanfoo.ddns.net:10400/';
+
 //var wishurl = 'http://localhost:8045/';
 var configurl = 'http://rowanfoo.ddns.net:10500/config/';
 var commenturl = 'http://rowanfoo.ddns.net:10100/comment';

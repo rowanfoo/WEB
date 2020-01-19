@@ -1,5 +1,4 @@
-//var module = angular.module('app', ['ngMaterial', 'ngRoute', 'ngStorage', 'angular-jwt']);
-var module = angular.module('app', ['ngMaterial', 'ui.router', 'ngStorage', 'angular-jwt','ui.bootstrap','ui.utils']);
+var module = angular.module('app', ['ngMaterial', 'ui.router', 'ngStorage', 'angular-jwt', 'datatables']);
 
 module.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
     // $mdIconProvider.defaultIconSet('img/icons/sets/core-icons.svg', 24);
@@ -143,13 +142,13 @@ module.run(function ($rootScope, $http, $location, $localStorage) {
 //     }
     //$location.path("/viewchart");
 //    console.log('---ROUTE------------1----');
-    //  $location.path('/login');
+    $location.path('/login');
     //$location.path('/news');
 //    $location.path('/wishlist');
 //    $location.path('/wishlist/wishcreate');
 //     $location.path('/wishlist-create');
 
-    $location.path('/main');
+    //  $location.path('/main');
     //  $location.path('/category');
 
 //    $location.path('/main/listchart/BHP.AX,RIO.AX');
