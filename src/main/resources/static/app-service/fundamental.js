@@ -10,6 +10,7 @@ function Service($rootScope, $http, $q, submitform) {
 
     function getFundamentalCode(code) {
         var fundurl = $rootScope.config.fundamentalurl + "/all/" + code;
+        console.log('--------Fundamental-------------getFundamentalCode----------'+ fundurl);
         var q = $q.defer();
         var seriesOptions = [];
         $http.get(fundurl).then(function (data) {
