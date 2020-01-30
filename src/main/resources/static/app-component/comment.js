@@ -1,7 +1,6 @@
 //templateUrl: '/wishlistview/resources/wishlistview/route//wishlistcreate.html',
 angular.module('app').component('comment', {
     templateUrl: '/WEB/static/app-component/comment.html',
-    // bindings: {code: '<', userid: '@'},
     bindings: {code: '<'},
     controller: ['$scope', 'Comment', function ($scope, Comment) {
         $scope.showcomment = false;
@@ -32,8 +31,7 @@ angular.module('app').component('comment', {
             $scope.showcomment = true;
         };
         $scope.mySumbit = function () {
-            console.log('-------------submit-----------' + $scope.comment.value);
-            $scope.comments.push({value: $scope.comment.value});
+           $scope.comments.push({value: $scope.comment.value});
             $scope.comment.value = '';
             $scope.ma = [];
         };
