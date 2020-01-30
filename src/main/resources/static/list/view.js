@@ -37,8 +37,8 @@ function Controller($scope, $rootScope, $http, $state, $location, CommentCreate,
         var url = 'main/viewdetail/' + code;
         $location.path(url);
     };
-
-    $http.get($rootScope.config.algoturl + type + '/' + id + '?sector=200').then(function (data) {
+    console.log("======viewController==URL==============" +( $rootScope.config.algoturl + type + '/' + id + '?sector=300'));
+    $http.get($rootScope.config.algoturl + type + '/' + id + '?sector=300').then(function (data) {
         //  $http.get('http://192.168.0.10:10500/' + type).then(function (data) {
         // console.log(JSON.stringify(data, null, "    "));
         $scope.data = data.data
