@@ -2,7 +2,6 @@ angular.module('app').component('stockcomponent', {
     templateUrl: '/WEB/static/app-component/autocompletestock.html',
     bindings: {selectedcode: '<'},
     controller: ['$scope', '$rootScope', 'Stock', function ($scope, $rootScope, Stock) {
-        console.log('-----------COMPONENT-----stockcomponent------------');
         Stock.GetAllCodes().then(function (value) {
             $scope.codes = value;
             console.log(JSON.stringify($scope.codes, null, "    "));
