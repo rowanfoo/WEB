@@ -2,7 +2,7 @@ var module = angular.module('app');
 module.controller('wishlistDetailController', Controller);
 
 
-function Controller($scope, $rootScope, $http, $state, $location, WishList) {
+function Controller($scope, $rootScope, $http, $state, $location, $mdDialog, CommentCreate, WishList,DTOptionsBuilder) {
 
     console.log('----------wishlistDetailController -HERE IN CONTROLLER----------viewController---v1');
     $scope.loading = true;
@@ -37,7 +37,18 @@ function Controller($scope, $rootScope, $http, $state, $location, WishList) {
         $location.path('/main/listchart/' + code);
     };
 
-
+    $scope.comment = function (code) {
+        $mdDialog.show({
+            //  templateUrl: "/WEB/static/dialog.html",
+            templateUrl: "/WEB/static/comment/dialog/commentDialog.html",
+            parent: angular.element(document.body),
+            clickOutsideToClose: true,
+            locals: {aTitle: code},
+            controller: function ($scope, $http, aTitle) {
+                CommentCreate.Createcontroller($scope, $http, aTitle, $mdDialog)
+            }
+        });
+    };
     $scope.checkchange = true;
     $scope.checkchangefunc = function () {
         console.log("---click----checkchangefunc--")
@@ -166,11 +177,41 @@ function Controller($scope, $rootScope, $http, $state, $location, WishList) {
             }
         });
     };
-    $scope.dataTableOpt = {
+
+    angular.element(document).ready(function () {
+        $('#details').DataTable( {
+            "createdRow": function ( row, data, index ) {
+                if ( data[1].replace(/[\$,]/g, '') * 1 <0 ) {
+                    $('td', row).eq(1).addClass('highlight');
+                }
+            }
+        } );
+    } );
+
+    // $scope.dataTableOpt = {
         //custom datatable options
         // or load data through ajax call also
-        "aLengthMenu": [[20, 50, 100, -1], [20, 50, 100, 'All']],
-    };
+        // "aLengthMenu": [[20, 50, 100, -1], [20, 50, 100, 'All']],
+        // 'rowCallback': function(row, data, index){
+        //     if(data[1]< 0>){
+        //         $(row).find('td:eq(0)').css('color', 'red');
+        //     }
+        // }
+    // };
+        $scope.dataTableOpt = DTOptionsBuilder.newOptions();
+    $scope.dataTableOpt.withOption('createdRow', function (row, data, dataIndex) {
+
+        if ( data[1].replace(/[\$,]/g, '') * 1 <0 ) {
+            console.log('---dataTableOpt-------'+data[1])
+            $('td', row).eq(1).css('color', 'red');
+            $('td', row).eq(1).css('font-weight', 'bold');
+
+        }
+    })
+
+
+
+
 };
 
 // <th>code</th>
