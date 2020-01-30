@@ -6,13 +6,15 @@ function Controller($scope, $rootScope, $http, $state, $location, CommentCreate,
     //  $scope.loading = true;
     var code = $state.params.code;
     $scope.mycode = code;
+    console.log('---------viewDetailController---------code---'+ code);
     Fundamental.GetFundamentalCode(code).then(function (data) {
-        $scope.fundamental = data;
+        console.log(JSON.stringify(data, null, "    "));
+        $scope.fundamentals = data;
     });
 
 
     News.GetNewsCode(code).then(function (data) {
-        console.log(JSON.stringify(data, null, "    "));
+
         $scope.news = data;
 
         // $scope.news = data.sort(function (a, b) {
