@@ -52,8 +52,25 @@
     <tbody>
 
     <tr ng-repeat="datas in  data">
-        <td> {{datas.code}}</td>
-        <td> {{datas.change}}</td>
+        <td>
+            <!--            {{datas.code}}-->
+            <a
+                    href="http://bigcharts.marketwatch.com/advchart/frames/frames.asp?show=&insttype=Stock&symb=AU%3A{{datas.code.substring(
+            0,datas.code.indexOf( '.' )
+            )}}&time=8&startdate=1%2F4%2F1999&enddate=8%2F28%2F2018&freq=1&compidx=aaaaa%3A0&comptemptext=&comp=none&ma=3&maval=50&uf=0&lf=1&lf2=0&lf3=0&type=2&style=320&size=4&x=49&y=15&timeFrameToggle=false&compareToToggle=false&indicatorsToggle=false&chartStyleToggle=false&state=11"
+                    target="_blank"
+            >{{datas.code}}</a>
+          
+
+            <md-icon md-font-icon="fa fa-file-word-o" ng-click="comment(datas.code)"
+                     style="font-size: 20px"></md-icon>
+        </td>
+        <td>
+            {{datas.change}}
+        </td>
+        <!--            <span style="color: red">{{datas.change}}</span>-->
+
+        <!--            <span ng-style="{'color: red': datas.change < 0, 'color: blue': datas.change  > 0}">{{datas.change}}</span>-->
         <td> {{datas.twenty}}</td>
         <td> {{datas.fifty}}</td>
         <td> {{datas.onehundred}}</td>
