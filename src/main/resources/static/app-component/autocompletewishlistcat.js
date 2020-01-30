@@ -2,7 +2,6 @@ angular.module('app').component('wishlistcat', {
     templateUrl: '/WEB/static/app-component/autocompletewishlistcat.html',
     bindings: {selectedcode: '<'},
     controller: ['$scope', '$rootScope', 'WishList', function ($scope, $rootScope, WishList) {
-        console.log('-----------COMPONENT-----wishlistcat------------');
         WishList.GetAllWishCategory().then(function (value) {
             $scope.codes = value;
             console.log(JSON.stringify($scope.codes, null, "    "));
