@@ -74,6 +74,16 @@ module.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
                 }
             }
         })
+        .state('wishmain.summary', {
+            url: '/wishsummary',
+            views: {
+                "content": {
+                    templateUrl: '/WEB/static/wishlist/summary/summary.html',
+                    controller: 'wishlistSummaryController'
+                }
+            }
+        })
+
         .state('wishmain.wishchart', {
             url: '/wishchart',
             views: {
@@ -126,12 +136,17 @@ module.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
             }
         });
 });
+//
 
 module.run(function ($rootScope, $http, $location, $localStorage) {
     setconfig($rootScope);
 
-    var ss = moment().subtract('year', 2).format('YYYY-MM-DD').toString();
-    console.log("--------mydate---------" + ss);
+    //  var ss = moment().subtract('year', 2).format('YYYY-MM-DD').toString();
+//    console.log("--------mydate---------" + ss);
+
+    //  $localStorage.currentUser = 'rowan';
+
+
     // if ($localStorage.currentUser) {
     //     $http.defaults.headers.common.Authorization = 'Bearer ' + $localStorage.currentUser.token;
     // }
@@ -142,13 +157,15 @@ module.run(function ($rootScope, $http, $location, $localStorage) {
 //     }
     //$location.path("/viewchart");
 //    console.log('---ROUTE------------1----');
-    //$location.path('/login');
+    $location.path('/login');
+    // console.log("--------$localStorage.currentUser---------" + $localStorage.currentUser);
+
     //$location.path('/news');
 //    $location.path('/wishlist');
 //    $location.path('/wishlist/wishcreate');
 //     $location.path('/wishlist-create');
 
-      $location.path('/main');
+//    $location.path('/main');
     //  $location.path('/category');
 
 //    $location.path('/main/listchart/BHP.AX,RIO.AX');
