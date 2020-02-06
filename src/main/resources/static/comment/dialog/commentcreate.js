@@ -2,7 +2,7 @@ angular
     .module('app')
     .factory('CommentCreate', Service);
 
-function Service($http, $q, Config, $mdDialog, Comment) {
+function Service($http, $q, Config, $mdDialog, Comment, $localStorage) {
     var service = {};
     service.Createcontroller = createcontroller;
     return service;
@@ -10,10 +10,12 @@ function Service($http, $q, Config, $mdDialog, Comment) {
     function createcontroller($scope, $http, aTitle, $mdDialog) {
         $scope.code = aTitle;
         $scope.selected = 'equity';
+        console.log('-----COMMENT CREATE---');
+        console.log('-----COMMENT CREATE---USER---' + $localStorage.currentUser);
 
         $scope.comment = {
             code: aTitle,
-            userid: 'rowan',
+            userid: $localStorage.currentUser,
             type: 'equity'
         };
 
