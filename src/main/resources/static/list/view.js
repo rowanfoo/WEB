@@ -57,6 +57,7 @@ function Controller($scope, $rootScope, $http, $state, $location, CommentCreate,
         //custom datatable options
         // or load data through ajax call also
         "aLengthMenu": [[20, 50, 100, -1], [20, 50, 100, 'All']],
+        "order": [[5, "desc"]]
     };
 
 };
