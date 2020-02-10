@@ -6,6 +6,8 @@ function Service($http) {
     var service = {};
 
     service.Comma = comma;
+    service.Round = round;
+
     return service;
 
     function comma(data) {
@@ -24,6 +26,13 @@ function Service($http) {
         code = code.substring(1, code.length);
         return code;
     }
+
+    function round(value) {
+        var decimals = 2;
+        return Number(Math.round(value + 'e' + decimals) + 'e-' + decimals);
+    }
+
+
 }
 
 
