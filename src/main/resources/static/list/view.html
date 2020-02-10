@@ -23,6 +23,7 @@
         <th>type</th>
         <th>value</th>
         <th>message</th>
+        <th>marketcap</th>
         <th>indicator</th>
         <th>news</th>
         <th>date</th>
@@ -31,7 +32,7 @@
     </thead>
     <tbody>
     <tr ng-repeat="datas in  data">
-        <td> <a
+        <td><a
                 href="http://bigcharts.marketwatch.com/advchart/frames/frames.asp?show=&insttype=Stock&symb=AU%3A{{datas.code.substring(
             0,datas.code.indexOf( '.' )
             )}}&time=8&startdate=1%2F4%2F1999&enddate=8%2F28%2F2018&freq=1&compidx=aaaaa%3A0&comptemptext=&comp=none&ma=3&maval=50&uf=0&lf=1&lf2=0&lf3=0&type=2&style=320&size=4&x=49&y=15&timeFrameToggle=false&compareToToggle=false&indicatorsToggle=false&chartStyleToggle=false&state=11"
@@ -43,6 +44,7 @@
         <td> {{datas.type }}</td>
         <td> {{datas.value}}</td>
         <td> {{datas.message}}</td>
+        <td> {{datas.fundamental.martketcapAsString}}</td>
         <!--        <td> abc</td>-->
         <td>
             <md-icon md-font-icon="fa fa-signal" ng-click="chartdetail(datas.code)"
