@@ -37,12 +37,14 @@
                           ng-click="golink(todo.id ,todo.value)">
                 <p>{{todo.id }} : {{todo.value }}</p></md-list-item>
 
+            <md-list-item class="secondary-button-padding" ng-click="summary()"><p>Summary</p></md-list-item>
+
         </md-list>
     </md-sidenav>
     <!--    <div layout="row" layout-fill layout-align="center" ui-view="list"></div>-->
 
-        <div layout="row" flex="125" layout-align="center" layout-wrap ui-view="list"></div>
-        <div layout="column" layout-fill ui-view="content"></div>
+    <div layout="row" flex="125" layout-align="center" layout-wrap ui-view="list"></div>
+    <div layout="column" layout-fill ui-view="content"></div>
     <div class="panel-body">
 
     </div>
