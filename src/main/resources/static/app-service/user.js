@@ -7,7 +7,7 @@ function Service($http, $rootScope, $q, submitform) {
     service.GetUserAlgo = getUserAlgo;
     service.SaveUserAlgo = saveUserAlgo;
     return service;
-    return service;
+
 
     function getUserAlgo(user) {
 
@@ -17,7 +17,7 @@ function Service($http, $rootScope, $q, submitform) {
         $rootScope.algoscope = [];
         var wishlisturl = wishlisturl + 'user/algo/rowan';
         $http.get(wishlisturl).then(function (data) {
-                console.log("------------------main------GetUserAlgo--------OK!!!---------------------");
+                // console.log("------------------main------GetUserAlgo--------OK!!!---------------------");
                 // console.log(JSON.stringify(data, null, "    "));
                 var mydata = data.data;
                 mydata.forEach(function (obj) {
@@ -27,7 +27,7 @@ function Service($http, $rootScope, $q, submitform) {
             }
             , function (err) {
                 //  $scope.loading = false;
-                console.log("------------------main------GetUserAlgo--------ERRR----------123-----------");
+                // console.log("------------------main------GetUserAlgo--------ERRR----------123-----------");
                 q.reject(err);
 //                console.log(JSON.stringify(err, null, "    "));
             }
@@ -42,7 +42,7 @@ function Service($http, $rootScope, $q, submitform) {
         submitform.sendData('PUT', userusrl, user).then(function (data) {
 
         });
-        console.log("----end ---");
+        //  console.log("----end ---");
     }
 
 
