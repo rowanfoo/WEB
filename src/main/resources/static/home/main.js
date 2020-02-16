@@ -10,7 +10,6 @@ function Controller($scope, $rootScope, $location, $http, User) {
     $scope.notes = [];
     $scope.algos = [];
     $scope.loading = true;
-    console.log("------------------main--------------sideNavController---------------------");
     $scope.golink = function (type, id) {
         var url = 'main/viewlist/' + type + '/' + id;
         $location.path(url);
@@ -22,7 +21,6 @@ function Controller($scope, $rootScope, $location, $http, User) {
 
 
     $scope.goCat = function () {
-        console.log("-------------------------sideNavController------------goCat---------");
         $location.path('/category');
     };
 
@@ -30,14 +28,19 @@ function Controller($scope, $rootScope, $location, $http, User) {
         $location.path('/useralgo');
     };
 
+    $scope.summary = function () {
+        $location.path('/main/summary');
+    };
+
+
     User.GetUserAlgo('rowan').then(function (data) {
         $scope.algos = data;
         $scope.loading = false;
-        console.log(JSON.stringify($scope.algos, null, "    "));
+        //console.log(JSON.stringify($scope.algos, null, "    "));
     }, function (err) {
         $scope.loading = false;
-        console.log("------------------main------GetUserAlgo--------ERRR---------------------");
-        console.log(JSON.stringify(err, null, "    "));
+        // console.log("------------------main------GetUserAlgo--------ERRR---------------------");
+        // console.log(JSON.stringify(err, null, "    "));
 
     });
 
@@ -46,8 +49,7 @@ function Controller($scope, $rootScope, $location, $http, User) {
         // or load data through ajax call also
         "aLengthMenu": [[10, 50, 100, -1], [10, 50, 100, 'All']],
     };
-
-
+    console.log("------------------show now summary---------------------");
 
 
 };
