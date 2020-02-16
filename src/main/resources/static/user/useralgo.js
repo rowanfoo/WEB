@@ -10,10 +10,6 @@ function CONTROLLER($scope, $http, User, $localStorage) {
     $scope.volumex = [];
     $scope.testuser = false;
 
-    console.log("-----------useralgocontroller-------------");
-    console.log("-----------useralgocontroller------USER-------" + $localStorage.currentUser);
-
-
     $scope.newItem = function () {
         counter++;
         $scope.ma.push({id: 'ma', value: ''});
