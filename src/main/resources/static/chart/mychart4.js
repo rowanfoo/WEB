@@ -5,11 +5,10 @@ angular
 function Service($http, $localStorage) {
     var service = {};
     service.CreateChart = createChart;
+
     return service;
-}
 
-
-var date = new Date();
+    var date = new Date();
 
 function getMax(dataset) {
     var max = Math.max.apply(Math, dataset.map(function (o) {
@@ -34,12 +33,14 @@ function createChart(seriesOptions, name) {
     var date = new Date();
     // create the chart
     // chart = new  Highcharts.StockChart('container', {
-    new Highcharts.StockChart(name, {
+    return new Highcharts.StockChart(name, {
 
         legend: {
             enabled: false
         },
-
+        // title: {
+        //     text: 'AAPL Stock Price'
+        // },
         xAxis: {
             min: Date.UTC(date.getFullYear() - 1, 1, 1, 16, 00), //previous day  at 16.00
             max: new Date().getTime() //get actual time
@@ -88,15 +89,37 @@ function createChart(seriesOptions, name) {
         },
             {
                 type: 'sma',
-                name: 'sma50',
+                name: 'sma100',
                 linkedTo: 'aapl',
-
+                dashStyle: 'dashdot',// can only be seen in firefox not opera
+                color: 'pink',
                 params: {
                     period: 100
+                }
+            },
+            {
+                type: 'sma',
+                name: 'sma200',
+                linkedTo: 'aapl',
+                color: 'green',
+                params: {
+                    period: 200
+                }
+            },
+            {
+                type: 'sma',
+                name: 'sma50',
+                linkedTo: 'aapl',
+                dashStyle: 'shortdot',
+                color: 'orange',
+                params: {
+                    period: 50
                 }
             }
 
 
         ]
     });
+}
+
 }
