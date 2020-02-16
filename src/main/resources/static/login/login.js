@@ -31,7 +31,8 @@ function CONTROLLER($scope, $rootScope, $http, $localStorage, $location, jwtHelp
         $http.defaults.headers.common.Authorization = 'Bearer ' + data.data.access_token;
         $scope.loading = false;
         // $rootScope.$broadcast('$locationChangeStart', $scope.name)
-        $location.path('/main');
+//        $location.path('/main');
+        $location.path('/main/summary');
 
     };
 
