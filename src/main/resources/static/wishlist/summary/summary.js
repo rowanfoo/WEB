@@ -3,17 +3,30 @@ module.controller('wishlistSummaryController', Controller);
 
 
 function Controller($scope, $location, $http, $rootScope, $localStorage, DTOptionsBuilder, $mdDialog, CommentCreate) {
-    console.log('H------------------------------wishlistSummaryController------------------------------R');
     $scope.loading = true;
 
-//////////////////////
+    $scope.mychartbutton = function (code) {
+        console.log('----------wishlistSummaryController -GOING ROUTE-----1');
+        console.log("----------wishlistSummaryController -GOING ROUTE----" + code)
 
-    console.log('H------------------------------wishlistSummaryController----------***USER--------------------R' + $localStorage.currentUser);
+        $location.path("main/viewchart/" + code);
+    };
+    $scope.list = function (code) {
+        $location.path('/main/listchart/' + code);
+    };
+
 
     $http.get($rootScope.config.algoturl + 'wishlist/alldetails/' + $localStorage.currentUser).then(function (data) {
         // console.log(JSON.stringify(data, null, "    "));
         $scope.data = data.data
         $scope.loading = false;
+        $rootScope.algoscope = [];
+        //       console.log(JSON.stringify($scope.data, null, "    "));
+        $scope.data.forEach(function (item, index) {
+            console.log("---codes-----" + item.code);
+            $rootScope.algoscope.push(item.code);
+        });
+
     });
     // $scope.dataTableOpt = {
     //     //custom datatable options
