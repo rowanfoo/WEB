@@ -15,6 +15,36 @@ module.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
             templateUrl: '/WEB/static/home/main.html',
             controller: 'sideNavController'
         })
+        .state('main.summary', {
+            url: '/summary',
+            views: {
+                "content": {
+                    templateUrl: '/WEB/static/summary/summary.html',
+                    controller: 'summaryController'
+                }
+            }
+        })
+        .state('main.summarymultichart', {
+            url: '/summary/multi',
+            views: {
+                "content": {
+                    templateUrl: '/WEB/static/chart/chart.html',
+                    controller: 'summaryChartMultiController'
+                }
+            }
+        })
+
+        .state('main.summarychartrsi', {
+            url: '/summary/chart/:type',
+            views: {
+                "content": {
+                    templateUrl: '/WEB/static/chart/chart.html',
+                    controller: 'summaryChartController'
+                }
+            }
+        })
+
+
         .state('main.viewlist', {
             url: '/viewlist/:type/:id',
             views: {
@@ -34,7 +64,7 @@ module.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
             }
         })
         .state('main.viewchart', {
-            url: '/viewchart',
+            url: '/viewchart/:codes',
             views: {
                 "content": {
                     templateUrl: '/WEB/static/chart/chart.html',
@@ -104,7 +134,7 @@ module.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
         })
         .state('useralgo', {
             url: '/useralgo',
-            templateUrl: ' /WEB/static/user/useralgo.html',
+            templateUrl: ' /WEB/static/user/summary.html',
             controller: 'useralgocontroller'
         })
         .state('newsmain', {
@@ -157,15 +187,21 @@ module.run(function ($rootScope, $http, $location, $localStorage) {
 //     }
     //$location.path("/viewchart");
 //    console.log('---ROUTE------------1----');
-    $location.path('/login');
+    // $location.path('/login');
     // console.log("--------$localStorage.currentUser---------" + $localStorage.currentUser);
 
     //$location.path('/news');
-//    $location.path('/wishlist');
+    //  $location.path('/wishlist');
 //    $location.path('/wishlist/wishcreate');
 //     $location.path('/wishlist-create');
 
 //    $location.path('/main');
+    $location.path('/main/summary');
+//    $location.path('/main/summary/rsi');
+    //$location.path('/main/summary/chart/fourdown');
+    //  $location.path('/main/summary/multi');
+
+
     //  $location.path('/category');
 
 //    $location.path('/main/listchart/BHP.AX,RIO.AX');
