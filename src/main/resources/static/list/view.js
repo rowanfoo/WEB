@@ -6,10 +6,11 @@ function Controller($scope, $rootScope, $http, $state, $location, CommentCreate,
     $scope.loading = true;
     var type = $state.params.type;
     var id = $state.params.id;
-    $scope.mychartbutton = function () {
+    $scope.mychartbutton = function (code) {
         console.log('----------viewController -GOING ROUTE-----1');
-        $location.path("main/viewchart");
+        $location.path("main/viewchart/" + code);
     };
+
     $scope.chartdetail = function (code) {
         $location.path("main/multichart/" + code);
     };
