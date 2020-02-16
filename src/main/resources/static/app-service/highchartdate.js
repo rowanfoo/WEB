@@ -92,8 +92,16 @@ function createChart(seriesOptions, name, date) {
                 params: {
                     period: 100
                 }
-            }
-
+            },
+            // {
+            //     type: 'sma',
+            //     name: 'sma200',
+            //     linkedTo: 'aapl',
+            //
+            //     params: {
+            //         period: 200
+            //     }
+            // }
 
         ]
     });
