@@ -1,0 +1,26 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" [opened]="'true'" [mode]="'side'">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <!--      <a mat-list-item *ngFor="let hero of useralgo" href="#{{hero.value}}">{{hero.value}} </a>-->
+
+
+      <!--      <a mat-list-item *ngFor="let hero of useralgo" href="#{{hero.value}}">{{hero.value}} </a>-->
+
+
+      <a mat-list-item *ngFor="let hero of useralgo"
+         href="algo/datatable/{{hero.id}}/{{hero.value}}?sector=300">{{hero.value}} </a>
+      <!--      http://localhost:4200/algo/datatable/rsi/30<14-->
+      <!--      http://localhost:4200/#algo/ma/0.5%3C200-->
+      <!--//      <a [routerLink]="myRoute">Take me to My Route</a>-->
+      <!--      http://localhost:4200/algo/rsi/30%3C14-->
+
+    </mat-nav-list>
+
+
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

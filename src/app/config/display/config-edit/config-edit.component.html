@@ -1,0 +1,36 @@
+<p>
+  config-edit works!
+</p>
+<div>
+  <!-- Use ng-template to ensure that the generated components end up in the right place -->
+  <!--  <ng-template #container>-->
+
+  <!--  </ng-template>-->
+
+
+  <template #container>
+  </template>
+
+
+  <!--  <div *ngFor="let type of types">-->
+  <!--    <button (click)="createcomp(type )">{{type}}</button>-->
+  <!--  </div>-->
+
+
+  <!--  <div layout="row" ngFor="let type of types">-->
+  <!--    <div flex="">-->
+  <!--      <button (click)="createcomp(type )">{{type}}</button>-->
+  <!--    </div>-->
+  <!--  </div>-->
+
+  <div class="row">
+    <div class="column" *ngFor="let type of types">
+      <button (click)="createcomp(type )">{{type}}</button>
+    </div>
+  </div>
+
+  <!--    <button>{{type}}</button>-->
+
+  <button (click)="onsubmit()">Submit</button>
+</div>
+{{success}}

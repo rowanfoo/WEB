@@ -1,0 +1,107 @@
+<!--<table datatable class="row-border hover">-->
+<!--  <thead>-->
+<!--  <tr>-->
+<!--    <th>code</th>-->
+<!--    <th>message</th>-->
+<!--    <th>date</th>-->
+<!--  </tr>-->
+<!--  </thead>-->
+<!--  <tbody>-->
+<!--  <tr *ngFor="let mydata of data">-->
+<!--    <td>{{mydata.code}}</td>-->
+<!--    <td>{{mydata.message}}</td>-->
+<!--    <td>{{mydata.date}}</td>-->
+<!--  </tr>-->
+
+<!--  </tbody>-->
+<!--</table>-->
+<!--{{data[0].code}}-->
+<!--{{data[0].fundamental.code}}-->
+<!--{{data[0].fundamental.pe}}-->
+<!--{{data[0].fundamental.martketcapAsstring}}-->
+<!--{{data[0].fundamental.marketcap}}-->
+<!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+<!--{{data[0].fundamental.annualYied}}-->
+<!--{{data[0].fundamental.shares}}-->
+<!--val:{{marketcap}}-->
+<!--{{codes}}-->
+<!--<table datatable class="row-border hover">-->
+<!--<table datatable="ng" [dtOptions]="dtOptions" class="row-border hover">-->
+<app-displaychart [codes]="codes"></app-displaychart>
+
+<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+
+
+  <thead>
+  <tr>
+    <th>code</th>
+    <th>name</th>
+    <th>type</th>
+    <th>message</th>
+    <th>marketcap</th>
+    <th>indicator</th>
+    <th>news</th>
+    <th>date</th>
+
+  </tr>
+
+  </thead>
+  <!--  <tbody>-->
+  <!--  <tr *ngFor="let mydata of data">-->
+  <!--    <td>{{mydata.code}}</td>-->
+  <!--    <td>{{mydata.message}}</td>-->
+  <!--    <td>{{mydata.date}}</td>-->
+  <!--  </tr>-->
+
+  <!--  </tbody>-->
+
+
+  <tbody>
+  <tr *ngFor="let datas of  data">
+    <td><a
+      href="http://bigcharts.marketwatch.com/advchart/frames/frames.asp?show=&insttype=Stock&symb=AU%3A{{datas.code.substring(
+            0,datas.code.indexOf( '.' )
+            )}}&time=8&startdate=1%2F4%2F1999&enddate=8%2F28%2F2018&freq=1&compidx=aaaaa%3A0&comptemptext=&comp=none&ma=3&maval=50&uf=0&lf=1&lf2=0&lf3=0&type=2&style=320&size=4&x=49&y=15&timeFrameToggle=false&compareToToggle=false&indicatorsToggle=false&chartStyleToggle=false&state=11"
+      target="_blank"
+    >{{datas.code}}</a></td>
+
+
+    <td> {{datas.stock.name }}</td>
+    <!--    <td> BLANK</td>-->
+    <td> {{datas.type }}</td>
+    <td> {{datas.message}}</td>
+    <td> {{datas.fundamental.martketcapAsString}}</td>
+    <td>
+      <!--      <md-icon md-font-icon="fa fa-signal" (click)="chartdetail(datas.code)"-->
+      <!--               style="font-size: 20px"></md-icon>-->
+      <!--      <md-icon md-font-icon="fa fa-file-word-o" (click)="comment(datas.code)"-->
+      <!--               style="font-size: 20px"></md-icon>-->
+      <!--      <md-icon md-font-icon="fa fa-book" (click)="detail(datas.code)" style="font-size: 20px"></md-icon>-->
+      <!--      &lt;!&ndash;            <md-icon ng-hide="datas.news.length" md-font-icon="fa fa-inbox" ng-click="detail(datas.code)"&ndash;&gt;-->
+      <!--      &lt;!&ndash;                     style="font-size: 20px"></md-icon>&ndash;&gt;-->
+      <!--      <md-icon ng-show="datas.news.length" tooltip="datas.news" md-font-icon="fa fa-inbox"-->
+      <!--               ng-click="detail(datas.code)"-->
+      <!--               style="font-size: 20px"></md-icon>-->
+
+
+      <app-multi-icon code={{datas.code}} path="algo"></app-multi-icon>
+
+
+    </td>
+
+
+    <td>
+      <table id="example" class="table table-bordered table-hover">
+        <tr *ngFor="let news of   datas.news">
+          <td> {{news.title}}</td>
+        </tr>
+      </table>
+    </td>
+    <td> {{datas.date}}</td>
+  </tr>
+
+
+  </tbody>
+
+
+</table>

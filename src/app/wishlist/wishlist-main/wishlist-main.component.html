@@ -1,0 +1,46 @@
+<app-toolbar></app-toolbar>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" [opened]="'true'" [mode]="'side'">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <!--      <a mat-list-item *ngFor="let hero of useralgo" href="#{{hero.value}}">{{hero.value}} </a>-->
+
+
+      <!--      <a mat-list-item *ngFor="let hero of useralgo" href="#{{hero.value}}">{{hero.value}} </a>-->
+
+
+      <!--      <a mat-list-item *ngFor="let cat of category"-->
+      <!--         href="algo/datatable/{{cat}}?sector=300">{{cat}} </a>-->
+
+
+      <!--      http://localhost:4200/algo/datatable/rsi/30<14-->
+      <!--      http://localhost:4200/#algo/ma/0.5%3C200-->
+      <!--//      <a [routerLink]="myRoute">Take me to My Route</a>-->
+      <!--      http://localhost:4200/algo/rsi/30%3C14-->
+
+      <!--      <md-select placeholder="wishlist charts">-->
+      <!--        <md-option>Apple</md-option>-->
+      <!--        <md-option>Pear</md-option>-->
+      <!--      </md-select>-->
+
+      <a mat-list-item routerLink="wishlist/wishlistedit">Edit</a>
+      <mat-select placeholder="wishlist charts" (selectionChange)="wishlistcharts($event)">
+        <mat-option *ngFor=" let food of category" [value]="food">
+          {{food}}
+        </mat-option>
+      </mat-select>
+
+      <mat-select placeholder="wishlist details" (selectionChange)="detailistcharts($event)">
+        <mat-option *ngFor=" let food of category" [value]="food">
+          {{food}}
+        </mat-option>
+      </mat-select>
+
+    </mat-nav-list>
+
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,30 @@
+<div class="p-2" layout="row">
+
+  <form (ngSubmit)="onSumbit()">
+    <!--        <input list="browsers" name="browser">-->
+    <!--    <md-select placeholder="Select your category" (change)="updateMode() "-->
+    <!--               style="width:350px;">-->
+    <!--      <md-option *ngFor="let item of category">{{item}}</md-option>-->
+    <!--    </md-select>-->
+    <h1>hello12</h1>
+    <mat-select placeholder="Select your category" (selectionChange)="onSelection($event)">
+      <mat-option *ngFor=" let food of category" [value]="food">
+        {{food}}
+      </mat-option>
+    </mat-select>
+
+
+    <input list="browsers" name="browser">
+    <datalist id="browsers">
+      <option *ngFor="let datas of tags" value="{{datas}}">
+    </datalist>
+
+
+    <!--    <input ng-model="selecttags" list="browsers" name="browser">-->
+    <!--    <datalist id="browsers">-->
+    <!--      <option ng-repeat="datas in  tags" value="{{datas}}">-->
+    <!--    </datalist>-->
+
+    <input type="submit">
+  </form>
+</div>

@@ -1,0 +1,10 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item> Config</button>
+      <button mat-menu-item> Favourite</button>
+    </mat-menu>
+    <button mat-button>logout</button>
+  </mat-toolbar-row>
+</mat-toolbar>

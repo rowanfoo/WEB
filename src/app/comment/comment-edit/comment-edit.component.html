@@ -1,0 +1,28 @@
+<div class="col-md-6 col-md-offset-3">
+  <form name="form" (ngSubmit)="submitLogin()" novalidate #form="ngForm">
+
+
+    <div class="form-group">
+
+      <textarea [(ngModel)]="comment.text" rows="5" cols="60"
+                name="comment.text" matTextareaAutosize matAutosizeMinRows=2
+                placeholder="comment"></textarea>
+    </div>
+
+
+    <div class="form-group">
+      <mat-select placeholder="wishlist charts" [(ngModel)]="comment.type" name="categoryselected" style="width:200px;">
+        <mat-option value="equity">
+          equity
+        </mat-option>
+        <mat-option value="idea">
+          idea
+        </mat-option>
+      </mat-select>
+    </div>
+
+    <div class="form-group">
+      <button class="btn btn-primary" type="submit">Login</button>
+    </div>
+  </form>
+</div>

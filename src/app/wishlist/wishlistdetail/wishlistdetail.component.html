@@ -1,0 +1,44 @@
+<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+
+
+  <thead>
+  <tr>
+    <th>code</th>
+    <th>change</th>
+    <th>twenty</th>
+    <th>fifty</th>
+    <th>onehundred</th>
+    <th>twohundred</th>
+    <th>marketcap</th>
+    <th>pe</th>
+    <th>yield</th>
+  </tr>
+
+  </thead>
+
+
+  <tbody>
+  <tr *ngFor="let datas of  wishlistDetail">
+    <td><a
+      href="http://bigcharts.marketwatch.com/advchart/frames/frames.asp?show=&insttype=Stock&symb=AU%3A{{datas.code.substring(
+            0,datas.code.indexOf( '.' )
+            )}}&time=8&startdate=1%2F4%2F1999&enddate=8%2F28%2F2018&freq=1&compidx=aaaaa%3A0&comptemptext=&comp=none&ma=3&maval=50&uf=0&lf=1&lf2=0&lf3=0&type=2&style=320&size=4&x=49&y=15&timeFrameToggle=false&compareToToggle=false&indicatorsToggle=false&chartStyleToggle=false&state=11"
+      target="_blank"
+    >{{datas.code}}</a></td>
+
+    <td> {{datas.change}}</td>
+    <td> {{datas.twenty}}</td>
+    <td> {{datas.fifty}}</td>
+    <td> {{datas.onehundred}}</td>
+    <td> {{datas.twohundred}}</td>
+    <td> {{datas.marketcap}}</td>
+    <td> {{datas.pe}}</td>
+    <td> {{datas.yield}}</td>
+
+  </tr>
+
+
+  </tbody>
+
+
+</table>

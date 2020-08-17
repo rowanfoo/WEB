@@ -1,0 +1,48 @@
+<p>
+  detail-list works!
+</p>
+
+{{data.code}}
+
+<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+
+
+  <thead>
+  <tr>
+    <th>code</th>
+    <th>market_cap</th>
+    <th>pe</th>
+    <th>eps</th>
+    <th>annual_dividend_yield</th>
+    <th>year_high_date</th>
+    <th>year_low_price</th>
+    <th>year_change_in_percentage</th>
+  </tr>
+
+  </thead>
+
+  <tbody>
+  <tr>
+    <td><a
+      href="http://bigcharts.marketwatch.com/advchart/frames/frames.asp?show=&insttype=Stock&symb=AU%3A{{data.code.substring(
+                0,data.code.indexOf( '.' )
+                )}}&time=8&startdate=1%2F4%2F1999&enddate=8%2F28%2F2018&freq=1&compidx=aaaaa%3A0&comptemptext=&comp=none&ma=3&maval=50&uf=0&lf=1&lf2=0&lf3=0&type=2&style=320&size=4&x=49&y=15&timeFrameToggle=false&compareToToggle=false&indicatorsToggle=false&chartStyleToggle=false&state=11"
+      target="_blank"
+    >{{data.code}}</a></td>
+
+
+    <td> {{data.market_cap }}</td>
+    <td> {{data.pe }}</td>
+    <td> {{data.eps}}</td>
+    <td> {{data.annual_dividend_yield}}</td>
+    <td> {{data.year_low_price}}</td>
+    <td> {{data.year_high_date}}</td>
+    <td> {{data.year_change_in_percentage}}</td>
+
+  </tr>
+
+  </tbody>
+
+
+</table>
+

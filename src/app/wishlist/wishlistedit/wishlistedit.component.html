@@ -1,0 +1,35 @@
+<md-content flex layout-padding>
+  <form class="well input-form" name="inputform" ng-submit="createstock()" method="post" (ngSubmit)="onSumbit()">
+
+    <mat-select placeholder="wishlist charts" (selectionChange)="wishlistcharts($event)" [(ngModel)]="wishlist.category"
+                name="categoryselected">
+      <mat-option *ngFor=" let food of category" [value]="food">
+        {{food}}
+      </mat-option>
+    </mat-select>
+
+
+    <p>
+      <mat-form-field style="width: 800px;">
+      <textarea matInput md-input-name="reason" [(ngModel)]="wishlist.code" name="catcodes" rows="2" cols="60"
+                matTextareaAutosize matAutosizeMinRows=1
+                matAutosizeMaxRows=5
+                placeholder="codes"></textarea>
+        <!--      <input type="text" class="form-control"[(ngModel)]="catcodes" name="name">-->
+        <!--      <textarea [(ngModel)]='catcodes' rows="30" cols="120"> </textarea>-->
+
+
+
+      </mat-form-field>
+    </p>
+
+    <p>
+      <button type="submit" class="btn btn-info btn-fill pull-left">Submit</button>
+    </p>
+  </form>
+  <!--  <div ng-message="error">{{error}}</div>-->
+
+</md-content>
+
+
+
