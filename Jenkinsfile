@@ -3,7 +3,7 @@ pipeline {
  environment {
      dockerImage = ""
           image_name=""
-          name="taj"
+          name="web_main"
           portno="4200"
           targetport="11000"
 
