@@ -1,6 +1,7 @@
 export class Config {
-  // static rooturl = 'http://rowanfoo.ddns.net';
-  static rooturl = 'http://localhost';
+  static rooturl = 'http://rowanfoo.ddns.net';
+  // static rooturl = 'http://localhost';
+//  static rooturl = 'http://192.168.0.10';
 
   static serverurl = Config.rooturl + ':10100/equity';
   //static wishlisturl = 'http://rowanfoo.ddns.net:10100/wishlistserver';
