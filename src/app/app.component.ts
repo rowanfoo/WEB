@@ -30,7 +30,7 @@ export class AppComponent implements OnInit {
     // );
 
 
-    this.user.loaduser('rowanf').subscribe(
+    this.user.loaduser('rowan').subscribe(
       (data) => {
         console.log(data);
         sessionStorage.setItem("user", JSON.stringify(data))
