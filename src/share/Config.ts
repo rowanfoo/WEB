@@ -6,14 +6,14 @@ export class Config {
   static serverurl = Config.rooturl + ':10100/equity';
   //static wishlisturl = 'http://rowanfoo.ddns.net:10100/wishlistserver';
   //static algoturl = 'http://localhost:8080/';
-  // static algoturl = Config.rooturl + ':10100/';
-  static algoturl = Config.rooturl + ':8080/';
+  static algoturl = Config.rooturl + ':10100/';
+//  static algoturl = Config.rooturl + ':8080/';
 
   static oauthurl = Config.rooturl + ':10200/';
 //  static userurl = Config.rooturl + ':10300/';
   static userurl = 'http://localhost:8090/';
-//   static wishurl = 'http://rowanfoo.ddns.net:10400/';
-  static wishurl = 'http://localhost:8045/';
+  static wishurl = 'http://rowanfoo.ddns.net:10400/';
+//  static wishurl = 'http://localhost:8045/';
 
 //var wishurl = 'http://localhost:8045/';
   static configurl = Config.rooturl + ':10500/config/';
