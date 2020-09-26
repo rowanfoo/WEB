@@ -7,7 +7,7 @@ export class Config {
   static algoturl = Config.rooturl + ':10100/';
 
   static oauthurl = Config.rooturl + ':10200/';
-//  static userurl = Config.rooturl + ':10300/';
+  static userurl = Config.rooturl + ':10300/';
   static wishurl = Config.rooturl + ':10400/';
   static configurl = Config.rooturl + ':10500/config/';
   static commenturl = Config.rooturl + ':10100/comment';
