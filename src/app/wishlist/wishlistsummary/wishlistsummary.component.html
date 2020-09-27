@@ -27,9 +27,13 @@
     <td> {{datas.volume}}</td>
     <td> {{datas.message}}</td>
     <td></td>
-    <td> {{datas.news}}</td>
+    <td>
+      <span *ngFor="let mynews of  datas.news">
+        <a href="{{ mynews.link }}">{{mynews.title}}</a> ,
+      </span>
+    </td>
     <td> {{datas.date}}</td>
 
-  </tr>
+
   </tbody>
 </table>
