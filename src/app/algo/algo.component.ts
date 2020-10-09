@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Algo} from "../../repo/model/User";
+import {UserConfigRepo} from "../../repo/repo/UserConfigRepo";
 
 @Component({
   selector: 'app-algo',
@@ -8,29 +8,63 @@ import {Algo} from "../../repo/model/User";
 })
 export class AlgoComponent implements OnInit {
 
-  constructor() {
+  // constructor() {
+  // }
+  constructor(private  userConfigRepo: UserConfigRepo) {
   }
 
 
-  useralgo: Algo[]
+//  useralgo: Algo[]
+
+  useralgo: IUserConfig[] = []
+
 
   ngOnInit() {
     let algostring: string = JSON.parse(sessionStorage.getItem("user")).algo
+    let userid: string = JSON.parse(sessionStorage.getItem("user")).id
+
     console.log('v1')
-    console.log(algostring)
+    console.log(userid)
+    console.log(this.useralgo)
+    //console.log(sessionStorage.getItem("user").id)
+    let config = this.userConfigRepo.getuserconfig(userid)
+
+    console.log('2')
+
+    config.subscribe(value1 => {
+      //   this.useralgo = value1;
+
+      console.log('2.1')
+      console.log(value1)
+
+
+      value1.forEach(value => {
+        console.log(value.userid)
+        console.log(JSON.parse(value.algo).value)
+
+        this.useralgo.push({id: value.id, value: JSON.parse(value.algo).value})
+        // console.log(value.algo.value)
+      })
+      console.log('2.2')
+
+
+    })
+
+    console.log('3')
+//    console.log(algostring)
 
 
 //    console.log(sessionStorage.getItem("useralgo"));
 
-    algostring = algostring.replace("\\", "")
-    this.useralgo = JSON.parse(algostring);
+    // algostring = algostring.replace("\\", "")
+    //this.useralgo = JSON.parse(algostring);
 
-    console.log(this.useralgo.constructor.name);
-    console.log(this.useralgo);
+    //console.log(this.useralgo.constructor.name);
+    //console.log(this.useralgo);
 
-    this.useralgo.forEach(value => {
-      console.log(value);
-    })
+    // this.useralgo.forEach(value => {
+    //   console.log(value);
+    // })
 
 
     // let zzzz = sessionStorage.getItem("useralgo")
@@ -57,3 +91,16 @@ export class AlgoComponent implements OnInit {
 
 
 }
+
+interface IUserConfig {
+  id: number;
+  value: string;
+}
+
+//
+// interface IUserConfigAlgo {
+//   value: string;
+// }
+//
+// let complexType: IComplexType;
+// complexType = {id: 1, name: "test"};

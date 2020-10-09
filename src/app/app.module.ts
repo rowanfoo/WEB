@@ -47,8 +47,7 @@ const routes = [
       {path: 'displaychart', component: DisplaychartComponent},
       {path: 'allsummary/:code', component: ShareSummaryComponent},
       {path: 'multichart/:code', component: ChartStockComponent},
-
-
+      {path: 'homepage', component: AlgoComponent},
     ]
 
 

@@ -21,5 +21,16 @@ export class AlgoRepo {
 
   }
 
+  getAlgo(id: string): Observable<TechStr[]> {
+
+    let url = Config.algoturl + 'algo' + '/' + id
+    console.log('---------AlgoRepo-------');
+    console.log('---------AlgoRepo-------' + url)
+
+    return this.http.get<TechStr[]>(url)
+
+
+  }
+
 
 }

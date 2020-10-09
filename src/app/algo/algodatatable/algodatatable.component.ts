@@ -42,8 +42,8 @@ export class AlgodatatableComponent implements OnInit, OnDestroy {
 
 
 //    this.algo.getData('rsi', '30<14')
-    this.algo.getData(type, value)
-
+    //this.algo.getData(type, value)
+    this.algo.getAlgo(type)
       .subscribe(
         (data) => {
           console.log('------XXXX-------')

@@ -16,8 +16,10 @@ export class WishlistCategoyRepo {
   getAllCategory(): Observable<WishlistCategoy[]> {
     //getData(): Observable<CoreData[]> {
     console.log('---------getDataDate-------')
+
     let url = Config.wishurl
-    url = url + '/wishlistcategorys'
+    let username: string = JSON.parse(sessionStorage.getItem("user")).username
+    url = url + 'wishlist/wishlistcategorys/' + username
     console.log('---------getAllCategory-------' + url)
     // return this.http.get<WishlistCategoy[]>(url).pipe(
     //   map(value => {
@@ -34,7 +36,7 @@ export class WishlistCategoyRepo {
         console.log(value)
         let arr: WishlistCategoy[] = []
         value.forEach(value1 => {
-          arr.push(new WishlistCategoy((value1)))
+          arr.push(new WishlistCategoy((JSON.parse(value1).category)))
         })
         return arr
       })

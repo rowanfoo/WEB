@@ -5,6 +5,7 @@
   <tr>
     <th>code</th>
     <th>price</th>
+    <th>change</th>
     <th>volume</th>
     <th>message</th>
     <th>indicator</th>
@@ -24,6 +25,8 @@
     >{{datas.code}}</a></td>
 
     <td> {{datas.price}}</td>
+    <td [ngStyle]="{backgroundColor : datas.change > 0 ? 'green' : 'red' }"> {{datas.change * 100}}%</td>
+
     <td> {{datas.volume}}</td>
     <td> {{datas.message}}</td>
     <td></td>

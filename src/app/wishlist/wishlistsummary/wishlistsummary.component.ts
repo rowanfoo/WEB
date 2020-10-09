@@ -20,7 +20,7 @@ export class WishlistsummaryComponent implements OnInit {
 
   ngOnInit() {
 
-
+    console.log("=======WishlistsummaryComponent==========")
     this.wishlistSummaryRepo.getWishlisSummary('rowan').subscribe(value1 => {
       console.log(value1);
       this.wishlistSummary = value1
