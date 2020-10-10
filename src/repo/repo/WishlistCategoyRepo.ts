@@ -21,43 +21,30 @@ export class WishlistCategoyRepo {
     let username: string = JSON.parse(sessionStorage.getItem("user")).username
     url = url + 'wishlist/wishlistcategorys/' + username
     console.log('---------getAllCategory-------' + url)
-    // return this.http.get<WishlistCategoy[]>(url).pipe(
-    //   map(value => {
-    //     console.log(value)
-    //     let arr : WishlistCategoy[] =[]
-    //     // value.forEach(value1 =>{
-    //     //   arr.push( new WishlistCategoy((value1)))
-    //     // } )
-    //     return value
-    //   })
-    // )
-    return this.http.get<string[]>(url).pipe(
+    return this.http.get<any[]>(url).pipe(
       map(value => {
-        console.log(value)
         let arr: WishlistCategoy[] = []
         value.forEach(value1 => {
-          arr.push(new WishlistCategoy((JSON.parse(value1).category)))
+          arr.push(new WishlistCategoy(value1['category']))
         })
         return arr
       })
     )
-
-
   }
 
 /// Wrong should get with category and userid
   getCatetoryCodes(category: string): Observable<string[]> {
+    let username: string = JSON.parse(sessionStorage.getItem("user")).username
     let wishlisturl = Config.wishurl
-    wishlisturl = wishlisturl + '/wishcategorycodes'
-    console.log(wishlisturl)
+    wishlisturl = wishlisturl + 'wishlist/wishlistcategorys/' + category + '/userid/' + username
+    console.log('-----getCatetoryCodes-------' + wishlisturl)
 
-    return this.http.get<string[]>(wishlisturl + '?category=' + category)
+    return this.http.get<string[]>(wishlisturl)
       .pipe(
         tap(value => {
           console.log(value)
         })
       )
-
   }
 
 /// Wrong should get with category and userid
