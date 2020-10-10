@@ -19,7 +19,7 @@ export class StringUtility {
 
   }
 
-  private static getstringcomma(arr: string[]): string {
+  public static getstringcomma(arr: string[]): string {
     let temp: string = ""
     arr.forEach(value1 => {
       temp = temp + value1 + ","
