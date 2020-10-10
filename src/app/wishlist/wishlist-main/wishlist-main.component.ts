@@ -22,15 +22,8 @@ export class WishlistMainComponent implements OnInit {
     console.log('=====am i run first --WishlistMainComponent----- ');
     this.wishcategy.getAllCategory().subscribe(value => {
       value.forEach(cat => {
-        console.log(cat.name);
-
         this.category.push(cat.name)
-
-
       })
-
-
-//      console.log(this.category);
     })
   }
 
@@ -42,8 +35,7 @@ export class WishlistMainComponent implements OnInit {
     this.wishcategy.getCatetoryCodes(cat).subscribe(value => {
       console.log(event.value);
 
-      let mycode = StringUtility.stringcomma(value)
-      console.log(mycode);
+      let mycode = StringUtility.getstringcomma(value)
       this.route.navigate(["algo/intervalchart/" + mycode]);
     })
 
@@ -53,19 +45,12 @@ export class WishlistMainComponent implements OnInit {
   wishlistDetail: WishlistDetail[]
 
   detailistcharts(event: any) {
-    //  console.log(event.value);
     let cat = event.value
     console.log(cat);
 
     this.wishcategy.getCatetoryCodes(cat).subscribe(value => {
-      //console.log('--------' + event.value);
-
       let mycode = StringUtility.stringcomma(value)
-      // console.log('------cinvert----' + mycode);
-
       this.route.navigate(["wishlist/wishlistdetail/" + mycode]);
-
-
     })
 
   }
