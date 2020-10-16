@@ -3,6 +3,7 @@ import {TechStr} from "../../../repo/model/TechStr";
 import {AlgoRepo} from "../../../repo/repo/AlgoRepo";
 import {ActivatedRoute} from "@angular/router";
 import {Subject} from "rxjs";
+import {CookieService} from "ngx-cookie-service";
 
 @Component({
   selector: 'app-algodatatable',
@@ -14,7 +15,7 @@ import {Subject} from "rxjs";
 export class AlgodatatableComponent implements OnInit, OnDestroy {
   data: TechStr[]
 
-  constructor(private algo: AlgoRepo, private  route: ActivatedRoute) {
+  constructor(private algo: AlgoRepo, private  route: ActivatedRoute, private  cookieService: CookieService) {
   }
 
   chartdetail(vode: string) {
@@ -34,22 +35,21 @@ export class AlgodatatableComponent implements OnInit, OnDestroy {
   codes: string
 
   ngOnInit() {
-    console.log('------------------TableComponent------------')
+    console.log('------------------AlgodatatableComponent------------')
     let type = this.route.snapshot.params['type'];
     let value = this.route.snapshot.params['value'];
+    let date = this.cookieService.get('historydate')
+
     console.log('------------------TableComponent------------' + type)
     console.log('------------------TableComponent------------' + value)
+    console.log('------------------------AlgodatatableComponent-----------------------' + date)
 
 
 //    this.algo.getData('rsi', '30<14')
     //this.algo.getData(type, value)
-    this.algo.getAlgo(type)
+    this.algo.getAlgo(type, date)
       .subscribe(
         (data) => {
-          console.log('------XXXX-------')
-          console.log(data[0])
-          console.log(data[1])
-          console.log(data.length)
 
           /// this.marketcap = data[0].fundamental.martketcapAsstring
           //   let a = data[0].fundamental.martketcapAsstring
