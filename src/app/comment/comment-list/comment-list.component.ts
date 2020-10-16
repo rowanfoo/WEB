@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {CommentRepo} from "../../../repo/repo/CommentRepo";
+import {Comments} from "../../../repo/model/Comment";
 
 @Component({
   selector: 'app-comment-list',
