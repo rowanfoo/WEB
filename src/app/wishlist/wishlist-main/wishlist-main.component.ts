@@ -38,8 +38,6 @@ export class WishlistMainComponent implements OnInit {
       let mycode = StringUtility.getstringcomma(value)
       this.route.navigate(["algo/intervalchart/" + mycode]);
     })
-
-
   }
 
   wishlistDetail: WishlistDetail[]
@@ -49,10 +47,9 @@ export class WishlistMainComponent implements OnInit {
     console.log(cat);
 
     this.wishcategy.getCatetoryCodes(cat).subscribe(value => {
-      let mycode = StringUtility.stringcomma(value)
+      let mycode = StringUtility.getstringcomma(value)
       this.route.navigate(["wishlist/wishlistdetail/" + mycode]);
     })
-
   }
 
 
