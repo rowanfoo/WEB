@@ -13,7 +13,7 @@
 // }
 
 
-interface Comments {
+export interface Comments {
   id: string,
   userid: string,
   code: string,
