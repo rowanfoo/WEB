@@ -10,7 +10,7 @@ export class AuthGuard implements CanActivate {
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-
+    console.log('---------------CAN-ACTIVATE------------');
     // remove auth for debug !!!
     // if (sessionStorage.getItem("user") == null) {
     //   console.log('---------------CAN-ACTIVATE------------');
