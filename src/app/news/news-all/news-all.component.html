@@ -1,0 +1,64 @@
+<!--<p>-->
+<!--  news-all works!-->
+<!--</p>-->
+<!--<div>-->
+<!--  <table class="mat-table">-->
+<!--    <thead>-->
+<!--    <tr class="mat-header-row">-->
+<!--      <th class='mat-header-cell'>Id</th>-->
+<!--      <th class='mat-header-cell'>Task</th>-->
+<!--      <th class='mat-header-cell'>Done</th>-->
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--    &lt;!&ndash;    <tr class="mat-row" *ngFor="let todo of todos">&ndash;&gt;-->
+<!--    &lt;!&ndash;      <td class="mat-cell">{{todo.id}}</td>&ndash;&gt;-->
+<!--    &lt;!&ndash;      <td class="mat-cell">{{todo.task}}</td>&ndash;&gt;-->
+<!--    &lt;!&ndash;      <td class="mat-cell">{{todo.done}}</td>&ndash;&gt;-->
+<!--    &lt;!&ndash;    </tr>&ndash;&gt;-->
+
+<!--    <tr *ngFor="let datas of  news">-->
+
+<!--      <td> {{datas.code}}</td>-->
+<!--      <td><a href="{{datas.link}}">{{datas.title}} </a></td>-->
+<!--      <td> {{datas.date}}</td>-->
+<!--    </tr>-->
+
+
+<!--    </tbody>-->
+<!--  </table>-->
+<!--  &lt;!&ndash;  <mat-paginator [pageSizeOptions]="[10, 25, 100]" [pageSize]="10" [length]="totalElements"&ndash;&gt;-->
+<!--  &lt;!&ndash;                 (page)="nextPage($event)">&ndash;&gt;-->
+<!--  <mat-paginator [pageSizeOptions]="[25, 50, 100]" [pageSize]="50" [length]="totalElements"-->
+<!--                 (page)="nextPage($event)">-->
+
+<!--  </mat-paginator>-->
+<!--</div>-->
+<table id="matTable" mat-table [dataSource]="todoDatasource" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <ng-container matColumnDef="date">
+    <th mat-header-cell *matHeaderCellDef> date</th>
+    <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="code">
+    <th mat-header-cell *matHeaderCellDef> code</th>
+    <td mat-cell *matCellDef="let element"> {{element.code}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="title">
+    <th mat-header-cell *matHeaderCellDef> title</th>
+    <td mat-cell *matCellDef="let element"><a href="{{element.link}}">{{element.title}} </a></td>
+
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+<mat-paginator [pageSizeOptions]="[25, 35, 50]" [pageSize]="35"
+               (page)="onAllUserPaginateChange($event)"></mat-paginator>
