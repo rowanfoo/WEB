@@ -14,17 +14,16 @@ export class AlgoRepo {
   getData(type: string, id: string): Observable<TechStr[]> {
 
     let url = Config.algoturl + type + '/' + id + '?sector=300'
-    console.log('---------AlgoRepo-------');
     console.log('---------AlgoRepo-------' + url)
     return this.http.get<TechStr[]>(url)
 
 
   }
 
-  getAlgo(id: string): Observable<TechStr[]> {
+  getAlgo(id: string, date: String): Observable<TechStr[]> {
 
     let url = Config.algoturl + 'algo' + '/' + id
-    console.log('---------AlgoRepo-------');
+    url = (date) ? url + '?date=' + date : url
     console.log('---------AlgoRepo-------' + url)
 
     return this.http.get<TechStr[]>(url)
