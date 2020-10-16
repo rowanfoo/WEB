@@ -1,13 +1,8 @@
-<!--<div *ngFor="let id of chartid" id="{{id}}"-->
-<!--     style="display: inline-block; width: 225px; height: 175px; margin: 0;">{{id}}</div>-->
+<div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="16px grid">
+  <div *ngFor="let id of chartid" fxFlex style="margin: 6px;">
+    <div id="{{id}}" style="display: inline-block; width: 225px; height: 175px; margin: 0;"></div>
+  </div>
 
-
-<!--<div id="container0" style="min-width: 100px; max-width: 600px; height: 400px; margin: 0 auto"></div>-->
-<!--<div id="name" style="min-width: 100px; max-width: 600px; height: 400px; margin: 0 auto"></div>-->
-
-
-<div layout="row" *ngFor="let id of chartid">
-  <div id="{{id}}" style="display: inline-block; width: 225px; height: 175px; margin: 0;"><h3> {{id}} </h3>,</div>
 </div>
 
-<!--<div id="BHP" style="min-width: 100px; max-width: 600px; height: 400px; margin: 0 auto"></div>-->
+
