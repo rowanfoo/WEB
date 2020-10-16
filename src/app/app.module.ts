@@ -35,6 +35,9 @@ import {ConfigAlgoComponent} from './config/config-algo/config-algo.component';
 import {CategoryListComponent} from './category/category-list/category-list.component';
 import {AuthGuard} from "../service/AuthGuard";
 import {AuthService} from "../service/AuthService";
+import {CookieService} from "ngx-cookie-service";
+import {NewsAllComponent} from './news/news-all/news-all.component';
+import {FlexLayoutModule} from "@angular/flex-layout";
 
 const routes = [
   {path: '', component: AppComponent},
@@ -47,11 +50,14 @@ const routes = [
       {path: 'displaychart', component: DisplaychartComponent},
       {path: 'allsummary/:code', component: ShareSummaryComponent},
       {path: 'multichart/:code', component: ChartStockComponent},
-      {path: 'homepage', component: AlgoComponent},
+      // {path: 'homepage', component: AlgoComponent},
+      {path: 'news', component: NewsAllComponent},
     ]
 
 
   },
+
+
   {
     path: 'wishlist', component: WishlistMainComponent, children: [
       {path: 'wishlistdetail/:code', component: WishlistdetailComponent},
@@ -104,7 +110,8 @@ const routes = [
     ChartStockComponent,
     ConfigEditComponent,
     ConfigAlgoComponent,
-    CategoryListComponent
+    CategoryListComponent,
+    NewsAllComponent
   ],
   imports: [
     BrowserModule,
@@ -114,10 +121,11 @@ const routes = [
     MaterialModule,
     DataTablesModule,
     RouterModule.forRoot(routes),
-    MomentModule
+    MomentModule,
+    FlexLayoutModule,
 
   ],
-  providers: [EventService, AuthGuard, AuthService],
+  providers: [EventService, AuthGuard, AuthService, CookieService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   entryComponents: [CommentEditComponent, ConfigAlgoComponent]
