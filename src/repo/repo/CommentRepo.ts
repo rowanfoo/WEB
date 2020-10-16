@@ -3,6 +3,7 @@ import {Observable} from "rxjs";
 import {Config} from "../../share/Config";
 import {tap} from "rxjs/internal/operators/tap";
 import {Injectable} from "@angular/core";
+import {Comments} from "../model/Comment";
 
 @Injectable()
 export class CommentRepo {
@@ -19,7 +20,6 @@ export class CommentRepo {
       console.log(x)
     }));
   }
-
 
   getAllCommentsbyUserid(userid: string): Observable<Comments[]> {
     let commenturl = Config.commenturl + '/userid/' + userid
