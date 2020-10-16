@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Subject} from "rxjs";
 import {WishlistSummaryRepo} from "../../../repo/repo/WishlistSummaryRepo";
 import {WishlistSummary} from "../../../repo/model/WishlistSummary";
+import {CookieService} from "ngx-cookie-service";
 
 @Component({
   selector: 'app-wishlistsummary',
@@ -14,14 +15,17 @@ export class WishlistsummaryComponent implements OnInit {
   wishlistSummary: WishlistSummary[]
   dtOptions: any = {};
 
-  constructor(private wishlistSummaryRepo: WishlistSummaryRepo) {
+  constructor(private wishlistSummaryRepo: WishlistSummaryRepo, private  cookieService: CookieService) {
   }
 
 
   ngOnInit() {
 
     console.log("=======WishlistsummaryComponent==========")
-    this.wishlistSummaryRepo.getWishlisSummary('rowan').subscribe(value1 => {
+
+    let date = this.cookieService.get('historydate')
+
+    this.wishlistSummaryRepo.getWishlisSummaryDate('rowan', date).subscribe(value1 => {
       console.log(value1);
       this.wishlistSummary = value1
       this.dtTrigger.next()
