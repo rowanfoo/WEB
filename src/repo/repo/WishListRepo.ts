@@ -12,11 +12,9 @@ export class WishListRepo {
   }
 
 
-  getWishlistDetail(codes: string): Observable<WishlistDetail[]> {
-    //getData(): Observable<CoreData[]> {
-    console.log('---------getWishlistDetail-------' + codes)
-    let url = Config.algoturl
-    url = url + 'wishlist/metadata/' + codes
+  getWishlistDetailDate(codes: string, date: string): Observable<WishlistDetail[]> {
+    let url = Config.algoturl + 'wishlist/metadata/' + codes
+    url = (date) ? url + '?date=' + date : url
     console.log('---------getWishlistDetail-------' + url)
 
     return this.http.get<WishlistDetail[]>(url).pipe(
@@ -25,9 +23,23 @@ export class WishListRepo {
         return value
       })
     )
-
-
   }
+
+
+  // getWishlistDetail(codes: string): Observable<WishlistDetail[]> {
+  //   //getData(): Observable<CoreData[]> {
+  //   console.log('---------getWishlistDetail-------' + codes)
+  //   let url = Config.algoturl
+  //   url = url + 'wishlist/metadata/' + codes
+  //   console.log('---------getWishlistDetail-------' + url)
+  //
+  //   return this.http.get<WishlistDetail[]>(url).pipe(
+  //     map(value => {
+  //       console.log(value)
+  //       return value
+  //     })
+  //   )
+  // }
 
 
 }
