@@ -1,3 +1,6 @@
+<app-displaychart [codes]="codes"></app-displaychart>
+
+
 <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
 
 
@@ -5,10 +8,10 @@
   <tr>
     <th>code</th>
     <th>change</th>
-    <th>twenty</th>
-    <th>fifty</th>
-    <th>onehundred</th>
-    <th>twohundred</th>
+    <th>twenty %</th>
+    <th>fifty %</th>
+    <th>onehundred %</th>
+    <th>twohundred %</th>
     <th>marketcap</th>
     <th>pe</th>
     <th>yield</th>
@@ -27,10 +30,10 @@
     >{{datas.code}}</a></td>
 
     <td> {{datas.change}}</td>
-    <td> {{datas.twenty}}</td>
-    <td> {{datas.fifty}}</td>
-    <td> {{datas.onehundred}}</td>
-    <td> {{datas.twohundred}}</td>
+    <td> {{datas.percentage20 }}</td>
+    <td> {{datas.percentage50 }}</td>
+    <td> {{datas.percentage100 }}</td>
+    <td> {{datas.percentage200 }}</td>
     <td> {{datas.marketcap}}</td>
     <td> {{datas.pe}}</td>
     <td> {{datas.yield}}</td>
