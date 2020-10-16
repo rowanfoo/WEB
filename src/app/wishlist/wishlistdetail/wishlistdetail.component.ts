@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {WishListRepo} from "../../../repo/repo/WishListRepo";
 import {Subject} from "rxjs";
 import {WishlistDetail} from "../../../repo/model/WishlistDetail";
+import {CookieService} from "ngx-cookie-service";
 
 @Component({
   selector: 'app-wishlistdetail',
@@ -15,15 +16,20 @@ export class WishlistdetailComponent implements OnInit {
   dtTrigger: Subject<any> = new Subject();
   wishlistDetail: WishlistDetail[]
   dtOptions: any = {};
+  codes: string
 
-  constructor(private router: Router, private wishlistrepo: WishListRepo, private  route: ActivatedRoute) {
+  constructor(private router: Router, private wishlistrepo: WishListRepo, private  route: ActivatedRoute, private  cookieService: CookieService) {
   }
 
 
   ngOnInit() {
-    let mycode = this.route.snapshot.params['code'];
+    console.log('------------------------WishlistdetailComponent-----------------------')
 
-    this.wishlistrepo.getWishlistDetail(mycode).subscribe(value1 => {
+    let mycode = this.route.snapshot.params['code'];
+    this.codes = mycode
+    let date = this.cookieService.get('historydate')
+
+    this.wishlistrepo.getWishlistDetailDate(mycode, date).subscribe(value1 => {
       console.log(value1);
       this.wishlistDetail = value1
       this.dtTrigger.next()
@@ -48,3 +54,24 @@ export class WishlistdetailComponent implements OnInit {
   }
 
 }
+
+
+// constructor(private  cookieService: CookieService) {
+// }
+//
+// ngOnInit() {
+// }
+//
+// EndDateChange(event) {
+//
+//   console.log('----EndDateChange----')
+// //    console.log(event.value.toString('YYYY-MM-dd'))
+// //    console.log(new Date(event.value).toString('YYYY-MM-dd'))
+//   console.log(new Date(event.value).toDateString())
+//   console.log(new Date(event.value).toISOString())
+//   console.log(StringUtility.getDate(new Date(event.value)))
+//   console.log(moment(event.value).format('YYYY-MM-DD'))
+//   this.cookieService.set('historydate', moment(event.value).format('YYYY-MM-DD'), 0.02)
+//
+//
+// }
