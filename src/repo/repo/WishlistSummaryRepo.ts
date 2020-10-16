@@ -11,11 +11,12 @@ export class WishlistSummaryRepo {
   constructor(private http: HttpClient) {
   }
 
-
-  getWishlisSummary(userid: string): Observable<WishlistSummary[]> {
+  getWishlisSummaryDate(userid: string, date: String): Observable<WishlistSummary[]> {
     //getData(): Observable<CoreData[]> {
-    let url = Config.algoturl
-    url = url + 'wishlist/alldetails/' + userid
+
+
+    let url = Config.algoturl + 'wishlist/alldetails/' + userid
+    url = (date) ? url + '?date=' + date : url
     console.log('---------getWishlisSummary-------' + url)
 
     return this.http.get<WishlistSummary[]>(url).pipe(
@@ -25,4 +26,18 @@ export class WishlistSummaryRepo {
       })
     )
   }
+
+  // getWishlisSummary(userid: string): Observable<WishlistSummary[]> {
+  //   //getData(): Observable<CoreData[]> {
+  //   let url = Config.algoturl
+  //   url = url + 'wishlist/alldetails/' + userid
+  //   console.log('---------getWishlisSummary-------' + url)
+  //
+  //   return this.http.get<WishlistSummary[]>(url).pipe(
+  //     map(value => {
+  //       console.log(value)
+  //       return value
+  //     })
+  //   )
+  // }
 }
