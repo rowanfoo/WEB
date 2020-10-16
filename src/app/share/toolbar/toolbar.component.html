@@ -6,5 +6,11 @@
       <button mat-menu-item> Favourite</button>
     </mat-menu>
     <button mat-button>logout</button>
+
+    <input matInput [matDatepicker]="expiration1" (dateChange)="EndDateChange($event)" [ngModel]="date">
+    <mat-datepicker-toggle matSuffix [for]="expiration1"></mat-datepicker-toggle>
+    <mat-datepicker #expiration1></mat-datepicker>
+
+
   </mat-toolbar-row>
 </mat-toolbar>
