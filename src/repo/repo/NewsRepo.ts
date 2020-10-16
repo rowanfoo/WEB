@@ -4,6 +4,7 @@ import {Config} from "../../share/Config";
 import {Injectable} from "@angular/core";
 import {News} from "../model/News";
 import {tap} from "rxjs/internal/operators/tap";
+import {Page} from "../model/Page";
 
 @Injectable()
 export class NewsRepo {
@@ -30,6 +31,27 @@ export class NewsRepo {
     console.log('-----------getNewsCodebyMonth-----url------------' + serverurl);
 
     return this.http.get<News[]>(serverurl).pipe(
+      tap(value => {
+        console.log(value)
+      })
+    )
+  }
+
+  getAllNewsbyDate(date: String, request): Observable<Page<News>> {
+    let serverurl = Config.algoturl + '/news/all';
+
+    if (date != null && date.trim() != '') {
+      request['date'] = date
+    }
+
+    console.log('-----------getAllNewsbyDate-----url------------' + serverurl);
+    console.log('-----------getAllNewsbyDate-----date------------' + request);
+    console.log(request);
+
+    console.log(request);
+    const params = request;
+
+    return this.http.get<Page<News>>(serverurl, {params}).pipe(
       tap(value => {
         console.log(value)
       })
