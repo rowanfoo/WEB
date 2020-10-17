@@ -4,6 +4,8 @@ import {CookieService} from "ngx-cookie-service";
 import {NewsRepo} from "../../../repo/repo/NewsRepo";
 import {NewsDataSourceDataSource} from "./NewsDataSource";
 import {tap} from "rxjs/internal/operators/tap";
+import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
+import {StockDialogComponent} from "../../stock/stock-dialog/stock-dialog.component";
 
 @Component({
   selector: 'app-news-all',
@@ -12,14 +14,14 @@ import {tap} from "rxjs/internal/operators/tap";
 })
 export class NewsAllComponent implements OnInit {
 
-  constructor(private  newsRepo: NewsRepo, private  cookieService: CookieService) {
+  constructor(private dialog: MatDialog, private  newsRepo: NewsRepo, private  cookieService: CookieService) {
   }
 
   // news: News[];
   // totalElements: number = 0;
 
 
-  displayedColumns = ['date', 'code', 'title'];
+  displayedColumns = ['date', 'code', 'title', 'category', 'subcategory'];
   todoDatasource: NewsDataSourceDataSource;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -32,7 +34,7 @@ export class NewsAllComponent implements OnInit {
     this.todoDatasource.counter$
       .pipe(
         tap((count) => {
-          this.paginator.length = count ;
+          this.paginator.length = count;
         })
       )
       .subscribe();
@@ -55,38 +57,18 @@ export class NewsAllComponent implements OnInit {
     const matTable = document.getElementById('matTable');
     // matTable.scrollTop = 0;
     matTable.scrollIntoView();
-
-
   }
 
-  //   ngOnInit() {
-  //   let date = this.cookieService.get('historydate')
-  //   this.newsRepo.getAllNewsbyDate(date, {page: "0", size: "50"}).subscribe(value => {
-  //     console.log('-------NewsAllComponent----arr------' + value.length)
-  //     this.news = value
-  //     this.totalElements = value.length
-  //
-  //   })
-  //
-  //
-  // }
-  //
-  //
-  // nextPage(event: PageEvent) {
-  //   const request = {};
-  //   request['page'] = event.pageIndex.toString();
-  //   request['size'] = event.pageSize.toString();
-  //   //  this.getTodos(request);
-  //
-  //   let date = this.cookieService.get('historydate')
-  //   this.newsRepo.getAllNewsbyDate(date, {page: event.pageIndex.toString(), size: "50"}).subscribe(value => {
-  //
-  //     this.news = value
-  //     this.totalElements = value.length
-  //
-  //   })
-  //
-  // }
-  //
+  openstockedit(code: string) {
+    console.log('-----------openstockedit------------------' + code)
+    let a = new MatDialogConfig()
+    a.autoFocus = true
+    a.width = "60%"
+    a.data = {
+      code: code,
+      dialog: this.dialog
+    }
+    this.dialog.open(StockDialogComponent, a)
+  }
 
 }
