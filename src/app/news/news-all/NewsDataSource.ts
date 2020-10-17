@@ -31,6 +31,8 @@ export class NewsDataSourceDataSource implements DataSource<News> {
     let date = this.cookieService.get('historydate')
     this.newsRepo.getAllNewsbyDate(date, {page: "0", size: "35"}).subscribe(value => {
       this.todoSubject.next(value.content);
+      console.log('----------------TableDataSource----LOAD NEWS--------------')
+      console.log(value.content)
       this.countSubject.next(value.totalElements);
     })
   }
