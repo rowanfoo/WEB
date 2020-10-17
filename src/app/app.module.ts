@@ -38,6 +38,7 @@ import {AuthService} from "../service/AuthService";
 import {CookieService} from "ngx-cookie-service";
 import {NewsAllComponent} from './news/news-all/news-all.component';
 import {FlexLayoutModule} from "@angular/flex-layout";
+import {StockDialogComponent} from './stock/stock-dialog/stock-dialog.component';
 
 const routes = [
   {path: '', component: AppComponent},
@@ -111,7 +112,8 @@ const routes = [
     ConfigEditComponent,
     ConfigAlgoComponent,
     CategoryListComponent,
-    NewsAllComponent
+    NewsAllComponent,
+    StockDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -128,7 +130,7 @@ const routes = [
   providers: [EventService, AuthGuard, AuthService, CookieService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  entryComponents: [CommentEditComponent, ConfigAlgoComponent]
+  entryComponents: [CommentEditComponent, StockDialogComponent, ConfigAlgoComponent]
 
 })
 export class AppModule {
