@@ -1,0 +1,32 @@
+<div class="col-md-6 col-md-offset-3">
+  <form name="form" (ngSubmit)="submitLogin()" novalidate #form="ngForm">
+
+
+    <div class="form-group">
+
+      <input type="text" [disabled]="true" class="form-control" [(ngModel)]="stock.code" name="code" placeholder="code">
+    </div>
+
+    <div class="form-group">
+      <input type="text" [disabled]="true" class="form-control" [(ngModel)]="stock.name" name="name" placeholder="name">
+    </div>
+
+    <div class="form-group">
+      <label>category</label>
+      <input type="text" class="form-control" [(ngModel)]="stock.category" name="category" placeholder="category">
+    </div>
+
+    <div class="form-group">
+      <label>subcategory</label>
+      <input type="text" class="form-control" [(ngModel)]="stock.subcategory" name="subcategory"
+             placeholder="subcategory">
+    </div>
+
+    <div class="form-group">
+      <button class="btn btn-primary" type="submit">Login</button>
+
+    </div>
+
+
+  </form>
+</div>
