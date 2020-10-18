@@ -124,12 +124,6 @@
       "projectType": "application",
       "prefix": "",
       "architect": {
-        "serve": {
-          "builder": "@angular-devkit/build-angular:protractor",
-          "options": {
-            "disableHostCheck": true
-          }
-        },
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
