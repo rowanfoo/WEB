@@ -1,6 +1,7 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
+  "disableHostCheck": true,
   "newProjectRoot": "projects",
   "projects": {
     "WEB": {
@@ -124,12 +125,6 @@
       "projectType": "application",
       "prefix": "",
       "architect": {
-        "serve": {
-          "builder": "@angular-devkit/build-angular:protractor",
-          "options": {
-            "disableHostCheck": true
-          }
-        },
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
@@ -156,4 +151,3 @@
   },
   "defaultProject": "WEB"
 }
-
