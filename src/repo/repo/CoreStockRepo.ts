@@ -20,6 +20,12 @@ export class CoreStockRepo {
   }
 
 
+  getTags(): Observable<String[]> {
+    var url = Config.algoturl + 'stocks/tags';
+    console.log('---------getTags--url-----' + url);
+    return this.http.get<String[]>(url);
+  }
+
   getCode(code: string): Observable<CoreStock> {
     var url = Config.algoturl + 'stocks/stock/' + code
 

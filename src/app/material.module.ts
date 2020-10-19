@@ -24,6 +24,8 @@ import {
   MatTooltipModule
 } from '@angular/material';
 import {LayoutModule} from "@angular/cdk/layout";
+import {MatAutocompleteModule} from "@angular/material/autocomplete";
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   imports: [
@@ -49,7 +51,7 @@ import {LayoutModule} from "@angular/cdk/layout";
     MatIconModule,
     MatMenuModule,
     MatCardModule,
-
+    MatAutocompleteModule
 
   ],
   exports: [
@@ -74,6 +76,8 @@ import {LayoutModule} from "@angular/cdk/layout";
     MatIconModule,
     MatMenuModule,
     MatCardModule,
+    MatAutocompleteModule,
+    ReactiveFormsModule
 
   ],
   providers: [
