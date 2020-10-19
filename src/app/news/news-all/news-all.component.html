@@ -47,7 +47,10 @@
   <!-- Name Column -->
   <ng-container matColumnDef="code">
     <th mat-header-cell *matHeaderCellDef> code</th>
-    <td mat-cell *matCellDef="let element"> {{element.code}} </td>
+    <td mat-cell *matCellDef="let element">
+      <a href="https://hotcopper.com.au/asx/{{element.codex}}/announcements/"
+         target="_blank">       {{element.code}}</a>
+    </td>
   </ng-container>
 
   <!-- Weight Column -->

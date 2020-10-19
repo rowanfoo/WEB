@@ -53,6 +53,12 @@ export class NewsRepo {
 
     return this.http.get<Page<News>>(serverurl, {params}).pipe(
       tap(value => {
+        var content = value.content
+        content.forEach(value1 => {
+          value1.codex = value1.code.substring(0, value1.code.indexOf("."))
+        })
+        /// want PLS.AX to PLS , to show news
+
         console.log(value)
       })
     )
