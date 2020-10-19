@@ -1,5 +1,5 @@
 <div class="col-md-6 col-md-offset-3">
-  <form name="form" (ngSubmit)="submitLogin()" novalidate #form="ngForm">
+  <form name="form" (ngSubmit)="submitLogin()" novalidate #form="ngForm" name="form">
 
 
     <div class="form-group">
@@ -13,7 +13,8 @@
 
     <div class="form-group">
       <label>category</label>
-      <input type="text" class="form-control" [(ngModel)]="stock.category" name="category" placeholder="category">
+      <input type="text" [disabled]="true" class="form-control" [(ngModel)]="stock.category" name="category"
+             placeholder="category">
     </div>
 
     <div class="form-group">
@@ -21,6 +22,16 @@
       <input type="text" class="form-control" [(ngModel)]="stock.subcategory" name="subcategory"
              placeholder="subcategory">
     </div>
+
+    <mat-form-field>
+      <input matInput type="text" [matAutocomplete]="auto" [formControl]="mycontrol"/>
+      <mat-autocomplete #auto='matAutocomplete'>
+        <mat-option *ngFor="let data of filterOption | async" [value]="data">
+          {{data}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+
 
     <div class="form-group">
       <button class="btn btn-primary" type="submit">Login</button>
@@ -30,3 +41,4 @@
 
   </form>
 </div>
+
