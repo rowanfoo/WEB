@@ -64,6 +64,7 @@ export class NewsAllComponent implements OnInit {
     let a = new MatDialogConfig()
     a.autoFocus = true
     a.width = "60%"
+    a.height = "600px"
     a.data = {
       code: code,
       dialog: this.dialog
