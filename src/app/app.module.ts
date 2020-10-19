@@ -39,6 +39,8 @@ import {CookieService} from "ngx-cookie-service";
 import {NewsAllComponent} from './news/news-all/news-all.component';
 import {FlexLayoutModule} from "@angular/flex-layout";
 import {StockDialogComponent} from './stock/stock-dialog/stock-dialog.component';
+import {MatInputModule} from "@angular/material/input";
+import {MatFormFieldModule} from "@angular/material/form-field";
 
 const routes = [
   {path: '', component: AppComponent},
@@ -113,7 +115,7 @@ const routes = [
     ConfigAlgoComponent,
     CategoryListComponent,
     NewsAllComponent,
-    StockDialogComponent
+    StockDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -125,7 +127,8 @@ const routes = [
     RouterModule.forRoot(routes),
     MomentModule,
     FlexLayoutModule,
-
+    MatInputModule,
+    MatFormFieldModule
   ],
   providers: [EventService, AuthGuard, AuthService, CookieService],
   bootstrap: [AppComponent],
