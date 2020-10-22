@@ -1,6 +1,8 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {CommentRepo} from "../../../repo/repo/CommentRepo";
 import {MAT_DIALOG_DATA} from "@angular/material";
+import * as moment from "moment";
+import {MatDialog} from "@angular/material/dialog";
 
 //import {Comment} from "../../../repo/model/Comment";
 
@@ -22,9 +24,11 @@ export class CommentEditComponent implements OnInit {
     isReject: false
   }
 
+  dialog: MatDialog
 
   constructor(@Inject(MAT_DIALOG_DATA) data, private commentRepo: CommentRepo) {
     this.comment.code = data.code
+    this.dialog = data.dialog
   }
 
   ngOnInit() {
@@ -33,10 +37,12 @@ export class CommentEditComponent implements OnInit {
   submitLogin() {
     this.comment.userid = 'rowanf'
     console.log(this.comment);
+    this.comment.date = moment().format('YYYY-MM-DD');
     this.commentRepo.saveComment(this.comment).subscribe(value => {
       console.log('success  ' + value);
     }, error1 => {
       console.log('errrr   ' + error1);
     })
+    this.dialog.closeAll()
   }
 }
