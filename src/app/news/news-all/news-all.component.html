@@ -50,6 +50,11 @@
     <td mat-cell *matCellDef="let element">
       <a href="https://hotcopper.com.au/asx/{{element.codex}}/announcements/"
          target="_blank">       {{element.code}}</a>
+      <button mat-button (click)="openstockadd(element.code)">
+        <mat-icon>waves</mat-icon>
+        add
+      </button>
+
     </td>
   </ng-container>
 

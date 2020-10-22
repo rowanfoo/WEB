@@ -6,6 +6,7 @@ import {NewsDataSourceDataSource} from "./NewsDataSource";
 import {tap} from "rxjs/internal/operators/tap";
 import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import {StockDialogComponent} from "../../stock/stock-dialog/stock-dialog.component";
+import {CommentEditComponent} from "../../comment/comment-edit/comment-edit.component";
 
 @Component({
   selector: 'app-news-all',
@@ -71,5 +72,18 @@ export class NewsAllComponent implements OnInit {
     }
     this.dialog.open(StockDialogComponent, a)
   }
+
+  openstockadd(code: string) {
+    console.log('-----------openstockadd------------------' + code)
+    let a = new MatDialogConfig()
+    a.autoFocus = true
+    a.width = "60%"
+    a.data = {
+      code: code,
+      dialog: this.dialog
+    }
+    this.dialog.open(CommentEditComponent, a)
+  }
+
 
 }
