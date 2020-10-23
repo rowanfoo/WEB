@@ -55,6 +55,7 @@ const routes = [
       {path: 'multichart/:code', component: ChartStockComponent},
       // {path: 'homepage', component: AlgoComponent},
       {path: 'news', component: NewsAllComponent},
+      {path: 'newsall', component: NewsAllComponent},
     ]
 
 

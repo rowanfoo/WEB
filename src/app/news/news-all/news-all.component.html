@@ -68,7 +68,7 @@
   <ng-container matColumnDef="category">
     <th mat-header-cell *matHeaderCellDef> category</th>
     <!--    <td mat-cell *matCellDef="let element"> {{  if(element.category !== undefined) element.category}} </td>-->
-    <td mat-cell *matCellDef="let element"> {{element.category}} </td>
+    <td mat-cell *matCellDef="let element"> {{element.category}} /   {{element.subcategory}}</td>
   </ng-container>
 
   <!-- Name Column -->
@@ -77,14 +77,14 @@
 
     <mat-cell *matCellDef="let element">
       <!--      <td *ngIf="element.subcategory"><a href="">  {{element.subcategory}} </a></td>-->
-      <td *ngIf="element.subcategory"> {{element.subcategory}}<br>
+      <td> {{element.tags}}<br>
         <button mat-button (click)="openstockedit(element.code)">
           <mat-icon>waves</mat-icon>
           edit
         </button>
       </td>
 
-      <td *ngIf="element.subcategory !==undefined"></td>
+      <td *ngIf="element.category ===undefined"> ****</td>
     </mat-cell>
 
   </ng-container>
@@ -92,5 +92,4 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
-<mat-paginator [pageSizeOptions]="[25, 35, 50]" [pageSize]="35"
-               (page)="onAllUserPaginateChange($event)"></mat-paginator>
+<mat-paginator [pageSizeOptions]="[25, 35, 50]" [pageSize]="35"></mat-paginator>
