@@ -41,6 +41,7 @@ import {FlexLayoutModule} from "@angular/flex-layout";
 import {StockDialogComponent} from './stock/stock-dialog/stock-dialog.component';
 import {MatInputModule} from "@angular/material/input";
 import {MatFormFieldModule} from "@angular/material/form-field";
+import { CommentAllComponent } from './comment/comment-all/comment-all.component';
 
 const routes = [
   {path: '', component: AppComponent},
@@ -117,6 +118,7 @@ const routes = [
     CategoryListComponent,
     NewsAllComponent,
     StockDialogComponent,
+    CommentAllComponent,
   ],
   imports: [
     BrowserModule,
