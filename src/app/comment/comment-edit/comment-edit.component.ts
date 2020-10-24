@@ -25,13 +25,22 @@ export class CommentEditComponent implements OnInit {
   }
 
   dialog: MatDialog
+  id: string
 
   constructor(@Inject(MAT_DIALOG_DATA) data, private commentRepo: CommentRepo) {
     this.comment.code = data.code
     this.dialog = data.dialog
+    this.id = data.id
   }
 
   ngOnInit() {
+    if (this.id != null) {
+      this.commentRepo.getid(this.id).subscribe(value => {
+        this.comment = value
+      })
+    }
+
+
   }
 
   submitLogin() {
