@@ -13,6 +13,15 @@ export class CommentRepo {
   }
 
 
+  getid(id: string): Observable<Comments> {
+    let commenturl = Config.commenturl + '/' + id;
+    console.log('---RUN-   getid-----1--' + commenturl);
+    return this.http.get<Comments>(commenturl).pipe(tap(x => {
+      console.log(x)
+    }));
+  }
+
+
   getAllIdeasbyUserid(userid: string): Observable<Comments[]> {
     let commenturl = Config.commenturl + '/idea/' + userid;
     console.log('---RUN-   getAllIdeasbyUserid-----1--' + commenturl);
