@@ -1,0 +1,7 @@
+<mat-select placeholder="Select your category" (selectionChange)="onSelection($event)">
+  <mat-option *ngFor=" let food of option" [value]="food">
+    {{food}}
+  </mat-option>
+</mat-select>
+
+

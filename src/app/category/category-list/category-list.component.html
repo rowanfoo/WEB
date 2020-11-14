@@ -1,12 +1,6 @@
 <div class="p-2" layout="row">
-
+  <app-displaychart [codes]="codes"></app-displaychart>
   <form (ngSubmit)="onSumbit()">
-    <!--        <input list="browsers" name="browser">-->
-    <!--    <md-select placeholder="Select your category" (change)="updateMode() "-->
-    <!--               style="width:350px;">-->
-    <!--      <md-option *ngFor="let item of category">{{item}}</md-option>-->
-    <!--    </md-select>-->
-    <h1>hello12</h1>
     <mat-select placeholder="Select your category" (selectionChange)="onSelection($event)">
       <mat-option *ngFor=" let food of category" [value]="food">
         {{food}}
@@ -14,17 +8,60 @@
     </mat-select>
 
 
-    <input list="browsers" name="browser">
-    <datalist id="browsers">
-      <option *ngFor="let datas of tags" value="{{datas}}">
-    </datalist>
+    <app-subcategory-autocomplete
+      (myeventsubcategorydata)="listensubcategoryevent($event)"></app-subcategory-autocomplete>
 
+    <app-tags-autocomplete (myeventtagsdata)="listentagsyevent($event)"></app-tags-autocomplete>
 
-    <!--    <input ng-model="selecttags" list="browsers" name="browser">-->
-    <!--    <datalist id="browsers">-->
-    <!--      <option ng-repeat="datas in  tags" value="{{datas}}">-->
-    <!--    </datalist>-->
 
     <input type="submit">
   </form>
 </div>
+
+
+<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+
+  <thead>
+  <tr>
+    <th>code</th>
+    <th>name</th>
+    <th>marketcap</th>
+    <th>category</th>
+    <th>subcategory</th>
+    <th>tags</th>
+    <th>change</th>
+    <th>week</th>
+    <th>month</th>
+    <th>3month</th>
+    <th>50d</th>
+    <th>yearlowprice</th>
+    <th>yearhighprice</th>
+    <th>yearchange</th>
+
+  </tr>
+  </thead>
+
+  <tbody>
+  <tr *ngFor="let datas of  data">
+
+    <td> {{datas.code}}</td>
+    <td> {{datas.name}}</td>
+    <td> {{datas.marketcap | number:'1.0':'en-US' }}</td>
+    <td> {{datas.category}}</td>
+    <td> {{datas.subcategory}}</td>
+    <td> {{datas.tags}}</td>
+    <td> {{datas.change}}</td>
+    <td> {{datas.weeky}}</td>
+    <td> {{datas.month}}</td>
+    <td> {{datas.month3}}</td>
+    <td> {{datas.mapercentage50}}</td>
+    <td> {{datas.yearhighprice}}</td>
+    <td> {{datas.yearlowprice}}</td>
+    <td> {{ ((datas.yearhighprice - datas.yearlowprice) / datas.yearlowprice)   | number : '1.1-1' }}</td>
+
+  </tr>
+  </tbody>
+</table>
+
+
+

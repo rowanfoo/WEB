@@ -1,0 +1,40 @@
+<!--<mat-select placeholder="Select your sub category" (selectionChange)="onSelection($event)">-->
+<!--  <mat-option *ngFor=" let food of option" [value]="food">-->
+<!--    {{food}}-->
+<!--  </mat-option>-->
+<!--</mat-select>-->
+
+
+<div class="col-md-6 col-md-offset-3">
+  <form name="form" novalidate #form="ngForm" name="form">
+
+    <mat-form-field>
+      <input matInput type="text" [matAutocomplete]="auto" placeholder="Select your tag" [formControl]="mycontrol"/>
+      <mat-autocomplete #auto='matAutocomplete'>
+        <mat-option *ngFor=" let food of filterOption | async
+      " [value]="food" (onSelectionChange)="onSelection(food)">
+          {{food}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+
+
+  </form>
+</div>
+
+
+<!--<div class="col-md-6 col-md-offset-3">-->
+<!--  <form name="form" (ngSubmit)="submitLogin()" novalidate #form="ngForm" name="form">-->
+
+
+<!--    <mat-form-field>-->
+<!--      <input matInput type="text" [matAutocomplete]="auto" [formControl]="mycontrol"/>-->
+<!--      <mat-autocomplete #auto='matAutocomplete'>-->
+<!--        <mat-option *ngFor="let data of filterOption | async" [value]="data">-->
+<!--          {{data}}-->
+<!--        </mat-option>-->
+<!--      </mat-autocomplete>-->
+<!--    </mat-form-field>-->
+
+<!--  </form>-->
+<!--</div>-->
