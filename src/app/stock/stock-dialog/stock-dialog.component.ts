@@ -29,7 +29,6 @@ export class StockDialogComponent implements OnInit {
     this.coreStockRepo.getTags().subscribe(value => {
       this.option = value
       console.log(value)
-
     })
 
   }
@@ -39,7 +38,6 @@ export class StockDialogComponent implements OnInit {
     this.coreStockRepo.getCode(this.code).subscribe(value => {
       this.stock = value
       console.log(value)
-
     })
 
 
@@ -76,9 +74,7 @@ export class StockDialogComponent implements OnInit {
         console.log('success----' + error);
       }
     )
-
   }
-
 
 }
 
