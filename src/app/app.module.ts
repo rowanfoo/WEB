@@ -42,6 +42,9 @@ import {StockDialogComponent} from './stock/stock-dialog/stock-dialog.component'
 import {MatInputModule} from "@angular/material/input";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import { CommentAllComponent } from './comment/comment-all/comment-all.component';
+import { CategoryAutocompleteComponent } from './common/category/category-autocomplete/category-autocomplete.component';
+import { SubcategoryAutocompleteComponent } from './common/category/subcategory-autocomplete/subcategory-autocomplete.component';
+import { TagsAutocompleteComponent } from './common/category/tags-autocomplete/tags-autocomplete.component';
 
 const routes = [
   {path: '', component: AppComponent},
@@ -119,6 +122,9 @@ const routes = [
     NewsAllComponent,
     StockDialogComponent,
     CommentAllComponent,
+    CategoryAutocompleteComponent,
+    SubcategoryAutocompleteComponent,
+    TagsAutocompleteComponent,
   ],
   imports: [
     BrowserModule,
