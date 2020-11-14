@@ -67,5 +67,34 @@ export class CategoryRepo {
 
   }
 
+  getTags(): Observable<String[]> {
+    var url = Config.categoryurl + '/tags';
+//    console.log('--- getTags-----1--' + url);
+    return this.http.get<String[]>(url);
+  }
+
+  getSubcategory(): Observable<String[]> {
+    var url = Config.categoryurl + '/subcategory';
+  //  console.log('--- getSubcategory-----1--' + url);
+    return this.http.get<String[]>(url);
+  }
+
+// will return json
+  getCategoryStock(mode: string, name: string) {
+    var categoryurl = Config.categoryurl + '/stocks/' + mode + '/' + name;
+    //console.log('---RUN-   getCategoryStock-----1--' + categoryurl);
+    return this.http.get<string[]>(categoryurl).pipe(
+      tap(value => {
+      //  console.log(value)
+        return value
+      })
+    )
+
+  }
+
+
+// @GetMapping("/category/stocks/{mode}/{category}")
+
+
 }
 
