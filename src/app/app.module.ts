@@ -45,6 +45,8 @@ import {CommentAllComponent} from './comment/comment-all/comment-all.component';
 import {CategoryAutocompleteComponent} from './common/category/category-autocomplete/category-autocomplete.component';
 import {SubcategoryAutocompleteComponent} from './common/category/subcategory-autocomplete/subcategory-autocomplete.component';
 import {TagsAutocompleteComponent} from './common/category/tags-autocomplete/tags-autocomplete.component';
+import {BigchartmagComponent} from "./bigchart/bigchartmag/bigchartmag.component";
+import {BigchartviewComponent} from './bigchart/bigchartview/bigchartview.component';
 
 const routes = [
   {path: '', component: AppComponent},
@@ -60,6 +62,8 @@ const routes = [
       // {path: 'homepage', component: AlgoComponent},
       {path: 'news', component: NewsAllComponent},
       {path: 'newsall', component: NewsAllComponent},
+      {path: 'bigchartmag', component: BigchartmagComponent},
+      {path: 'bigchart/:code/:year', component: BigchartviewComponent},
     ]
 
 
@@ -131,6 +135,8 @@ const routes = [
     CategoryAutocompleteComponent,
     SubcategoryAutocompleteComponent,
     TagsAutocompleteComponent,
+    BigchartmagComponent,
+    BigchartviewComponent,
   ],
   imports: [
     BrowserModule,

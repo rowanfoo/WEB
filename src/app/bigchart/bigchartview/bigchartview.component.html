@@ -1,0 +1,22 @@
+<p>
+  bigchartview works!
+</p>
+<button class="btn btn-primary" (click)="goClick()"> {{buttontext}}</button>
+&nbsp;&nbsp;
+<button class="btn btn-primary" (click)="goClick2()"> {{buttontext2}}</button>
+
+<div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="1px grid" width="100%">
+  <div *ngFor="let imgof of bigcharts" fxFlex style="margin: 1px;">
+
+    <h3>Year : {{imgof.year}} </h3>
+    <!--    <img  alt="Embedded Image" width="700" src="{{imgof.imagedata}}">-->
+    <!--    <img alt="Embedded Image" src="{{imgof.imagedata}}">-->
+    <!--    <img alt="Embedded Image" [width]="width" src="{{imgof.imagedata}}">-->
+    <!--    <img alt="Embedded Image" [style]="width" src="{{imgof.imagedata}}">-->
+    <img alt="Embedded Image" [ngStyle]="{'width':width}" src="{{imgof.imagedata}}">
+
+  </div>
+
+</div>
+
+<!--//<img style='height: 100%; width: 100%; object-fit: contain'/>-->

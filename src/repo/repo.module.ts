@@ -13,6 +13,7 @@ import {NewsRepo} from "./repo/NewsRepo";
 import {CategoryRepo} from "./repo/CategoryRepo";
 import {UserConfigRepo} from "./repo/UserConfigRepo";
 import {CoreStockRepo} from "./repo/CoreStockRepo";
+import {BigChartRepo} from "./repo/BigChartRepo";
 
 @NgModule({
   declarations: [],
@@ -21,7 +22,7 @@ import {CoreStockRepo} from "./repo/CoreStockRepo";
     CommonModule
   ],
   exports: [],
-  providers: [CoreStockRepo, CoreDataRepo, UserRepo, AlgoRepo, WishlistCategoyRepo, WishListRepo, WishlistSummaryRepo, CommentRepo, FundamentalRepo, NewsRepo, CategoryRepo, UserConfigRepo],
+  providers: [CoreStockRepo, CoreDataRepo, UserRepo, AlgoRepo, WishlistCategoyRepo, WishListRepo, WishlistSummaryRepo, CommentRepo, FundamentalRepo, NewsRepo, CategoryRepo, UserConfigRepo, BigChartRepo],
 
 })
 export class RepoModule {
