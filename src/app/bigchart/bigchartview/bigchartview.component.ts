@@ -25,6 +25,7 @@ export class BigchartviewComponent implements OnInit {
   year: number
   buttontext: string
   buttontext2: string
+  load = true;
 
   ngOnInit() {
     console.log('------------------BigchartviewComponent------------------------');
@@ -35,6 +36,7 @@ export class BigchartviewComponent implements OnInit {
     this.bigChartRepo.getimages(code, year).subscribe(value => {
       console.log(value);
       this.bigcharts = value
+      this.load = false;
     })
 
 
@@ -63,16 +65,18 @@ export class BigchartviewComponent implements OnInit {
 
 
   goClick2() {
-
+    this.load = true;
     if (this.count1 == 0) {
       this.bigChartRepo.getimagesrandomTwoyear(this.code).subscribe(value => {
         console.log(value);
+        this.load = false;
         this.bigcharts = value
       })
       this.count1++
       this.buttontext2 = 'chart'
     } else {
       this.bigChartRepo.getimages(this.code, this.year).subscribe(value => {
+        this.load = false;
         console.log(value);
         this.bigcharts = value
       })
