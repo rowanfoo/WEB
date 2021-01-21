@@ -47,6 +47,7 @@ import {SubcategoryAutocompleteComponent} from './common/category/subcategory-au
 import {TagsAutocompleteComponent} from './common/category/tags-autocomplete/tags-autocomplete.component';
 import {BigchartmagComponent} from "./bigchart/bigchartmag/bigchartmag.component";
 import {BigchartviewComponent} from './bigchart/bigchartview/bigchartview.component';
+import {SpinLoadIconComponent} from './share/spin-load-icon/spin-load-icon.component';
 
 const routes = [
   {path: '', component: AppComponent},
@@ -137,6 +138,7 @@ const routes = [
     TagsAutocompleteComponent,
     BigchartmagComponent,
     BigchartviewComponent,
+    SpinLoadIconComponent,
   ],
   imports: [
     BrowserModule,
