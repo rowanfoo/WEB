@@ -49,6 +49,18 @@ export class BigChartRepo {
 
   }
 
+  getcompareimages(bigchart: BigChart): Observable<BigChart[]> {
+    console.log('---------getcompareimages-------');
+    let url = Config.bigcharturl + 'getcompareimages?code=' + bigchart.code + '&year=' + bigchart.year + '&mode=' + bigchart.mode + '&ma=' + bigchart.ma
+    console.log('---------getcompareimages-------' + url);
+    return this.http.get<BigChart[]>(url).pipe(
+      map(value => {
+        console.log(value)
+        return value
+      })
+    )
+
+  }
 
 
 }

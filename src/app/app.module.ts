@@ -48,6 +48,7 @@ import {TagsAutocompleteComponent} from './common/category/tags-autocomplete/tag
 import {BigchartmagComponent} from "./bigchart/bigchartmag/bigchartmag.component";
 import {BigchartviewComponent} from './bigchart/bigchartview/bigchartview.component';
 import {SpinLoadIconComponent} from './share/spin-load-icon/spin-load-icon.component';
+import {BigchartcompareComponent} from './bigchart/bigchartcompare/bigchartcompare.component';
 
 const routes = [
   {path: '', component: AppComponent},
@@ -65,6 +66,7 @@ const routes = [
       {path: 'newsall', component: NewsAllComponent},
       {path: 'bigchartmag', component: BigchartmagComponent},
       {path: 'bigchart/:code/:year', component: BigchartviewComponent},
+      {path: 'bigchartcompare/:code/:year/:mode/:ma', component: BigchartcompareComponent},
     ]
 
 
@@ -139,6 +141,7 @@ const routes = [
     BigchartmagComponent,
     BigchartviewComponent,
     SpinLoadIconComponent,
+    BigchartcompareComponent,
   ],
   imports: [
     BrowserModule,
