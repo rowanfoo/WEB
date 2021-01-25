@@ -53,6 +53,7 @@ import {BigchartcompareComponent} from './bigchart/bigchartcompare/bigchartcompa
 const routes = [
   {path: '', component: AppComponent},
   {
+    //AuthGuard --- check whether user login if not pass to login page
     path: 'algo', component: AlgoComponent, canActivate: [AuthGuard], children: [
       {path: 'datatable/:type/:value', component: AlgodatatableComponent},
       {path: 'chart/:code', component: ChartComponent},

@@ -30,14 +30,18 @@ export class AppComponent implements OnInit {
     // );
 
 
-    this.user.loaduser('rowan').subscribe(
-      (data) => {
-        console.log(data);
-        sessionStorage.setItem("user", JSON.stringify(data))
-        //  sessionStorage.setItem("useralgo", JSON.stringify(data.algo))
-      }
-    )
+    //!!IF LOGIN SYSTEM FAIL >>>
 
+    // console.log("------LOAD USER------")
+    // this.user.loaduser('rowan').subscribe(
+    //   (data) => {
+    //     console.log("------USER------")
+    //     console.log(data);
+    //     sessionStorage.setItem("user", JSON.stringify(data))
+    //     //  sessionStorage.setItem("useralgo", JSON.stringify(data.algo))
+    //   }
+    // )
+    //
 
     // this.algo.getData('rsi', '30<14')
     //   .subscribe(

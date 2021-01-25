@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {UserRepo} from "../../repo/repo/UserRepo";
 import {Router} from "@angular/router";
 
@@ -7,7 +7,7 @@ import {Router} from "@angular/router";
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, AfterViewInit {
   username: string
   password: string
   // username = ''
@@ -16,14 +16,24 @@ export class LoginComponent implements OnInit {
 
   // constructor(public username: string, public password: string) {
   // }
-  @ViewChild('myname') input;
+  // @ViewChild('myname', {static: false}) input: ElementRef;
+  @ViewChild('myname') input: ElementRef;
 
   constructor(private user: UserRepo, private router: Router) {
   }
 
   ngOnInit() {
     // this.input.nativeElement.value = ' IS THIS WORKING '
-    this.input.nativeElement.innerText = ''
+    console.log('-------------LOGIN----------');
+    // console.log(this.input);
+    //
+    // this.input.nativeElement.innerText = ''
+  }
+
+  ngAfterViewInit() {
+    console.log('-------------AFTER INIT----------');
+    console.log(this.input);
+
   }
 
   submitLogin() {
@@ -36,6 +46,7 @@ export class LoginComponent implements OnInit {
         sessionStorage.setItem("user", JSON.stringify(data))
         this.input.nativeElement.innerText = "SUCCESS LOGIN"
 
+//        this.input.nativeElement.innerText = "SUCCESS LOGIN"
         this.router.navigate(['/algo']);
 
       },
