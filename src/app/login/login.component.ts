@@ -55,7 +55,9 @@ export class LoginComponent implements OnInit, AfterViewInit {
         console.log(err.message);
         console.log(err.toString());
 
-        this.input.nativeElement.innerText = err.message
+//        this.input.nativeElement.innerText = err.message
+        this.input.nativeElement.innerText = "error login  - please try again"
+
 
       }
     )
