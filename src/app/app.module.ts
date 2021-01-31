@@ -75,7 +75,7 @@ const routes = [
 
 
   {
-    path: 'wishlist', component: WishlistMainComponent, children: [
+    path: 'wishlist', component: WishlistMainComponent, canActivate: [AuthGuard], children: [
       {path: 'wishlistdetail/:code', component: WishlistdetailComponent},
       {path: 'wishlistedit', component: WishlisteditComponent},
       {path: 'wishlistsummary', component: WishlistsummaryComponent},
