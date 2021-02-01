@@ -21,19 +21,25 @@ export class Config {
   // static userurl = 'http://192.168.0.10:10300/';
 //  static commenturl = 'http://localhost:8080/comment'
 //  static categoryurl = 'http://localhost:8080/category';
-  // static bigcharturl = 'http://localhost' + ':8025/';
+  static bigcharturl = 'http://localhost' + ':8025/';
 
 
-  static algoturl = Config.rooturl + ':10100/';
-  static wishurl = Config.rooturl + ':10100/';
+  // static algoturl = Config.rooturl + ':10100/';
+  // static wishurl = Config.rooturl + ':10100/';
+  static algoturl = Config.rooturl + ':30100/';
+  static wishurl = Config.rooturl + ':30100/';
 
-  static userurl = Config.rooturl + ':10300/';
+
+  // static userurl = Config.rooturl + ':10300/';
+  static userurl = Config.rooturl + ':30300/';
+
   static oauthurl = Config.rooturl + ':10200/';
   static configurl = Config.rooturl + ':10500/config/';
   static commenturl = Config.rooturl + ':10100/comment';
   static categoryurl = Config.rooturl + ':10100/category';
   static fundamentalurl = Config.rooturl + ':10100/fundamental';
   static newsurl = Config.rooturl + ':10900/news';
-  static bigcharturl = Config.rooturl + ':10600/';
+
+  // static bigcharturl = Config.rooturl + ':10600/';
 }
 
