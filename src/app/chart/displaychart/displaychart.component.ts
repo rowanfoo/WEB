@@ -20,12 +20,12 @@ export class DisplaychartComponent implements OnInit {
     this.route.navigate(["algo/minichart/" + this.codes]);
   }
 
-
+// try BIGCHART Viewer
   intervalstk() {
     console.log(' --------DisplaychartComponent--intervalstk---------------')
 
-    this.route.navigate(["algo/intervalchart/" + this.codes]);
-
+    // this.route.navigate(["algo/intervalchart/" + this.codes]);
+    this.route.navigate(["algo/bigchartinterval/" + this.codes]);
   }
 
 

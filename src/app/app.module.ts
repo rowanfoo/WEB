@@ -49,6 +49,7 @@ import {BigchartmagComponent} from "./bigchart/bigchartmag/bigchartmag.component
 import {BigchartviewComponent} from './bigchart/bigchartview/bigchartview.component';
 import {SpinLoadIconComponent} from './share/spin-load-icon/spin-load-icon.component';
 import {BigchartcompareComponent} from './bigchart/bigchartcompare/bigchartcompare.component';
+import {BigchartintervalComponent} from './bigchart/bigchartinterval/bigchartinterval.component';
 
 const routes = [
   {path: '', component: AppComponent},
@@ -68,6 +69,7 @@ const routes = [
       {path: 'bigchartmag', component: BigchartmagComponent},
       {path: 'bigchart/:code/:year', component: BigchartviewComponent},
       {path: 'bigchartcompare/:code/:year/:mode/:ma', component: BigchartcompareComponent},
+      {path: 'bigchartinterval/:codes', component: BigchartintervalComponent},
     ]
 
 
@@ -143,6 +145,7 @@ const routes = [
     BigchartviewComponent,
     SpinLoadIconComponent,
     BigchartcompareComponent,
+    BigchartintervalComponent,
   ],
   imports: [
     BrowserModule,

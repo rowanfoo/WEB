@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit} from '@angular/core';
+import {Component, ElementRef, Input, OnInit, SimpleChanges} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {BigChart} from "../../../repo/model/BigChart";
 import {BigChartRepo} from "../../../repo/repo/BigChartRepo";
@@ -17,6 +17,11 @@ export class BigchartviewComponent implements OnInit {
   constructor(private bigChartRepo: BigChartRepo, private  route: ActivatedRoute, public ele: ElementRef) {
   }
 
+// this is to trigger a refresh in the component when we change the property codes in the component
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes.codes.currentValue)
+  }
+
   bigcharts: BigChart[]
   code: string
   width: string
@@ -26,6 +31,7 @@ export class BigchartviewComponent implements OnInit {
   buttontext: string
   buttontext2: string
   load = true;
+  @Input() codes: string;
 
   ngOnInit() {
     console.log('------------------BigchartviewComponent------------------------');
@@ -33,6 +39,11 @@ export class BigchartviewComponent implements OnInit {
     let year = this.route.snapshot.params['year'];
     this.code = code
     this.year = year
+    if (this.code == null) {
+      code = this.codes
+      year = 1
+    }
+
     this.bigChartRepo.getimages(code, year).subscribe(value => {
       console.log(value);
       this.bigcharts = value
