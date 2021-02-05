@@ -1,7 +1,7 @@
 <div>
   <form class="example-form" name="inputform" ng-submit="submitLogin()">
     <mat-form-field class="example-full-width" [style.width.px]=327>
-      <input matInput placeholder="BHP,RIO" [(ngModel)]="bigcharts.code" name="code">
+      <input matInput [(ngModel)]="bigcharts.code" name="code">
     </mat-form-field>
     ||
     <label>Year</label>
@@ -28,6 +28,14 @@
       color="primary"
       (click)="submitLogin()">Post
     </button>
+    &nbsp;&nbsp;
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="resize()">resize
+    </button>
+
+
   </form>
 </div>
 <div *ngIf="load">
@@ -37,7 +45,9 @@
 <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="1px grid" width="100%">
   <div *ngFor="let imgof of bigchartcompare">
     <h4>{{imgof.code | uppercase}} || Year : {{imgof.year}} </h4>
-    <img alt="Embedded Image" [ngStyle]="{'width':width}" src="{{imgof.imagedata}}">
-
+    <!--    <img alt="Embedded Image" [ngStyle]="{'width':width}" src="{{imgof.imagedata}}">-->
+    <img alt="Embedded Image" [ngStyle]="{'width.px':width}" src="{{imgof.imagedata}}">
+    <!--    <img alt="Embedded Image" width="200" src="{{imgof.imagedata}}">-->
+    <!--    <img alt="Embedded Image" width="{{width}}" src="{{imgof.imagedata}}">-->
   </div>
 </div>

@@ -15,15 +15,19 @@ export class DisplaychartComponent implements OnInit {
   ngOnInit() {
   }
 
+// try BIGCHART Viewer
   list() {
     console.log(' --------DisplaychartComponent--list---------------')
-    this.route.navigate(["algo/minichart/" + this.codes]);
+    console.log(this.codes)
+
+    //   this.route.navigate(["algo/minichart/" + this.codes]);
+//    bigchartcompare/:code/:year/:mode/:ma', component: BigchartcompareComponent},
+    this.route.navigate(["algo/bigchartcompare/" + this.codes + '/1/daily/50']);
   }
 
 // try BIGCHART Viewer
   intervalstk() {
     console.log(' --------DisplaychartComponent--intervalstk---------------')
-
     // this.route.navigate(["algo/intervalchart/" + this.codes]);
     this.route.navigate(["algo/bigchartinterval/" + this.codes]);
   }
