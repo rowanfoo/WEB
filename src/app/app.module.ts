@@ -51,6 +51,7 @@ import {SpinLoadIconComponent} from './share/spin-load-icon/spin-load-icon.compo
 import {BigchartcompareComponent} from './bigchart/bigchartcompare/bigchartcompare.component';
 import {BigchartintervalComponent} from './bigchart/bigchartinterval/bigchartinterval.component';
 import {TrackermainComponent} from './tracker/trackermain/trackermain.component';
+import { TrackerchartlistComponent } from './tracker/trackerchartlist/trackerchartlist.component';
 
 const routes = [
   {path: '', component: AppComponent},
@@ -155,6 +156,7 @@ const routes = [
     BigchartcompareComponent,
     BigchartintervalComponent,
     TrackermainComponent,
+    TrackerchartlistComponent,
   ],
   imports: [
     BrowserModule,
