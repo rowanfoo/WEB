@@ -5,6 +5,8 @@ import {CommentRepo} from "../../../repo/repo/CommentRepo";
 import {DataTableDirective} from "angular-datatables";
 import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import {CommentEditComponent} from "../comment-edit/comment-edit.component";
+import * as _ from 'underscore';
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-comment-all',
@@ -13,7 +15,7 @@ import {CommentEditComponent} from "../comment-edit/comment-edit.component";
 })
 export class CommentAllComponent implements OnInit, OnDestroy {
 
-  constructor(private dialog: MatDialog, private commentRepo: CommentRepo) {
+  constructor(private dialog: MatDialog, private commentRepo: CommentRepo, private  route: ActivatedRoute) {
   }
 
   @ViewChild(DataTableDirective)
@@ -22,13 +24,29 @@ export class CommentAllComponent implements OnInit, OnDestroy {
   dtOptions: DataTables.Settings = {};
   dtTrigger: Subject<any> = new Subject();
   data: Comments[]
+  edit = false
+  toggle = true
+  codesremove: string[] = []
+
 
   ngOnInit() {
-    this.commentRepo.getAllCommentsbyUserid('rowan').subscribe(value => {
+
+    console.log('-----CommentAllComponent----');
+    var period = this.route.snapshot.params['period']
+    console.log('-----CommentAllComponent----' + period);
+    if (period == null) {
+      period = 'LONG'
+    }
+
+    this.commentRepo.getAllCommentbyPeriod('rowan', period).subscribe(value => {
       this.data = value
       this.dtTrigger.next()
     })
 
+    // this.commentRepo.getAllCommentsbyUserid('rowan').subscribe(value => {
+    //   this.data = value
+    //   this.dtTrigger.next()
+    // })
 
     // We need to call the $.fn.dataTable like this because DataTables typings do not have the "ext" property
     $.fn['dataTable'].ext.search.push((settings, data, dataIndex) => {
@@ -96,6 +114,37 @@ export class CommentAllComponent implements OnInit, OnDestroy {
     this.datatableElement.dtInstance.then((dtInstance: DataTables.Api) => {
       dtInstance.draw();
     });
+  }
+
+
+  onCheckboxChange(e) {
+
+    if (e.target.checked) {
+      this.codesremove.push(e.target.value)
+
+    } else {
+      this.codesremove = _.without(this.codesremove, e.target.value);
+    }
+
+    console.log('-----------ALL VALL ------------------' + this.codesremove)
+  }
+
+  // deleteComment
+  submit() {
+    this.commentRepo.delete(this.codesremove.join(","))
+    this.ngOnInit()
+  }
+
+
+  editmode() {
+    if (this.toggle) {
+      this.edit = true
+      this.toggle = false
+    } else {
+      this.edit = false
+      this.toggle = true
+    }
+
   }
 
   // filterById(): void {

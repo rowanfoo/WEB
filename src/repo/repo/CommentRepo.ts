@@ -48,6 +48,14 @@ export class CommentRepo {
 
   }
 
+  getAllCommentbyPeriod(userid: string, period: string): Observable<Comments[]> {
+    let commenturl = Config.commenturl + '/userid/' + userid + '/period/' + period;
+    console.log('---RUN-   getAllCommentbyPeriod-----1--' + commenturl);
+    return this.http.get<Comments[]>(commenturl).pipe(tap(x => {
+      console.log(x)
+    }));
+
+  }
 
   getAllCommentbyCode(code: string): Observable<Comments[]> {
     let commenturl = Config.commenturl + '/code/' + code;
@@ -60,6 +68,18 @@ export class CommentRepo {
   saveComment(comment: Comments) {
     let commenturl = Config.commenturl;
     return this.http.put(commenturl, comment)
+  }
+
+
+  delete(codes: string) {
+    let commenturl = Config.commenturl;
+    console.log('---Deletee-----1--' + commenturl + '/' + codes);
+    this.http.delete(commenturl + '/' + codes).subscribe(value => {
+      console.log(value)
+    })
+    // var z = this.http.get(commenturl + '/' + codes)
+    //console.log(z)
+    //return z
   }
 
 

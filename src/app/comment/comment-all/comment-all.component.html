@@ -5,6 +5,7 @@
   <tr>
     <th>date</th>
     <th>code</th>
+    <th>comment</th>
     <th>reject</th>
     <th>text</th>
   </tr>
@@ -14,6 +15,7 @@
 
   <tbody>
   <tr *ngFor="let datas of  data">
+    <td *ngIf="edit"><input type="checkbox" [value]="datas.code" (change)="onCheckboxChange($event)"/></td>
     <td>{{datas.date}}</td>
     <td> {{datas.code }}
       <button mat-button (click)="opencommentdialog(datas.id)">
@@ -28,3 +30,19 @@
 
 
 </table>
+
+<button
+  mat-raised-button
+  color="primary"
+  (click)="editmode()">edit
+</button>
+&nbsp;&nbsp;
+<button
+  mat-raised-button
+  color="primary"
+  (click)="submit()">submit
+</button>
+
+<!--<div *ngIf="load">-->
+<!--  <app-spin-load-icon></app-spin-load-icon>-->
+<!--</div>-->
