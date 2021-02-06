@@ -50,6 +50,7 @@ import {BigchartviewComponent} from './bigchart/bigchartview/bigchartview.compon
 import {SpinLoadIconComponent} from './share/spin-load-icon/spin-load-icon.component';
 import {BigchartcompareComponent} from './bigchart/bigchartcompare/bigchartcompare.component';
 import {BigchartintervalComponent} from './bigchart/bigchartinterval/bigchartinterval.component';
+import {TrackermainComponent} from './tracker/trackermain/trackermain.component';
 
 const routes = [
   {path: '', component: AppComponent},
@@ -106,6 +107,13 @@ const routes = [
   // },
 
 
+  {
+    path: 'tracker', component: TrackermainComponent, children: [
+      {path: 'list/:period', component: CommentAllComponent},
+    ]
+  },
+
+
 ]
 
 
@@ -146,6 +154,7 @@ const routes = [
     SpinLoadIconComponent,
     BigchartcompareComponent,
     BigchartintervalComponent,
+    TrackermainComponent,
   ],
   imports: [
     BrowserModule,
