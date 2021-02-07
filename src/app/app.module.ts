@@ -52,6 +52,7 @@ import {BigchartcompareComponent} from './bigchart/bigchartcompare/bigchartcompa
 import {BigchartintervalComponent} from './bigchart/bigchartinterval/bigchartinterval.component';
 import {TrackermainComponent} from './tracker/trackermain/trackermain.component';
 import { TrackerchartlistComponent } from './tracker/trackerchartlist/trackerchartlist.component';
+import { PLAYComponent } from './play/play.component';
 
 const routes = [
   {path: '', component: AppComponent},
@@ -157,6 +158,7 @@ const routes = [
     BigchartintervalComponent,
     TrackermainComponent,
     TrackerchartlistComponent,
+    PLAYComponent,
   ],
   imports: [
     BrowserModule,
