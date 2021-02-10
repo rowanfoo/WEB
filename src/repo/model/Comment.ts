@@ -13,6 +13,8 @@
 // }
 
 
+import {ImageChart} from "./ImageChart";
+
 export interface Comments {
   id: string,
   userid: string,
@@ -22,4 +24,5 @@ export interface Comments {
   text: string,
   reject: string,
   isReject: boolean
+  image: ImageChart[];
 }

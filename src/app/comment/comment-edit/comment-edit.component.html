@@ -35,3 +35,6 @@
     </div>
   </form>
 </div>
+<button (click)="showChart()">show</button>
+
+<app-chartgui *ngIf="toshow" [code]="mycode"></app-chartgui>

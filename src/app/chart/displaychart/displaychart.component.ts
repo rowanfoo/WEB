@@ -20,9 +20,8 @@ export class DisplaychartComponent implements OnInit {
     console.log(' --------DisplaychartComponent--list---------------')
     console.log(this.codes)
 
-    //   this.route.navigate(["algo/minichart/" + this.codes]);
-//    bigchartcompare/:code/:year/:mode/:ma', component: BigchartcompareComponent},
-    this.route.navigate(["algo/bigchartcompare/" + this.codes + '/1/daily/50']);
+    this.route.navigate(["algo/minichart/" + this.codes]);
+    //   this.route.navigate(["algo/bigchartcompare/" + this.codes + '/1/daily/50']);
   }
 
 // try BIGCHART Viewer

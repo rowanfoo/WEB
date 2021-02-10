@@ -1,0 +1,21 @@
+<p>
+  chartgui works!
+</p>
+<highcharts-chart
+  style="width: 100%; display: block"
+  [Highcharts]="Highcharts"
+  [constructorType]="'stockChart'"
+  [options]="chartOptions"
+  [callbackFunction]="chartCallback"
+  #container
+>
+</highcharts-chart>
+
+
+<!--<button (click)="updateChart()">View SVG</button>-->
+<!--<img alt="Embedded Image" width="1600" src="{{imgof}}">-->
+
+
+<canvas #canvas width="1000px" height="600px"
+        style="display:none;"></canvas>
+

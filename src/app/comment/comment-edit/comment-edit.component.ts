@@ -5,6 +5,7 @@ import * as moment from "moment";
 import {MatDialog} from "@angular/material/dialog";
 
 //import {Comment} from "../../../repo/model/Comment";
+//import {ImageChart} from "./ImageChart";
 
 @Component({
   selector: 'app-comment-edit',
@@ -21,7 +22,8 @@ export class CommentEditComponent implements OnInit {
     date: '',
     type: 'equity',
     reject: '',
-    isReject: false
+    isReject: false,
+    image: null
   }
 
   dialog: MatDialog
@@ -31,9 +33,15 @@ export class CommentEditComponent implements OnInit {
     this.comment.code = data.code
     this.dialog = data.dialog
     this.id = data.id
+    this.mycode = data.code
+    console.log('======CommentEditComponent========' + this.comment.code)
   }
 
+  toshow = false
+  mycode
+
   ngOnInit() {
+    console.log('======CommentEditComponent===ngOnInit=====' + this.id)
     if (this.id != null) {
       this.commentRepo.getid(this.id).subscribe(value => {
         this.comment = value
@@ -41,6 +49,10 @@ export class CommentEditComponent implements OnInit {
     }
 
 
+  }
+
+  showChart() {
+    this.toshow = true
   }
 
   submitLogin() {

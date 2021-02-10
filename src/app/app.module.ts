@@ -51,8 +51,11 @@ import {SpinLoadIconComponent} from './share/spin-load-icon/spin-load-icon.compo
 import {BigchartcompareComponent} from './bigchart/bigchartcompare/bigchartcompare.component';
 import {BigchartintervalComponent} from './bigchart/bigchartinterval/bigchartinterval.component';
 import {TrackermainComponent} from './tracker/trackermain/trackermain.component';
-import { TrackerchartlistComponent } from './tracker/trackerchartlist/trackerchartlist.component';
-import { PLAYComponent } from './play/play.component';
+import {TrackerchartlistComponent} from './tracker/trackerchartlist/trackerchartlist.component';
+import {PLAYComponent} from './play/play.component';
+import {HighchartsChartModule} from "highcharts-angular";
+import {HighChartOption} from 'src/etc/HighChartOption';
+import { ChartguiComponent } from './chart/chartgui/chartgui.component';
 
 const routes = [
   {path: '', component: AppComponent},
@@ -159,6 +162,7 @@ const routes = [
     TrackermainComponent,
     TrackerchartlistComponent,
     PLAYComponent,
+    ChartguiComponent,
   ],
   imports: [
     BrowserModule,
@@ -171,9 +175,11 @@ const routes = [
     MomentModule,
     FlexLayoutModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    HighchartsChartModule
+
   ],
-  providers: [EventService, AuthGuard, AuthService, CookieService],
+  providers: [EventService, AuthGuard, AuthService, CookieService, HighChartOption],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   entryComponents: [CommentEditComponent, StockDialogComponent, ConfigAlgoComponent]
