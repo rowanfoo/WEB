@@ -1,8 +1,7 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {CommentRepo} from "../../../repo/repo/CommentRepo";
-import {MAT_DIALOG_DATA} from "@angular/material";
 import * as moment from "moment";
-import {MatDialog} from "@angular/material/dialog";
+import {MAT_DIALOG_DATA, MatDialog} from "@angular/material/dialog";
 
 //import {Comment} from "../../../repo/model/Comment";
 //import {ImageChart} from "./ImageChart";

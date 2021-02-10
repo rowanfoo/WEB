@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {MatDialog, MatDialogConfig} from "@angular/material";
 import {CommentEditComponent} from "../../comment/comment-edit/comment-edit.component";
 import {Router} from "@angular/router";
+import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-multi-icon',

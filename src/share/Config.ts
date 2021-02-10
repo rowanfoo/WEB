@@ -26,6 +26,7 @@ export class Config {
 
   static algoturl = Config.rooturl + ':10100/';
   static wishurl = Config.rooturl + ':10100/';
+  static imageurl = Config.rooturl + ':10100/imagechart';
 
   static userurl = Config.rooturl + ':10300/';
   static oauthurl = Config.rooturl + ':10200/';
