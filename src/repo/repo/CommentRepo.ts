@@ -65,9 +65,9 @@ export class CommentRepo {
     }));
   }
 
-  saveComment(comment: Comments) {
+  saveComment(comment: Comments): Observable<Comments> {
     let commenturl = Config.commenturl;
-    return this.http.put(commenturl, comment)
+    return this.http.put<Comments>(commenturl, comment)
   }
 
 
