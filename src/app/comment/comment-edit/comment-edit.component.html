@@ -27,7 +27,7 @@
 
     <div class="form-group">
       <mat-label>reject:</mat-label>
-      <input type="checkbox" [(ngModel)]="comment.isReject">
+      <input type="checkbox" [(ngModel)]="comment.isReject" name="isReject">
     </div>
 
     <div class="form-group">
@@ -37,4 +37,5 @@
 </div>
 <button (click)="showChart()">show</button>
 
+<!--<app-chartgui [code]="mycode"></app-chartgui>-->
 <app-chartgui *ngIf="toshow" [code]="mycode"></app-chartgui>
