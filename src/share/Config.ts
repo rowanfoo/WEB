@@ -23,6 +23,8 @@ export class Config {
 //  static categoryurl = 'http://localhost:8080/category';
   // static bigcharturl = 'http://localhost' + ':8025/';
 
+//  static trackerurl = 'http://localhost:8080/tracker'
+  static trackerurl = Config.rooturl + ':10100/tracker';
 
   static algoturl = Config.rooturl + ':10100/';
   static wishurl = Config.rooturl + ':10100/';
@@ -32,6 +34,7 @@ export class Config {
   static oauthurl = Config.rooturl + ':10200/';
   static configurl = Config.rooturl + ':10500/config/';
   static commenturl = Config.rooturl + ':10100/comment';
+
   static categoryurl = Config.rooturl + ':10100/category';
   static fundamentalurl = Config.rooturl + ':10100/fundamental';
   static newsurl = Config.rooturl + ':10900/news';

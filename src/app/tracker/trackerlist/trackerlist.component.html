@@ -1,0 +1,41 @@
+<mat-label> Filter for reject:</mat-label><input type="checkbox" [(ngModel)]="isreject" (change)="FieldsChange($event)">
+
+<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+
+  <thead>
+  <tr>
+    <th>date</th>
+    <th>code</th>
+    <th>comment</th>
+    <th>reject</th>
+    <th>history</th>
+
+  </tr>
+
+  </thead>
+
+
+  <tbody>
+  <tr *ngFor="let datas of  data">
+    <td *ngIf="edit"><input type="checkbox" [value]="datas.code"/></td>
+    <td>{{datas.date}}</td>
+    <td> {{datas.code }}
+      <button mat-button (click)="opencommentdialog(datas.id)">
+        <mat-icon>waves</mat-icon>
+        edit
+      </button>
+    </td>
+    <td> {{datas.text}}</td>
+    <td> {{datas.isReject }}</td>
+    <td>
+      <button class="btn btn-light" (click)="gotohistory(datas.code)"> history</button>
+    </td>
+
+  </tr>
+  </tbody>
+
+
+</table>
+
+<input type="text" placeholder="code" #mytextElem>
+<button class="btn btn-primary" (click)="removecode(mytextElem)"> remove code</button>

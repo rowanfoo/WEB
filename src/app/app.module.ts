@@ -1,6 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
-
 import {AppComponent} from './app.component';
 import {RepoModule} from "../repo/repo.module";
 import {LoginComponent} from './login/login.component';
@@ -55,7 +54,10 @@ import {TrackerchartlistComponent} from './tracker/trackerchartlist/trackerchart
 import {PLAYComponent} from './play/play.component';
 import {HighchartsChartModule} from "highcharts-angular";
 import {HighChartOption} from 'src/etc/HighChartOption';
-import { ChartguiComponent } from './chart/chartgui/chartgui.component';
+import {ChartguiComponent} from './chart/chartgui/chartgui.component';
+import {TrackerlistComponent} from './tracker/trackerlist/trackerlist.component';
+import {TrackercodeComponent} from './tracker/trackercode/trackercode.component';
+import {TrackercreateComponent} from './tracker/trackercreate/trackercreate.component';
 
 const routes = [
   {path: '', component: AppComponent},
@@ -114,10 +116,13 @@ const routes = [
 
   {
     path: 'tracker', component: TrackermainComponent, children: [
-      {path: 'list/:period', component: CommentAllComponent},
+      {path: 'list', component: TrackerlistComponent},
+      {path: 'code/:code', component: TrackercodeComponent},
+      {path: 'create', component: TrackercreateComponent},
+      {path: 'bigchartcompare/:code/:year/:mode/:ma', component: BigchartcompareComponent},
+      {path: 'chart', component: TrackerchartlistComponent},
     ]
   },
-
 
 ]
 
@@ -163,6 +168,9 @@ const routes = [
     TrackerchartlistComponent,
     PLAYComponent,
     ChartguiComponent,
+    TrackerlistComponent,
+    TrackercodeComponent,
+    TrackercreateComponent,
   ],
   imports: [
     BrowserModule,

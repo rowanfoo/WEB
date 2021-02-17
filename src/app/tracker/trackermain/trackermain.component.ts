@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-trackermain',
@@ -7,9 +8,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TrackermainComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: Router) {
+  }
+
 
   ngOnInit() {
   }
 
+  create() {
+    this.route.navigate(["tracker/create"]);
+  }
+
+  chart() {
+    this.route.navigate(["tracker/chart"]);
+  }
+
+  list() {
+    this.route.navigate(["tracker/list"]);
+
+  }
+
 }
+
+
+

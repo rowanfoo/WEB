@@ -7,6 +7,7 @@ import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import {CommentEditComponent} from "../comment-edit/comment-edit.component";
 import * as _ from 'underscore';
 import {ActivatedRoute} from "@angular/router";
+import {TrackerRepo} from "../../../repo/repo/TrackerRepo";
 
 @Component({
   selector: 'app-comment-all',
@@ -15,7 +16,7 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class CommentAllComponent implements OnInit, OnDestroy {
 
-  constructor(private dialog: MatDialog, private commentRepo: CommentRepo, private  route: ActivatedRoute) {
+  constructor(private dialog: MatDialog, private commentRepo: CommentRepo, private trackerRepo: TrackerRepo, private  route: ActivatedRoute) {
   }
 
   @ViewChild(DataTableDirective)
@@ -27,21 +28,29 @@ export class CommentAllComponent implements OnInit, OnDestroy {
   edit = false
   toggle = true
   codesremove: string[] = []
-
+  period: string
 
   ngOnInit() {
 
     console.log('-----CommentAllComponent----');
-    var period = this.route.snapshot.params['period']
-    console.log('-----CommentAllComponent----' + period);
-    if (period == null) {
-      period = 'LONG'
+    this.period = this.route.snapshot.params['period']
+    console.log('-----CommentAllComponent----' + this.period);
+    if (this.period == null) {
+      this.period = 'LONG'
     }
 
-    this.commentRepo.getAllCommentbyPeriod('rowan', period).subscribe(value => {
-      this.data = value
-      this.dtTrigger.next()
-    })
+
+    if (this.period == null) {
+      this.commentRepo.getAllCommentbyPeriod('rowan', this.period).subscribe(value => {
+        this.data = value
+        this.dtTrigger.next()
+      })
+    } else {
+      this.trackerRepo.gettracker('rowan').subscribe(value => {
+        this.data = value
+        this.dtTrigger.next()
+      })
+    }
 
     // this.commentRepo.getAllCommentsbyUserid('rowan').subscribe(value => {
     //   this.data = value
@@ -131,8 +140,20 @@ export class CommentAllComponent implements OnInit, OnDestroy {
 
   // deleteComment
   submit() {
-    this.commentRepo.delete(this.codesremove.join(","))
-    this.ngOnInit()
+    if (this.period == null) {
+      this.commentRepo.delete(this.codesremove.join(","))
+      this.ngOnInit()
+    } else {
+
+      // this.trackerRepo.deletecode('rowan',this.codesremove).subscribe(value => {
+      //   this.data = value
+      //   this.dtTrigger.next()
+      // })
+
+
+    }
+
+
   }
 
 

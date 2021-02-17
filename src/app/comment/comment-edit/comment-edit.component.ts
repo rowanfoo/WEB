@@ -23,19 +23,27 @@ export class CommentEditComponent implements OnInit {
     text: '',
     date: '',
     type: 'equity',
+    period: 'LONG',
     reject: '',
     isReject: false,
-    image: new Array(1)
+    imageCharts: new Array(1)
+    // image: []
   }
 
   dialog: MatDialog
   id: string
 
   constructor(@Inject(MAT_DIALOG_DATA) data, private commentRepo: CommentRepo) {
-    this.comment.code = data.code
+    this.comment.code = data.code.toUpperCase()
     this.dialog = data.dialog
     this.id = data.id
-    this.mycode = data.code
+    this.mycode = data.code.toUpperCase()
+    if (data.period != null) {
+      if (data.period == 'SHORT') {
+        this.comment.text = 'support:\n  resistance:\n   reason:\n '
+      }
+    }
+
     console.log('======CommentEditComponent========' + this.comment.code)
   }
 
@@ -60,42 +68,35 @@ export class CommentEditComponent implements OnInit {
   @ViewChild(ChartguiComponent) child: ChartguiComponent;
 
   submitLogin() {
-    this.comment.userid = 'rowanf'
+    this.comment.userid = 'rowan'
     console.log(this.comment);
     this.comment.date = moment().format('YYYY-MM-DD');
     if (this.toshow) {
-
-
-      // export interface ImageChart {
-      //   id: string,
-      //   date: string,
-      //   refid: string,
-      //   image: string,
-      // }
-      this.child.updateChart(this.saveimage);
-
+      //!!! tricky the callback function save,image
+      this.child.updateChart(this, this.saveimage);
     } else {
       this.save(this.comment)
     }
-
     this.dialog.closeAll()
   }
 
-  private saveimage(data) {
-    console.log('--saveimage----1--------')
-    console.log(data)
+  private saveimage(self, data) {
+    /!!! tricky the callback function save,image , if you use this.comment ... = error , this is equal to caller , caller here is ChartguiComponent not itself CommentEditComponent
+
     let abc = new ImageChart(null, moment().format('YYYY-MM-DD'), null, data)
-    console.log('--saveimage----2--------')
-    //  this.comment.image = new Array()
-    console.log('--saveimage----2.1--------' + this.comment.image.length)
-    this.comment.image[0] = abc
+    self.comment.imageCharts.push(abc)
+    self.save(self.comment)
+  }
 
-    //   this.comment.image.push(abc)
-    console.log('--saveimage----3--------')
+  temptext = ''
 
-    //  this.save(this.comment)
-    console.log('-saveimage---4----------')
-
+  private selectbox() {
+    if (this.comment.period === 'SHORT') {
+      this.temptext = this.comment.text
+      this.comment.text = 'support:\n  resistance:\n   reason:\n '
+    } else {
+      this.comment.text = this.temptext
+    }
   }
 
   private save(comment: Comments) {
