@@ -79,7 +79,7 @@ export class ChartguiComponent implements OnInit {
   }
 
 
-  updateChart(fn) {
+  updateChart(self, fn) {
     console.log('--------------updateChart------')
     var chart = this.chart;
     let svg = chart
@@ -102,7 +102,7 @@ export class ChartguiComponent implements OnInit {
       var img = this.canvas.nativeElement.toDataURL("image/png")
       // this.imgof = img
       // console.log(img)
-      fn(img)
+      fn(self, img)
     });
     console.log('--------------updateChart---DONE---')
   }
