@@ -21,8 +21,9 @@ export interface Comments {
   code: string,
   date: string,
   type: string, // idea , financial ,
+  period: string,
   text: string,
   reject: string,
-  isReject: boolean
-  image: ImageChart[];
+  isReject: boolean,
+  imageCharts: ImageChart[];
 }
