@@ -58,6 +58,7 @@ import {ChartguiComponent} from './chart/chartgui/chartgui.component';
 import {TrackerlistComponent} from './tracker/trackerlist/trackerlist.component';
 import {TrackercodeComponent} from './tracker/trackercode/trackercode.component';
 import {TrackercreateComponent} from './tracker/trackercreate/trackercreate.component';
+import {WishlistviewComponent} from './wishlist/wishlistview/wishlistview.component';
 
 const routes = [
   {path: '', component: AppComponent},
@@ -90,7 +91,10 @@ const routes = [
       {path: 'wishlistedit', component: WishlisteditComponent},
       {path: 'wishlistsummary', component: WishlistsummaryComponent},
       {path: 'allsummary/:code', component: ShareSummaryComponent},
-      {path: 'multichart/:code', component: ChartStockComponent}
+      {path: 'multichart/:code', component: ChartStockComponent},
+      {path: 'wishlistchart', component: WishlistviewComponent},
+
+
     ]
   },
   {
@@ -171,6 +175,7 @@ const routes = [
     TrackerlistComponent,
     TrackercodeComponent,
     TrackercreateComponent,
+    WishlistviewComponent,
   ],
   imports: [
     BrowserModule,
