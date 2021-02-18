@@ -81,7 +81,7 @@ export class CommentEditComponent implements OnInit {
   }
 
   private saveimage(self, data) {
-    /!!! tricky the callback function save,image , if you use this.comment ... = error , this is equal to caller , caller here is ChartguiComponent not itself CommentEditComponent
+    //!!! tricky the callback function save,image , if you use this.comment ... = error , this is equal to caller , caller here is ChartguiComponent not itself CommentEditComponent
 
     let abc = new ImageChart(null, moment().format('YYYY-MM-DD'), null, data)
     self.comment.imageCharts.push(abc)
