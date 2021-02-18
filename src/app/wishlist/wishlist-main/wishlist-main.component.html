@@ -23,7 +23,7 @@
       <!--        <md-option>Pear</md-option>-->
       <!--      </md-select>-->
 
-      <a mat-list-item routerLink="wishlist/wishlistedit">Edit</a>
+      <a mat-list-item routerLink="wishlistedit">Edit</a>
       <mat-select placeholder="wishlist charts" (selectionChange)="wishlistcharts($event)">
         <mat-option *ngFor=" let food of category" [value]="food">
           {{food}}
@@ -35,7 +35,7 @@
           {{food}}
         </mat-option>
       </mat-select>
-      <a mat-list-item routerLink="wishlist/wishlistchart">Chart</a>
+      <a mat-list-item routerLink="wishlistchart">Chart</a>
 
     </mat-nav-list>
 
