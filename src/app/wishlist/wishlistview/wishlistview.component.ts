@@ -41,9 +41,14 @@ export class WishlistviewComponent implements OnInit {
 
   chart(categoy: string) {
     this.wishcategy.getCatetoryCodes(categoy).subscribe(value => {
-      console.log(value);
+
       let mycode = StringUtility.getstringcomma(value)
+      console.log(mycode);
       this.child.code = mycode
+      this.child.year = "1"
+      this.child.mode = "daily"
+      this.child.ma = "50"
+
       this.child.ngOnInit()
       this.child.submitLogin()
     })
