@@ -2,7 +2,8 @@
   <form name="form" (ngSubmit)="submitLogin()" novalidate #form="ngForm">
 
     <div class="form-group">
-      <span style="background-color:dimgray ">{{comment.code}}</span>
+      <input type="text" class="form-control" [(ngModel)]="comment.code" name="code"
+             placeholder="code">
     </div>
 
 
@@ -47,7 +48,7 @@
 
     <div class="form-group">
       <mat-select placeholder="wishlist charts" [(ngModel)]="comment.period" name="period select" style="width:200px;"
-                   (selectionChange)="selectbox()">
+                  (selectionChange)="selectbox()">
         <mat-option value="LONG">
           LONG
         </mat-option>
