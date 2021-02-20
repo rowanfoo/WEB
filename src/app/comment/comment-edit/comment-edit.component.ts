@@ -32,12 +32,19 @@ export class CommentEditComponent implements OnInit {
 
   dialog: MatDialog
   id: string
+  toshow = false
+  mycode
+
 
   constructor(@Inject(MAT_DIALOG_DATA) data, private commentRepo: CommentRepo) {
-    this.comment.code = data.code.toUpperCase()
-    this.dialog = data.dialog
     this.id = data.id
-    this.mycode = data.code.toUpperCase()
+    if (data.code != null) {
+      this.comment.code = data.code.toUpperCase()
+      this.mycode = data.code.toUpperCase()
+    }
+
+
+    this.dialog = data.dialog
     if (data.period != null) {
       if (data.period == 'SHORT') {
         this.comment.text = 'support:\n  resistance:\n   reason:\n '
@@ -46,9 +53,6 @@ export class CommentEditComponent implements OnInit {
 
     console.log('======CommentEditComponent========' + this.comment.code)
   }
-
-  toshow = false
-  mycode
 
   ngOnInit() {
     console.log('======CommentEditComponent===ngOnInit=====' + this.id)
