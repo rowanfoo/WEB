@@ -29,18 +29,15 @@ export class CommentAllComponent implements OnInit, OnDestroy {
   toggle = true
   codesremove: string[] = []
   period: string
+  codefilter: string
 
   ngOnInit() {
 
     console.log('-----CommentAllComponent----');
     this.period = this.route.snapshot.params['period']
-    console.log('-----CommentAllComponent----' + this.period);
+
     if (this.period == null) {
       this.period = 'LONG'
-    }
-
-
-    if (this.period == null) {
       this.commentRepo.getAllCommentbyPeriod('rowan', this.period).subscribe(value => {
         this.data = value
         this.dtTrigger.next()
@@ -69,13 +66,18 @@ export class CommentAllComponent implements OnInit, OnDestroy {
       // return false;
       console.log('------dataTable------push----');
       const value = this.parseBoolean(data[2])
+      let mycode = data[1].substring(0, data[1].indexOf('.') + 3)
+      console.log('------dataTable------mycode----' + mycode)
+
+      let checkcodebool = this.checkcode(mycode)
+      console.log('------dataTable------checkcodebool----' + checkcodebool)
       // console.log('------dataTable----------' + this.isreject + "   :  " + value);
       //
-      if (this.isreject && value) {
+      if (this.isreject && value && checkcodebool) {
         console.log('------dataTable------true----');
         return true
       }
-      if (!this.isreject && !value) {
+      if (!this.isreject && !value && checkcodebool) {
         console.log('------dataTable------false----');
         return true
       }
@@ -92,6 +94,13 @@ export class CommentAllComponent implements OnInit, OnDestroy {
       order: [[0, 'desc']]
     }
 
+  }
+
+  checkcode(code: string) {
+    if (this.codefilter == null) return true
+    if (this.codefilter.trim() == '') return true
+    if (code == this.codefilter.trim().toUpperCase()) return true
+    return false
   }
 
   parseBoolean(s: string): boolean {

@@ -1,4 +1,8 @@
-<mat-label> Filter for reject:</mat-label><input type="checkbox" [(ngModel)]="isreject" (change)="FieldsChange($event)">
+<mat-label> Filter for reject:</mat-label><input type="checkbox" [(ngModel)]="isreject"
+                                                 (change)="FieldsChange($event)"> &nbsp;&nbsp;
+<input type="text" name="codefilter" [(ngModel)]="codefilter" placeholder="code"
+       (change)="FieldsChange($event)">
+
 <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
 
   <thead>
@@ -7,11 +11,10 @@
     <th>code</th>
     <th>comment</th>
     <th>reject</th>
-    <th>text</th>
   </tr>
 
   </thead>
-
+  <!--  (change)="FieldsChange($event)-->
 
   <tbody>
   <tr *ngFor="let datas of  data">
