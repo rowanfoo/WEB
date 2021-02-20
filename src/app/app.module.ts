@@ -59,6 +59,7 @@ import {TrackerlistComponent} from './tracker/trackerlist/trackerlist.component'
 import {TrackercodeComponent} from './tracker/trackercode/trackercode.component';
 import {TrackercreateComponent} from './tracker/trackercreate/trackercreate.component';
 import {WishlistviewComponent} from './wishlist/wishlistview/wishlistview.component';
+import {CommentMainComponent} from './comment/comment-main/comment-main.component';
 
 const routes = [
   {path: '', component: AppComponent},
@@ -93,8 +94,6 @@ const routes = [
       {path: 'allsummary/:code', component: ShareSummaryComponent},
       {path: 'multichart/:code', component: ChartStockComponent},
       {path: 'wishlistchart', component: WishlistviewComponent},
-
-
     ]
   },
   {
@@ -127,6 +126,13 @@ const routes = [
       {path: 'chart', component: TrackerchartlistComponent},
     ]
   },
+
+  {
+    path: 'comment', component: CommentMainComponent, children: [
+      {path: 'list', component: CommentAllComponent},
+    ]
+  },
+
 
 ]
 
@@ -176,6 +182,7 @@ const routes = [
     TrackercodeComponent,
     TrackercreateComponent,
     WishlistviewComponent,
+    CommentMainComponent,
   ],
   imports: [
     BrowserModule,
