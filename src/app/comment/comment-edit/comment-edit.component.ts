@@ -104,6 +104,7 @@ export class CommentEditComponent implements OnInit {
   }
 
   private save(comment: Comments) {
+    comment.code = comment.code.trim().toUpperCase()
     this.commentRepo.saveComment(comment).subscribe(value => {
 
       console.log('success  ' + value);
