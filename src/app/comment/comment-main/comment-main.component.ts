@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
-import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
-import {CommentEditComponent} from "../comment-edit/comment-edit.component";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-comment-main',
@@ -28,19 +27,6 @@ export class CommentMainComponent implements OnInit {
   list() {
     this.route.navigate(["comment/list"]);
 
-  }
-
-  openstockadd() {
-    console.log('-----------openstockadd------------------')
-    let a = new MatDialogConfig()
-    a.autoFocus = true
-    a.width = "90%"
-    a.height = "95%"
-    a.data = {
-      code: 'XXX.AX',
-      dialog: this.dialog
-    }
-    this.dialog.open(CommentEditComponent, a)
   }
 
 }
