@@ -4,7 +4,12 @@
   <!--<div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="1px grid" width="100%">-->
   <div *ngFor="let imgof of comments" fxFlex style="margin: 1px;" width="100%" height="100%">
 
-    <h4> {{imgof.date}} : {{imgof.text}} </h4>
+    <h4> {{imgof.date}} : </h4>
+    <textarea value="{{imgof.text }}" rows="10" cols="150"
+              name="comment.text" matTextareaAutosize matAutosizeMinRows=2
+              placeholder="comment"></textarea>
+
+
     <div *ngFor="let images of imgof.imageCharts" width="100%" height="100%">
       <!--      <img alt="Embedded Image" [ngStyle]="{'width.px':width , 'width':height }" src="{{images.image}}">-->
       <img alt="Embedded Image" width="100%" height="100%" src="{{images.image}}">
