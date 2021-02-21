@@ -18,22 +18,40 @@ export class TrackercodeComponent implements OnInit {
   load = false;
   toggle = true
   code: string
-
+  period: string
 
   constructor(private trackerRepo: TrackerRepo, private  route: ActivatedRoute) {
   }
 
   ngOnInit() {
     this.load = true
+    if (this.route.snapshot.params['code'] != null) {
+      this.period = 'SHORT'
+    }
     this.code = this.route.snapshot.params['code']
-    console.log(this.route.snapshot.params['code'])
+    this.period = this.route.snapshot.params['period']
 
-    this.trackerRepo.getcode('rowan', this.code).subscribe(value => {
+    console.log('----------TrackercodeComponent----------' + this.route.snapshot.params['code'] + '-------------' + this.period)
+
+    this.trackerRepo.getcodeperiod('rowan', this.code, this.period).subscribe(value => {
       console.log(value);
       this.load = false
       this.comments = value
     })
-    // this.width = "1200"
-    // this.height = "100%"
+    //
+    // if (this.period == 'SHORT') {
+    //   this.trackerRepo.getcode('rowan', this.code).subscribe(value => {
+    //     console.log(value);
+    //     this.load = false
+    //     this.comments = value
+    //   })
+    // } else {
+    //   this.trackerRepo.getcodeperiod('rowan', this.code, 'LONG').subscribe(value => {
+    //     console.log(value);
+    //     this.load = false
+    //     this.comments = value
+    //   })
+    // }
   }
 }
+

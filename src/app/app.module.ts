@@ -120,7 +120,7 @@ const routes = [
   {
     path: 'tracker', component: TrackermainComponent, children: [
       {path: 'list', component: TrackerlistComponent},
-      {path: 'code/:code', component: TrackercodeComponent},
+      {path: 'code/:code/:period', component: TrackercodeComponent},
       {path: 'create', component: TrackercreateComponent},
       {path: 'bigchartcompare/:code/:year/:mode/:ma', component: BigchartcompareComponent},
       {path: 'chart', component: TrackerchartlistComponent},
