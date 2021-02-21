@@ -29,7 +29,6 @@ export class TrackerRepo {
     })
   }
 
-
   getcode(id: string, code: string): Observable<Comments[]> {
     let commenturl = Config.trackerurl + '/code/' + code + '/' + id
     console.log('---TrackerRepo-   getid-----1--' + commenturl);
@@ -38,5 +37,11 @@ export class TrackerRepo {
     }));
   }
 
-
+  getcodeperiod(id: string, code: string, period: string): Observable<Comments[]> {
+    let commenturl = Config.trackerurl + '/code/' + code + '/period/' + period + '/' + id
+    console.log('---TrackerRepo-   getcodeperiod------' + commenturl);
+    return this.http.get<Comments[]>(commenturl).pipe(tap(x => {
+      console.log(x)
+    }));
+  }
 }

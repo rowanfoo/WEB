@@ -102,7 +102,7 @@ export class TrackerlistComponent implements OnInit {
   gotohistory(code) {
     console.log('-----------gotohistory------------------' + code)
 
-    this.router.navigate(["tracker/code/" + code]);
+    this.router.navigate(["tracker/code/" + code+'/SHORT']);
 
   }
 }
