@@ -11,6 +11,7 @@
     <th>code</th>
     <th>comment</th>
     <th>reject</th>
+    <th>history</th>
   </tr>
 
   </thead>
@@ -28,6 +29,10 @@
     </td>
     <td> {{datas.text}}</td>
     <td> {{datas.isReject }}</td>
+    <td>
+      <button class="btn btn-light" (click)="gotohistory(datas.code)"> history</button>
+    </td>
+
   </tr>
   </tbody>
 
@@ -39,12 +44,20 @@
   color="primary"
   (click)="editmode()">edit
 </button>
-&nbsp;&nbsp;
 <button
   mat-raised-button
   color="primary"
   (click)="submit()">submit
 </button>
+<br>&nbsp;
+
+<input type="text" name="codecreate" [(ngModel)]="codecreate" placeholder="code">
+<button
+  mat-raised-button
+  color="primary"
+  (click)="createcomment()">create
+</button>
+
 
 <!--<div *ngIf="load">-->
 <!--  <app-spin-load-icon></app-spin-load-icon>-->

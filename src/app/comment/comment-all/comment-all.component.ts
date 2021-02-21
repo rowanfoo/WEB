@@ -6,7 +6,7 @@ import {DataTableDirective} from "angular-datatables";
 import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import {CommentEditComponent} from "../comment-edit/comment-edit.component";
 import * as _ from 'underscore';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {TrackerRepo} from "../../../repo/repo/TrackerRepo";
 
 @Component({
@@ -16,7 +16,7 @@ import {TrackerRepo} from "../../../repo/repo/TrackerRepo";
 })
 export class CommentAllComponent implements OnInit, OnDestroy {
 
-  constructor(private dialog: MatDialog, private commentRepo: CommentRepo, private trackerRepo: TrackerRepo, private  route: ActivatedRoute) {
+  constructor(private dialog: MatDialog, private commentRepo: CommentRepo, private trackerRepo: TrackerRepo, private  route: ActivatedRoute, private router: Router) {
   }
 
   @ViewChild(DataTableDirective)
@@ -30,6 +30,7 @@ export class CommentAllComponent implements OnInit, OnDestroy {
   codesremove: string[] = []
   period: string
   codefilter: string
+  codecreate = ''
 
   ngOnInit() {
 
@@ -177,11 +178,27 @@ export class CommentAllComponent implements OnInit, OnDestroy {
 
   }
 
-  // filterById(): void {
-  //   this.datatableElement.dtInstance.then((dtInstance: DataTables.Api) => {
-  //     dtInstance.draw();
-  //   });
-  //}
+  createcomment() {
+    console.log('-----------createcomment------------------')
+    if (this.codecreate == '') return
+    let a = new MatDialogConfig()
+    a.autoFocus = true
+    a.width = "90%"
+    a.height = "95%"
+    a.data = {
+      code: this.codecreate.trim().toUpperCase(),
+      dialog: this.dialog
+    }
+    this.dialog.open(CommentEditComponent, a)
+    this.codecreate = ''
+  }
+
+  gotohistory(code) {
+    console.log('-----------gotohistory------------------' + code)
+
+    this.router.navigate(["tracker/code/" + code + '/LONG']);
+
+  }
 
 
 }
