@@ -48,6 +48,7 @@ export class CommentEditComponent implements OnInit {
     if (data.period != null) {
       if (data.period == 'SHORT') {
         this.comment.text = 'support:\n  resistance:\n   reason:\n '
+        this.comment.period = 'SHORT'
       }
     }
 
