@@ -34,7 +34,8 @@ export class CommentEditComponent implements OnInit {
   id: string
   toshow = false
   mycode
-
+  temptext = ''
+  @ViewChild(ChartguiComponent) child: ChartguiComponent;
 
   constructor(@Inject(MAT_DIALOG_DATA) data, private commentRepo: CommentRepo) {
     this.id = data.id
@@ -43,7 +44,6 @@ export class CommentEditComponent implements OnInit {
       this.mycode = data.code.toUpperCase()
     }
 
-
     this.dialog = data.dialog
     if (data.period != null) {
       if (data.period == 'SHORT') {
@@ -51,7 +51,6 @@ export class CommentEditComponent implements OnInit {
         this.comment.period = 'SHORT'
       }
     }
-
     console.log('======CommentEditComponent========' + this.comment.code)
   }
 
@@ -62,15 +61,11 @@ export class CommentEditComponent implements OnInit {
         this.comment = value
       })
     }
-
-
   }
 
-  showChart() {
+  OnclickshowChart() {
     this.toshow = true
   }
-
-  @ViewChild(ChartguiComponent) child: ChartguiComponent;
 
   submitLogin() {
     this.comment.userid = 'rowan'
@@ -92,8 +87,6 @@ export class CommentEditComponent implements OnInit {
     self.comment.imageCharts.push(abc)
     self.save(self.comment)
   }
-
-  temptext = ''
 
   private selectbox() {
     if (this.comment.period === 'SHORT') {
