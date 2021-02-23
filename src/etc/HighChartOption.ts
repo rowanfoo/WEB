@@ -64,6 +64,27 @@ export class HighChartOption {
           name: "AAPL Stock Price",
           data: seriesOption
         },
+
+        {
+          type: 'sma',
+          name: 'sma50',
+          linkedTo: 'aapl-ohlc',
+          color: 'green',
+          params: {
+            period: 50
+          }
+        },
+
+        {
+          type: 'sma',
+          name: 'sma100',
+          linkedTo: 'aapl-ohlc',
+          color: 'blue',
+          params: {
+            period: 100
+          }
+        },
+
         // {
         //   type: "column",
         //   id: "aapl-volume",
