@@ -73,7 +73,7 @@ export class ChartguiComponent implements OnInit {
     }
 
     this.core.getDataChart(this.mycode, "2020-01-01").subscribe(value1 => {
-      this.chartOptions = this.highChartOption.createOption(value1)
+      this.chartOptions = this.highChartOption.createOption(value1, true)
     })
 
   }

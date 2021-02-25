@@ -3,7 +3,7 @@ import {Injectable} from "@angular/core";
 @Injectable()
 export class HighChartOption {
 
-  createOption(seriesOption) {
+  createOption(seriesOption, guiEnable) {
 
     return {
       yAxis: [
@@ -55,6 +55,11 @@ export class HighChartOption {
           }
 
           return position;
+        }
+      },
+      stockTools: {
+        gui: {
+          enabled: guiEnable
         }
       },
       series: [
