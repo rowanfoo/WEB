@@ -36,7 +36,7 @@ export class WishlistMainComponent implements OnInit {
       console.log(event.value);
 
       let mycode = StringUtility.getstringcomma(value)
-      this.route.navigate(["algo/intervalchart/" + mycode]);
+      this.route.navigate(["wishlist/charts/" + mycode]);
     })
   }
 

@@ -1,0 +1,13 @@
+<h4>{{mycodes}}</h4>
+<button *ngIf="showIntervalButton" class="btn btn-primary" (click)="pause()"> pause</button>
+<button *ngIf="showIntervalButton && showContinueButton" class="btn btn-primary" (click)="continue()"> continue</button>
+<button class="btn btn-primary" (click)="openstockadd()"> >>comment</button>
+
+<highcharts-chart
+  style="width: 100%;height: 100%;  display: block"
+  [Highcharts]="Highcharts"
+  [constructorType]="'stockChart'"
+  [options]="chartOptions"
+  #container
+>
+</highcharts-chart>
