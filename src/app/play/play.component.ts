@@ -118,7 +118,7 @@ export class PLAYComponent implements OnInit {
       //   }]
       //
       // }
-      this.chartOptions = this.highChartOption.createOption(value1)
+      this.chartOptions = this.highChartOption.createOption(value1, true)
 //      console.log('------------------ngAfterViewInit-ngAfterViewInit-------' + hc_export.exportData)
 //       Highcharts.exportCharts([chart1, chart2]);
       // console.log('------------------ChartStockComponent-HIGHCHART-------' + Highcharts.chart)
