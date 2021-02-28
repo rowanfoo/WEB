@@ -12,6 +12,8 @@
     <th>fifty %</th>
     <th>onehundred %</th>
     <th>twohundred %</th>
+    <th>week</th>
+    <th>correction</th>
     <th>marketcap</th>
     <th>pe</th>
     <th>yield</th>
@@ -34,6 +36,8 @@
     <td> {{datas.percentage50 }}</td>
     <td> {{datas.percentage100 }}</td>
     <td> {{datas.percentage200 }}</td>
+    <td> {{ ((datas.endthisweek - datas.startthisweek) / datas.startthisweek)  | percent:'1.2'}}</td>
+    <td> {{ ((datas.today - datas.yearhigh) / datas.yearhigh)  | percent:'1.2'}}</td>
     <td> {{datas.marketcap}}</td>
     <td> {{datas.pe}}</td>
     <td> {{datas.yield}}</td>
@@ -45,3 +49,9 @@
 
 
 </table>
+<!--highthisweeK: number,-->
+<!--minthisweek: number,-->
+<!--endthisweek: number,-->
+<!--startthisweek: number,-->
+<!--today: number,-->
+<!--yearhigh: number-->

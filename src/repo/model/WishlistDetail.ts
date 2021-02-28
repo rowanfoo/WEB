@@ -36,7 +36,15 @@ export interface WishlistDetail {
   percentage100: number,
   maprice100: number,
   percentage200: number,
-  maprice200: number
+  maprice200: number,
+  highthisweeK: number,
+  minthisweek: number,
+  endthisweek: number,
+  startthisweek: number,
+  today: number,
+  yearhigh: number
+
 
 
 }
+
