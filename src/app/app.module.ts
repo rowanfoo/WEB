@@ -61,6 +61,9 @@ import {TrackercreateComponent} from './tracker/trackercreate/trackercreate.comp
 import {WishlistviewComponent} from './wishlist/wishlistview/wishlistview.component';
 import {CommentMainComponent} from './comment/comment-main/comment-main.component';
 import {ChartxComponent} from './chart/chartx/chartx.component';
+import {HighchartSmallOption} from 'src/etc/HighchartSmallOption';
+import {TinychartComponent} from './chart/tinychart/tinychart.component';
+import {ListtinychartComponent} from './chart/listtinychart/listtinychart.component';
 
 const routes = [
   {path: '', component: AppComponent},
@@ -81,6 +84,9 @@ const routes = [
       {path: 'bigchart/:code/:year', component: BigchartviewComponent},
       {path: 'bigchartcompare/:code/:year/:mode/:ma', component: BigchartcompareComponent},
       {path: 'bigchartinterval/:codes', component: BigchartintervalComponent},
+      {path: 'listminichart/:code', component: ListtinychartComponent},
+
+
     ]
 
 
@@ -96,6 +102,7 @@ const routes = [
       {path: 'multichart/:code', component: ChartStockComponent},
       {path: 'wishlistchart', component: WishlistviewComponent},
       {path: 'charts/:code', component: ChartxComponent},
+      {path: 'listminichart/:code', component: ListtinychartComponent},
 
     ]
   },
@@ -187,6 +194,8 @@ const routes = [
     WishlistviewComponent,
     CommentMainComponent,
     ChartxComponent,
+    TinychartComponent,
+    ListtinychartComponent,
   ],
   imports: [
     BrowserModule,
@@ -203,7 +212,7 @@ const routes = [
     HighchartsChartModule
 
   ],
-  providers: [EventService, AuthGuard, AuthService, CookieService, HighChartOption],
+  providers: [EventService, AuthGuard, AuthService, CookieService, HighChartOption, HighchartSmallOption],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   entryComponents: [CommentEditComponent, StockDialogComponent, ConfigAlgoComponent]
