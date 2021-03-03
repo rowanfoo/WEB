@@ -23,7 +23,7 @@ export class CoreDataRepo {
     console.log('---------getDataDate-------' + codeurl);
     return this.http.get<CoreData[]>(codeurl).pipe(
       map(value => {
-        console.log(value);
+        //console.log(value);
         return value
       })
     );
