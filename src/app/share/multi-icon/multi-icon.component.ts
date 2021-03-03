@@ -39,7 +39,9 @@ export class MultiIconComponent implements OnInit {
     this.route.navigate([this.path + "/multichart/" + this.code]);
   }
 
-
+  openrandomchart() {
+    this.route.navigate([this.path + "/bigchart/" + this.code + '/1']);
+  }
 }
 
 

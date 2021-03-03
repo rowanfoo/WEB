@@ -17,6 +17,8 @@
     <th>marketcap</th>
     <th>pe</th>
     <th>yield</th>
+    <th>chart</th>
+
   </tr>
 
   </thead>
@@ -41,6 +43,12 @@
     <td> {{datas.marketcap}}</td>
     <td> {{datas.pe}}</td>
     <td> {{datas.yield}}</td>
+    <td>
+
+      <button mat-button (click)="randomchart(datas.code)">
+        <mat-icon>zoom_in</mat-icon>
+      </button>
+    </td>
 
   </tr>
 

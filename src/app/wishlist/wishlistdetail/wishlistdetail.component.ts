@@ -21,7 +21,6 @@ export class WishlistdetailComponent implements OnInit {
   constructor(private router: Router, private wishlistrepo: WishListRepo, private  route: ActivatedRoute, private  cookieService: CookieService) {
   }
 
-
   ngOnInit() {
     console.log('------------------------WishlistdetailComponent-----------------------')
 
@@ -51,6 +50,10 @@ export class WishlistdetailComponent implements OnInit {
 
 
 ///////
+  }
+
+  private randomchart(code: string) {
+    this.router.navigate(['algo/bigchart/' + code + '/1'])
   }
 
 }
