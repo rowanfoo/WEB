@@ -17,6 +17,7 @@ import HDragPanes from 'highcharts/modules/drag-panes';
 import HAnnotationsAdvanced from 'highcharts/modules/annotations-advanced';
 import HPriceIndicator from 'highcharts/modules/price-indicator';
 import HFullScreen from 'highcharts/modules/full-screen';
+import {fnlastyear, fnthreeyear, fntwoyear} from "../../../etc/datetimefunctions";
 
 
 HC_exporting(Highcharts);
@@ -52,6 +53,7 @@ export class ChartxComponent implements OnInit, OnDestroy {
   pauseinterval = false
   count = 1
   asxcodes: string[]
+  @Input() year: string
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe()
@@ -68,14 +70,18 @@ export class ChartxComponent implements OnInit, OnDestroy {
     let code = this.route.snapshot.params['code'];
     console.log('------------------ChartComponentX----params----' + code)
     console.log('------------------ChartComponentX----data in ----' + this.codes)
-    if (code == null) {
+    // if (code == null) {
+    //   code = this.codes
+    // }
+    if (this.codes != null) {
       code = this.codes
     }
+
 
     this.asxcodes = code.split(',')
     let timer = interval(20000)
 
-    this.asxcodes.forEach(value => console.log('------------------IntetvalChartXX--------' + value))
+    this.asxcodes.forEach(value => console.log('------------------ChartxComponent--------' + value))
 
     this.createChartX(this.asxcodes[0])
     if (code.length > 1) {
@@ -101,7 +107,25 @@ export class ChartxComponent implements OnInit, OnDestroy {
   private createChartX(code: string) {
     console.log('-----------CREATE CHARTXX------------' + code)
     this.mycodes = code
-    this.core.getDataChart(code, "2020-01-01").subscribe(value1 => {
+
+    let myyear = ''
+
+    console.log('------------------ChartxComponent-----YEAR---' + this.year)
+    if (this.year == null) {
+      myyear = fnlastyear()
+    } else if (this.year == '2') {
+      myyear = fntwoyear()
+
+    } else {
+      myyear = fnthreeyear()
+
+    }
+
+
+    // this.core.getDataChart(code, "2020-01-01").subscribe(value1 => {
+    //   this.chartOptions = this.highChartOption.createOption(value1, false)
+    // })
+    this.core.getDataChart(code, myyear).subscribe(value1 => {
       this.chartOptions = this.highChartOption.createOption(value1, false)
     })
   }
