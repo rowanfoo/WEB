@@ -35,4 +35,21 @@ export class DisplaychartComponent implements OnInit {
   }
 
 
+  ministk() {
+    console.log(' --------DisplaychartComponent--ministk---------------')
+    // this.route.navigate(["algo/intervalchart/" + this.codes]);
+    console.log(' --------DisplaychartComponent--ministk---------------' + this.route.url)
+    console.log(this.activeRoute.parent.routeConfig.path)
+    console.log(this.activeRoute.parent.url)
+
+    console.log(this.route)
+    this.route.navigate([this.activeRoute.parent.routeConfig.path + "/listminichart/" + this.codes]);
+
+    //this.route.navigate(["../../listminichart/" + this.codes]);
+    //  this.route.navigate(["algo/listminichart/" + this.codes]);
+
+
+  }
+
+
 }
