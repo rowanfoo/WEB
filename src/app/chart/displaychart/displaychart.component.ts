@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-displaychart',
@@ -9,7 +9,7 @@ import {Router} from "@angular/router";
 export class DisplaychartComponent implements OnInit {
   @Input() codes: string;
 
-  constructor(private route: Router) {
+  constructor(private route: Router, private activeRoute: ActivatedRoute) {
   }
 
   ngOnInit() {
@@ -21,6 +21,8 @@ export class DisplaychartComponent implements OnInit {
     console.log(this.codes)
 
     this.route.navigate(["algo/minichart/" + this.codes]);
+    this.route.navigate([this.activeRoute.parent.routeConfig.path + "/minichart/" + this.codes]);
+
     //   this.route.navigate(["algo/bigchartcompare/" + this.codes + '/1/daily/50']);
   }
 
@@ -28,7 +30,8 @@ export class DisplaychartComponent implements OnInit {
   intervalstk() {
     console.log(' --------DisplaychartComponent--intervalstk---------------')
     // this.route.navigate(["algo/intervalchart/" + this.codes]);
-    this.route.navigate(["algo/bigchartinterval/" + this.codes]);
+    this.route.navigate([this.activeRoute.parent.routeConfig.path + "/bigchartinterval/" + this.codes]);
+
   }
 
 
