@@ -2,6 +2,7 @@ import {Component, ElementRef, Input, OnInit, SimpleChanges} from '@angular/core
 import {ActivatedRoute} from "@angular/router";
 import {BigChart} from "../../../repo/model/BigChart";
 import {BigChartRepo} from "../../../repo/repo/BigChartRepo";
+import {fngetcodeonly} from "../../../etc/StringFunction";
 
 @Component({
   selector: 'app-bigchartview',
@@ -43,7 +44,8 @@ export class BigchartviewComponent implements OnInit {
       code = this.codes
       year = 1
     }
-
+    code = fngetcodeonly(code)
+    this.code = code
     this.bigChartRepo.getimages(code, year).subscribe(value => {
       console.log(value);
       this.bigcharts = value

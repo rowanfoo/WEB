@@ -19,6 +19,29 @@
     <img alt="Embedded Image" [ngStyle]="{'width':width}" src="{{imgof.imagedata}}">
 
   </div>
+  <div fxFlex style="margin: 1px;">
+    <app-tinychart [size]="'large'" [code]="code+'.AX'">
+    </app-tinychart>
+  </div>
+  <div fxFlex style="margin: 1px;">
+    <app-tinychart [size]="'large'" [year]="3" [code]="code+'.AX'">
+    </app-tinychart>
+  </div>
+
+  <div fxFlex style="margin: 1px;">
+    <div style="width:1200px;height:1200px">
+      <app-chartx [codes]="code+'.AX'">
+      </app-chartx>
+    </div>
+
+  </div>
+  <div fxFlex style="margin: 1px;">
+    <div style="width:1200px;height:1200px">
+      <app-chartx [codes]="code+'.AX'" [year]="3">
+      </app-chartx>
+    </div>
+
+  </div>
 </div>
 
 
