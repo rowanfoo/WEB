@@ -10,6 +10,21 @@ export function fncurrent(): String {
   return currentDate.format('YYYY-MM-DD')
 }
 
+export function fnlastyear(): string {
+  let currentDate = moment();
+  return currentDate.subtract(1, 'year').format('YYYY-MM-DD')
+}
+
+export function fntwoyear(): string {
+  let currentDate = moment();
+  return currentDate.subtract(2, 'year').format('YYYY-MM-DD')
+}
+
+export function fnthreeyear(): string {
+  let currentDate = moment();
+  return currentDate.subtract(3, 'year').format('YYYY-MM-DD')
+}
+
 export function fnthisweek(): [string, string] {
   let currentDate = moment();
   let weekStart = moment().startOf('isoWeek');
