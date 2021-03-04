@@ -34,10 +34,15 @@ export class TinychartComponent implements OnInit {
     if (this.size == null) {
       this.width = "300px"
       this.height = "300px"
+    } else if (this.size == 'tiny') {
+      this.width = "220px"
+      this.height = "150px"
     } else {
       this.width = "1100px"
       this.height = "1100px"
     }
+
+    console.log('------------------TinychartComponent-----SIZE---' + this.width + '------------' + this.height)
 
     let myyear = ''
 
@@ -61,7 +66,7 @@ export class TinychartComponent implements OnInit {
     this.core.getDataChart(this.code, myyear).subscribe(value1 => {
       let seriesOptions = fngetClosePrice(value1);
       this.chartOptions = this.highChartOption.createOption(seriesOptions, this.code)
-
+      this.chartOptions.rangeSelector.enabled = false
     })
 
   }
