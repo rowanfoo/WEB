@@ -22,7 +22,7 @@ export class NewsAllComponent implements OnInit {
   // totalElements: number = 0;
 
 
-  displayedColumns = ['date', 'code', 'title', 'category', 'subcategory'];
+  displayedColumns = ['date', 'code', 'chart', 'title', 'category', 'subcategory'];
   todoDatasource: NewsDataSourceDataSource;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
