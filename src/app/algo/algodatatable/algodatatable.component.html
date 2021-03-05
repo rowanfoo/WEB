@@ -71,11 +71,11 @@
     <!--    <td> BLANK</td>-->
     <td> {{datas.type }}</td>
     <td> {{datas.message}}</td>
+    <td> {{datas.fundamental.martketcapAsString}}</td>
     <td>
       <app-tinychart [code]="datas.code" [size]="'tiny'"></app-tinychart>
     </td>
 
-    <td> {{datas.fundamental.martketcapAsString}}</td>
     <td>
       <!--      <md-icon md-font-icon="fa fa-signal" (click)="chartdetail(datas.code)"-->
       <!--               style="font-size: 20px"></md-icon>-->
