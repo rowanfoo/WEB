@@ -35,17 +35,16 @@ export class AlgoComponent implements OnInit {
 
     let config = this.userConfigRepo.getuserconfig(userid)
 
-    console.log('2')
-
     config.subscribe(value1 => {
       //   this.useralgo = value1;
-      //  console.log(value1)
+//      console.log(value1)
 ///print all the algo
       value1.forEach(value => {
         //  console.log(value.userid)
-        //console.log(JSON.parse(value.algo).value)
+        //      console.log(JSON.parse(value.algo).value)
 
-        this.useralgo.push({id: value.id, value: JSON.parse(value.algo).value})
+        // this.useralgo.push({id: value.id, value: JSON.parse(value.algo).value})
+        this.useralgo.push({id: value.id, value: value.text})
         // console.log(value.algo.value)
       })
     })
