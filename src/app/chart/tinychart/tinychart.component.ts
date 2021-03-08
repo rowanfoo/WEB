@@ -4,8 +4,8 @@ import {Component, Input, OnInit} from '@angular/core';
 import * as Highcharts from 'highcharts';
 import {CoreDataRepo} from "../../../repo/repo/CoreDataRepo";
 import {HighchartSmallOption} from "../../../etc/HighchartSmallOption";
-import {fngetClosePrice} from "../../../etc/CoreDataFunction";
 import {fnlastyear, fnthreeyear, fntwoyear} from "../../../etc/datetimefunctions";
+import {fngetClosePrice} from "../../../etc/CoreDataFunction";
 
 
 @Component({
@@ -23,9 +23,24 @@ export class TinychartComponent implements OnInit {
   @Input() size: string
 
   @Input() year: string
+  // seriesOptions
+  chartCallback
+  chart;
 
   constructor(private  core: CoreDataRepo, private highChartOption: HighchartSmallOption) {
+    const self = this;
+    this.chartCallback = chart => {
+      // saving chart reference
+      self.chart = chart;
+      console.log(chart.title)
+      console.log(chart.title.text)
+
+      //  chart.title = {text: "New Title"}
+      // chart.setTitle({text: "New Title"})
+
+    };
   }
+
 
   ngOnInit() {
 
@@ -36,7 +51,7 @@ export class TinychartComponent implements OnInit {
       this.height = "300px"
     } else if (this.size == 'tiny') {
       this.width = "220px"
-      this.height = "150px"
+      this.height = "180px"
     } else {
       this.width = "1100px"
       this.height = "1100px"
@@ -57,19 +72,30 @@ export class TinychartComponent implements OnInit {
 
     }
 
-    console.log('------------------TinychartComponent-----v1---' + this.code + ' ------  ' + myyear)
+    console.log('------------------TinychartComponent-----v1x---' + this.code + ' ------  ' + myyear)
     // this.core.getDataChart(this.code, "2020-01-01").subscribe(value1 => {
     //   let seriesOptions = fngetClosePrice(value1);
     //   this.chartOptions = this.highChartOption.createOption(seriesOptions, this.code)
     //
     // })
+
     this.core.getDataChart(this.code, myyear).subscribe(value1 => {
       let seriesOptions = fngetClosePrice(value1);
-      this.chartOptions = this.highChartOption.createOption(seriesOptions, this.code)
+      let percent = this.getpercentage(value1)
+
+      this.chartOptions = this.highChartOption.createOption(seriesOptions, this.code, percent + '%')
       this.chartOptions.rangeSelector.enabled = false
     })
-
   }
 
+
+  private getpercentage(array): string {
+    let today = array[array.length - 1][4]
+    let yest = array[array.length - 2][4]
+
+    let percent = ((today - yest) / yest) * 100
+    let ans = Math.round(percent * 100) / 100
+    return ans + ''
+  }
 
 }
