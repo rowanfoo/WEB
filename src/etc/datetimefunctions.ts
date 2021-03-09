@@ -5,7 +5,7 @@ export function getHtmlBasePath(): String {
 import * as moment from "moment";
 
 
-export function fncurrent(): String {
+export function fncurrent(): string {
   let currentDate = moment();
   return currentDate.format('YYYY-MM-DD')
 }
