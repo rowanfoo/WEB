@@ -1,105 +1,97 @@
-<!--<table datatable class="row-border hover">-->
-<!--  <thead>-->
-<!--  <tr>-->
-<!--    <th>code</th>-->
-<!--    <th>message</th>-->
-<!--    <th>date</th>-->
-<!--  </tr>-->
-<!--  </thead>-->
-<!--  <tbody>-->
-<!--  <tr *ngFor="let mydata of data">-->
-<!--    <td>{{mydata.code}}</td>-->
-<!--    <td>{{mydata.message}}</td>-->
-<!--    <td>{{mydata.date}}</td>-->
-<!--  </tr>-->
-
-<!--  </tbody>-->
-<!--</table>-->
-<!--{{data[0].code}}-->
-<!--{{data[0].fundamental.code}}-->
-<!--{{data[0].fundamental.pe}}-->
-<!--{{data[0].fundamental.martketcapAsstring}}-->
-<!--{{data[0].fundamental.marketcap}}-->
-<!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
-<!--{{data[0].fundamental.annualYied}}-->
-<!--{{data[0].fundamental.shares}}-->
-<!--val:{{marketcap}}-->
-<!--{{codes}}-->
-<!--<table datatable class="row-border hover">-->
-<!--<table datatable="ng" [dtOptions]="dtOptions" class="row-border hover">-->
 <app-displaychart [codes]="codes"></app-displaychart>
 
-<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+<table id="matTable" mat-table [dataSource]="todoDatasource" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
 
 
-  <thead>
-  <tr>
-    <th>code</th>
-    <th>name</th>
-    <th>type</th>
-    <th>message</th>
-    <th>marketcap</th>
-    <th>chart</th>
-    <th>indicator</th>
-    <th>news</th>
-    <th>date</th>
+  <!-- code Column -->
+  <ng-container matColumnDef="code">
+    <th mat-header-cell *matHeaderCellDef> code</th>
+    <td mat-cell *matCellDef="let element">
+      <a
+        href="http://bigcharts.marketwatch.com/advchart/frames/frames.asp?show=&insttype=Stock&symb=AU%3A{{element.code.substring(
+                0,element.code.indexOf( '.' )
+                )}}&time=8&startdate=1%2F4%2F1999&enddate=8%2F28%2F2018&freq=1&compidx=aaaaa%3A0&comptemptext=&comp=none&ma=3&maval=50&uf=0&lf=1&lf2=0&lf3=0&type=2&style=320&size=4&x=49&y=15&timeFrameToggle=false&compareToToggle=false&indicatorsToggle=false&chartStyleToggle=false&state=11"
+        target="_blank"
+      >{{element.code}}</a></td>
+  </ng-container>
 
-  </tr>
+  <!-- name -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> name</th>
+    <td mat-cell *matCellDef="let element">{{element.stock.name}} </td>
+  </ng-container>
 
-  </thead>
-  <!--  <tbody>-->
-  <!--  <tr *ngFor="let mydata of data">-->
-  <!--    <td>{{mydata.code}}</td>-->
-  <!--    <td>{{mydata.message}}</td>-->
-  <!--    <td>{{mydata.date}}</td>-->
-  <!--  </tr>-->
-
-  <!--  </tbody>-->
-
-
-  <tbody>
-  <tr *ngFor="let datas of  data">
-    <td><a
-      href="http://bigcharts.marketwatch.com/advchart/frames/frames.asp?show=&insttype=Stock&symb=AU%3A{{datas.code.substring(
-            0,datas.code.indexOf( '.' )
-            )}}&time=8&startdate=1%2F4%2F1999&enddate=8%2F28%2F2018&freq=1&compidx=aaaaa%3A0&comptemptext=&comp=none&ma=3&maval=50&uf=0&lf=1&lf2=0&lf3=0&type=2&style=320&size=4&x=49&y=15&timeFrameToggle=false&compareToToggle=false&indicatorsToggle=false&chartStyleToggle=false&state=11"
-      target="_blank"
-    >{{datas.code}}</a></td>
+  <!-- type-->
+  <ng-container matColumnDef="type">
+    <th mat-header-cell *matHeaderCellDef> type</th>
+    <!--    <td mat-cell *matCellDef="let element"><a href="{{element.link}}" target="_blank">{{element.title}} </a></td>-->
+    <!--    <td mat-cell *matCellDef="let element">-->
+    <!--      <app-tinychart [code]="element.code" [size]="'tiny'"></app-tinychart>-->
+    <!--    </td>-->
+    <td mat-cell *matCellDef="let element">{{element.type}} </td>
+  </ng-container>
+  <ng-container matColumnDef="message">
+    <th mat-header-cell *matHeaderCellDef> message</th>
+    <td mat-cell *matCellDef="let element">{{element.message}} </td>
+  </ng-container>
 
 
-    <td> {{datas.stock.name }}</td>
-    <!--    <td> BLANK</td>-->
-    <td> {{datas.type }}</td>
-    <td> {{datas.message}}</td>
-    <td> {{datas.fundamental.martketcapAsString}}</td>
-    <td>
-      <app-tinychart [code]="datas.code" [size]="'tiny'"></app-tinychart>
+  <!-- chart-->
+  <ng-container matColumnDef="chart">
+    <th mat-header-cell *matHeaderCellDef> chart</th>
+    <td mat-cell *matCellDef="let element">
+      <app-tinychart [code]="element.code" [size]="'tiny'"></app-tinychart>
     </td>
-
-    <td>
-      <!--      <md-icon md-font-icon="fa fa-signal" (click)="chartdetail(datas.code)"-->
-      <!--               style="font-size: 20px"></md-icon>-->
-      <!--      <md-icon md-font-icon="fa fa-file-word-o" (click)="comment(datas.code)"-->
-      <!--               style="font-size: 20px"></md-icon>-->
-      <!--      <md-icon md-font-icon="fa fa-book" (click)="detail(datas.code)" style="font-size: 20px"></md-icon>-->
-      <!--      &lt;!&ndash;            <md-icon ng-hide="datas.news.length" md-font-icon="fa fa-inbox" ng-click="detail(datas.code)"&ndash;&gt;-->
-      <!--      &lt;!&ndash;                     style="font-size: 20px"></md-icon>&ndash;&gt;-->
-      <!--      <md-icon ng-show="datas.news.length" tooltip="datas.news" md-font-icon="fa fa-inbox"-->
-      <!--               ng-click="detail(datas.code)"-->
-      <!--               style="font-size: 20px"></md-icon>-->
+  </ng-container>
 
 
-      <app-multi-icon code={{datas.code}} path="algo"></app-multi-icon>
+  <!-- marketcap -->
+  <ng-container matColumnDef="marketcap">
+    <th mat-header-cell *matHeaderCellDef> marketcap</th>
+    <td mat-cell *matCellDef="let element">{{element.fundamental.martketcapAsString}} </td>
+  </ng-container>
 
+  <!-- indicator -->
+  <ng-container matColumnDef="indicator">
+    <th mat-header-cell *matHeaderCellDef> indicator</th>
+    <td mat-cell *matCellDef="let element">
+      <md-icon md-font-icon="fa fa-signal" (click)="chartdetail(element.code)"
+               style="font-size: 20px"></md-icon>
+      <md-icon md-font-icon="fa fa-file-word-o" (click)="comment(element.code)"
+               style="font-size: 20px"></md-icon>
+      <md-icon md-font-icon="fa fa-book" (click)="detail(element.code)" style="font-size: 20px"></md-icon>
+      <!--            <md-icon ng-hide="datas.news.length" md-font-icon="fa fa-inbox" ng-click="detail(datas.code)"-->
+      <!--                     style="font-size: 20px"></md-icon>-->
+      <md-icon ng-show="element.news.length" tooltip="element.news" md-font-icon="fa fa-inbox"
+               ng-click="detail(element.code)"
+               style="font-size: 20px"></md-icon>
+      <app-multi-icon code={{element.code}} path="algo"></app-multi-icon>
     </td>
-    <td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="news">
+    <th mat-header-cell *matHeaderCellDef> news</th>
+
+    <td mat-cell *matCellDef="let element">
       <table id="example" class="table table-bordered table-hover">
-        <tr *ngFor="let news of   datas.news">
+        <tr *ngFor="let news of   element.news">
           <td> {{news.title}}</td>
         </tr>
       </table>
     </td>
-    <td> {{datas.date}}</td>
-  </tr>
-  </tbody>
+  </ng-container>
+
+  <ng-container matColumnDef="date">
+    <th mat-header-cell *matHeaderCellDef> date</th>
+    <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+  </ng-container>
+
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+<mat-paginator [pageSizeOptions]="[25, 35, 50]" [pageSize]="35"></mat-paginator>
