@@ -7,9 +7,14 @@
     </mat-menu>
     <button mat-button>logout</button>
 
+
     <input matInput [matDatepicker]="expiration1" (dateChange)="EndDateChange($event)" [ngModel]="date">
     <mat-datepicker-toggle matSuffix [for]="expiration1"></mat-datepicker-toggle>
     <mat-datepicker #expiration1></mat-datepicker>
+    <label>this week</label>
+    <input type="checkbox" [(ngModel)]="thisweek" (change)="FieldsChangethisweek($event)">
+    <label>last week</label>
+    <input type="checkbox" [(ngModel)]="lastweek" (change)="FieldsChangelastweek($event)">
 
 
   </mat-toolbar-row>
