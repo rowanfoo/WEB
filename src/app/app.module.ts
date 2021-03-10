@@ -64,13 +64,14 @@ import {ChartxComponent} from './chart/chartx/chartx.component';
 import {HighchartSmallOption} from 'src/etc/HighchartSmallOption';
 import {TinychartComponent} from './chart/tinychart/tinychart.component';
 import {ListtinychartComponent} from './chart/listtinychart/listtinychart.component';
+import {CommonFunction} from 'src/etc/CommonFunction';
 
 const routes = [
   {path: '', component: AppComponent},
   {
     //AuthGuard --- check whether user login if not pass to login page
     path: 'algo', component: AlgoComponent, canActivate: [AuthGuard], children: [
-      {path: 'datatable/:type/:value', component: AlgodatatableComponent},
+      {path: 'datatable/:type', component: AlgodatatableComponent},
       {path: 'chart/:code', component: ChartComponent},
       {path: 'intervalchart/:code', component: IntervalchartComponent},
       {path: 'minichart/:code', component: MinichartComponent},
@@ -212,7 +213,7 @@ const routes = [
     HighchartsChartModule
 
   ],
-  providers: [EventService, AuthGuard, AuthService, CookieService, HighChartOption, HighchartSmallOption],
+  providers: [EventService, AuthGuard, AuthService, CookieService, HighChartOption, HighchartSmallOption, CommonFunction],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   entryComponents: [CommentEditComponent, StockDialogComponent, ConfigAlgoComponent]
