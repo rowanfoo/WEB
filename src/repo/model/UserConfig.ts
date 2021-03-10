@@ -4,12 +4,13 @@ export class UserConfig {
     public userid: number,
     public IndicatorType: string,
     public  date: string,
-    // public  algo: Useralgo
-    public  algo: string
+    public  algo: string,
+    public  text: string
   ) {
   }
 
 }
+
 
 
 // export interface Useralgo {
