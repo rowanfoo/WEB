@@ -13,6 +13,11 @@
     <th>fifty %</th>
     <th>onehundred %</th>
     <th>twohundred %</th>
+    <th>days-above-onehundred %</th>
+    <th>days-below-onehundred %</th>
+    <th>days-above-twohundred %</th>
+    <th>days-below-twohundred %</th>
+
     <th>week</th>
     <th>correction</th>
     <th>marketcap</th>
@@ -38,7 +43,20 @@
     <td> {{datas.percentage20 }}</td>
     <td> {{datas.percentage50 }}</td>
     <td> {{datas.percentage100 }}</td>
-    <td> {{datas.percentage200 }}</td>
+    <td
+      [ngStyle]="(datas.percentage100 < 0)?{'background-color': 'yellow'} : {'background-color': ''}"> {{datas.percentage100 }}
+      %
+    </td>
+    <!--    <td> {{datas.percentage200 }}</td>-->
+    <td
+      [ngStyle]="(datas.percentage200 < 0)?{'background-color': 'red'} : {'background-color': ''}"> {{datas.percentage200 }}
+      %
+    </td>
+    <td> {{datas.countMA100 }}</td>
+    <td> {{100 - datas.countMA100  | number : '1.2-2' }}</td>
+    <td> {{datas.countMA200 }}</td>
+    <td> {{100 - datas.countMA200  | number : '1.2-2' }}</td>
+
     <td> {{ ((datas.endthisweek - datas.startthisweek) / datas.startthisweek)  | percent:'1.2'}}</td>
     <td> {{ ((datas.today - datas.yearhigh) / datas.yearhigh)  | percent:'1.2'}}</td>
     <td> {{datas.marketcap}}</td>
