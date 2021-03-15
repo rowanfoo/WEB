@@ -60,7 +60,11 @@ export class AlgoDataSourceDataSource implements DataSource<TechStr> {
       .subscribe(
         (data) => {
           // _.sortBy([1, 2, 3, 4, 5, 6], function(num){ return Math.sin(num); });
-          var stooges = _.sortBy(data.content, 'fundamental.market_cap');
+          //var stooges = _.sortBy(data.content, 'fundamental.market_cap');
+
+          var stooges = _.sortBy(data.content, function (num) {
+            return num.fundamental.market_cap
+          }).reverse()
           // this.todoSubject.next(data.content);
           this.todoSubject.next(stooges)
           console.log('----------------TableDataSource----LOAD ALGO--------------')
