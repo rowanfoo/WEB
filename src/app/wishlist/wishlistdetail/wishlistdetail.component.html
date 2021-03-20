@@ -9,6 +9,7 @@
     <th>code</th>
     <th>change</th>
     <th>chart</th>
+    <th>week</th>
     <th>twenty %</th>
     <th>fifty %</th>
     <th>onehundred %</th>
@@ -21,9 +22,7 @@
     <th>days-< -100d %</th>
     <th>days-> -200d %</th>
     <th>days-< -200d %</th>
-
-    <th>week</th>
-    <th>correction</th>
+    <th>year</th>
     <th>marketcap</th>
     <th>pe</th>
     <th>yield</th>
@@ -44,6 +43,8 @@
     <td>
       <app-tinychart [code]="datas.code" [size]="'tiny'"></app-tinychart>
     </td>
+    <td> {{ ((datas.endthisweek - datas.startthisweek) / datas.startthisweek)  | percent:'1.2'}}%</td>
+
     <td> {{datas.percentage20 }}</td>
     <td> {{datas.percentage50 }}</td>
     <td
@@ -63,7 +64,6 @@
     <td> {{datas.countMA200 }}</td>
     <td> {{100 - datas.countMA200  | number : '1.2-2' }}</td>
 
-    <td> {{ ((datas.endthisweek - datas.startthisweek) / datas.startthisweek)  | percent:'1.2'}}</td>
     <td> {{ ((datas.today - datas.yearhigh) / datas.yearhigh)  | percent:'1.2'}}</td>
     <td> {{datas.marketcap}}</td>
     <td> {{datas.pe}}</td>
