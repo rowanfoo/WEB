@@ -12,11 +12,15 @@
     <th>twenty %</th>
     <th>fifty %</th>
     <th>onehundred %</th>
+    <th>covid-100 %</th>
+
     <th>twohundred %</th>
-    <th>days-above-onehundred %</th>
-    <th>days-below-onehundred %</th>
-    <th>days-above-twohundred %</th>
-    <th>days-below-twohundred %</th>
+    <th>covid-200 %</th>
+
+    <th>days-> -100d %</th>
+    <th>days-< -100d %</th>
+    <th>days-> -200d %</th>
+    <th>days-< -200d %</th>
 
     <th>week</th>
     <th>correction</th>
@@ -42,16 +46,18 @@
     </td>
     <td> {{datas.percentage20 }}</td>
     <td> {{datas.percentage50 }}</td>
-    <td> {{datas.percentage100 }}</td>
     <td
       [ngStyle]="(datas.percentage100 < 0)?{'background-color': 'yellow'} : {'background-color': ''}"> {{datas.percentage100 }}
       %
     </td>
+    <td> {{datas.lowestma100 }}%</td>
+
     <!--    <td> {{datas.percentage200 }}</td>-->
     <td
       [ngStyle]="(datas.percentage200 < 0)?{'background-color': 'red'} : {'background-color': ''}"> {{datas.percentage200 }}
       %
     </td>
+    <td> {{datas.lowestma200 }}%</td>
     <td> {{datas.countMA100 }}</td>
     <td> {{100 - datas.countMA100  | number : '1.2-2' }}</td>
     <td> {{datas.countMA200 }}</td>
