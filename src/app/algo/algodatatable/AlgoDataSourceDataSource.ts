@@ -72,7 +72,7 @@ export class AlgoDataSourceDataSource implements DataSource<TechStr> {
           console.log('----------------TableDataSource-----LOAD ALGO--=----DATA===TOTAL------------' + data.content.length)
           console.log('----------------TableDataSource-----LOAD ALGO--TOTAL------------' + data.totalElements)
           console.log(stooges)
-
+          this.callbackfn(data.content)
           this.countSubject.next(data.totalElements);
         }
       )
