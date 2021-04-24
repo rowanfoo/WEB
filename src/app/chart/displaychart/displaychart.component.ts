@@ -13,6 +13,12 @@ export class DisplaychartComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(' --------DisplaychartComponent--list---------------' + this.codes)
+  }
+
+
+  setcode(abc) {
+    this.codes = abc
   }
 
 // try BIGCHART Viewer
