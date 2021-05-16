@@ -23,11 +23,14 @@ export class TinychartComponent implements OnInit {
   @Input() size: string
 
   @Input() year: string
+  @Input() group: string
+
   // seriesOptions
   chartCallback
   chart;
 
   constructor(private  core: CoreDataRepo, private highChartOption: HighchartSmallOption) {
+    console.log('----------TinychartComponent-------------')
     const self = this;
     this.chartCallback = chart => {
       // saving chart reference
@@ -57,11 +60,11 @@ export class TinychartComponent implements OnInit {
       this.height = "1100px"
     }
 
-    console.log('------------------TinychartComponent-----SIZE---' + this.width + '------------' + this.height)
+//    console.log('------------------TinychartComponent-----SIZE---' + this.width + '------------' + this.height)
 
     let myyear = ''
 
-    console.log('------------------TinychartComponent-----YEAR---' + this.year)
+    //  console.log('------------------TinychartComponent-----YEAR---' + this.year)
     if (this.year == null) {
       myyear = fnlastyear()
     } else if (this.year == '2') {
@@ -72,18 +75,22 @@ export class TinychartComponent implements OnInit {
 
     }
 
-    console.log('------------------TinychartComponent-----v1x---' + this.code + ' ------  ' + myyear)
+    //console.log('------------------TinychartComponent-----v1x---' + this.code + ' ------  ' + myyear)
     // this.core.getDataChart(this.code, "2020-01-01").subscribe(value1 => {
     //   let seriesOptions = fngetClosePrice(value1);
     //   this.chartOptions = this.highChartOption.createOption(seriesOptions, this.code)
     //
     // })
+    let mygroup = "day"
+    if (this.group != null) {
+      mygroup = this.group
+    }
 
     this.core.getDataChart(this.code, myyear).subscribe(value1 => {
       let seriesOptions = fngetClosePrice(value1);
       let percent = this.getpercentage(value1)
 
-      this.chartOptions = this.highChartOption.createOption(seriesOptions, this.code, percent + '%')
+      this.chartOptions = this.highChartOption.createOption(seriesOptions, this.code, percent + '%', mygroup)
       this.chartOptions.rangeSelector.enabled = false
     })
   }
