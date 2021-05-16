@@ -48,6 +48,14 @@
     </td>
   </ng-container>
 
+  <!-- chart-->
+  <ng-container matColumnDef="2yrchart">
+    <th mat-header-cell *matHeaderCellDef> 2yr-chart</th>
+    <td mat-cell *matCellDef="let element">
+      <app-tinychart [code]="element.code" [size]="'tiny'" [group]="'week'" [year]="'2'"></app-tinychart>
+    </td>
+  </ng-container>
+
 
   <!-- marketcap -->
   <ng-container matColumnDef="marketcap">

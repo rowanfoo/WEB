@@ -20,7 +20,7 @@ export class AlgodatatableComponent implements OnInit, OnDestroy, AfterViewInit 
   data: TechStr[]
   @ViewChild(DisplaychartComponent) child: DisplaychartComponent;
   codes: string
-  displayedColumns = ['code', 'name', 'type', 'message', 'chart', 'marketcap', 'indicator', 'news', 'date'];
+  displayedColumns = ['code', 'name', 'type', 'message', 'chart', '2yrchart', 'marketcap', 'indicator', 'news', 'date'];
   todoDatasource: AlgoDataSourceDataSource;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
