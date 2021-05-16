@@ -3,7 +3,7 @@ import {Injectable} from "@angular/core";
 @Injectable()
 export class HighchartSmallOption {
 
-  createOption(seriesOption, title, subtitle) {
+  createOption(seriesOption, title, subtitle, group = "day") {
     return {
       title: {
         text: title
@@ -32,6 +32,16 @@ export class HighchartSmallOption {
               enabled: false
             }
         }],
+      plotOptions: {
+        series: {
+          dataGrouping: {
+            forced: true,
+            units: [
+              [group, [1]]
+            ]
+          }
+        }
+      },
 
       navigator: {
         enabled: false
