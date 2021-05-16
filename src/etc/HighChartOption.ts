@@ -3,7 +3,7 @@ import {Injectable} from "@angular/core";
 @Injectable()
 export class HighChartOption {
 
-  createOption(seriesOption, guiEnable) {
+  createOption(seriesOption, guiEnable, group = "day") {
 
     return {
       yAxis: [
@@ -25,6 +25,17 @@ export class HighChartOption {
           offset: 0
         }
       ],
+
+      plotOptions: {
+        series: {
+          dataGrouping: {
+            forced: true,
+            units: [
+              [group, [1]]
+            ]
+          }
+        }
+      },
       tooltip: {
         shape: "square",
         headerShape: "callout",
@@ -67,7 +78,8 @@ export class HighChartOption {
           type: "ohlc",
           id: "aapl-ohlc",
           name: "AAPL Stock Price",
-          data: seriesOption
+          data: seriesOption,
+
         },
 
         {
