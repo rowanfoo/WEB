@@ -8,6 +8,7 @@
   <tr>
     <th>code</th>
     <th>change</th>
+    <th>2yrchart</th>
     <th>chart</th>
     <th>week</th>
     <th>twenty %</th>
@@ -38,11 +39,24 @@
             0,datas.code.indexOf( '.' )
             )}}&time=8&startdate=1%2F4%2F1999&enddate=8%2F28%2F2018&freq=1&compidx=aaaaa%3A0&comptemptext=&comp=none&ma=3&maval=50&uf=0&lf=1&lf2=0&lf3=0&type=2&style=320&size=4&x=49&y=15&timeFrameToggle=false&compareToToggle=false&indicatorsToggle=false&chartStyleToggle=false&state=11"
       target="_blank"
-    >{{datas.code}}</a></td>
+    >{{datas.code}}</a>
+      <button mat-icon-button color="black" aria-label="Example icon button with a menu icon"
+              (click)="detail(datas.code)">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+    </td>
+
+
     <td> {{datas.change}}</td>
     <td>
       <app-tinychart [code]="datas.code" [size]="'tiny'"></app-tinychart>
     </td>
+
+    <td>
+      <app-tinychart [code]="datas.code" [size]="'tiny'" [group]="'week'" [year]="'2'"></app-tinychart>
+    </td>
+
+
     <td> {{ ((datas.endthisweek - datas.startthisweek) / datas.startthisweek)  | percent:'1.2'}}</td>
 
     <td> {{datas.percentage20 }}</td>

@@ -56,6 +56,9 @@ export class WishlistdetailComponent implements OnInit {
     this.router.navigate(['algo/bigchart/' + code + '/1'])
   }
 
+  private detail(code: string) {
+    this.router.navigate(["algo/bigchart/" + code + '/1']);
+  }
 }
 
 
