@@ -10,9 +10,11 @@ import {Subject} from "rxjs";
 export class CategoryListComponent implements OnInit {
 
   constructor(private categoryRepo: CategoryRepo) {
-  }
+   }
 
   category: string[]
+  subcategory: string[]
+
   tags: string[]
   dtOptions: any = {};
   dtTrigger: Subject<any> = new Subject();
@@ -20,9 +22,15 @@ export class CategoryListComponent implements OnInit {
   codes: string
 
   ngOnInit() {
+    console.log('-------------------------CategoryListComponent-----INIT-----------')
 
     this.categoryRepo.getAllCategory().subscribe(value => {
       this.category = value
+      console.log(value.length)
+    })
+
+    this.categoryRepo.getSubcategory().subscribe(value => {
+      this.subcategory = value
       console.log(value.length)
     })
 
@@ -59,7 +67,7 @@ export class CategoryListComponent implements OnInit {
   }
 
   tabledata(mode: string, name: string) {
-    this.categoryRepo.getCategoryStock(mode, name).subscribe(value => {
+     this.categoryRepo.getCategoryStock(mode, name).subscribe(value => {
       this.data = value
       console.log(value.length)
       this.code(this.data)

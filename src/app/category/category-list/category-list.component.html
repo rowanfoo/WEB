@@ -1,5 +1,5 @@
 <div class="p-2" layout="row">
-  <app-displaychart [codes]="codes"></app-displaychart>
+  <!--  <app-displaychart [codes]="codes"></app-displaychart>-->
   <form (ngSubmit)="onSumbit()">
     <mat-select placeholder="Select your category" (selectionChange)="onSelection($event)">
       <mat-option *ngFor=" let food of category" [value]="food">
@@ -8,8 +8,15 @@
     </mat-select>
 
 
-    <app-subcategory-autocomplete
-      (myeventsubcategorydata)="listensubcategoryevent($event)"></app-subcategory-autocomplete>
+    <mat-select placeholder="Select your sub-category" (selectionChange)="onSelection($event)">
+      <mat-option *ngFor=" let food of subcategory" [value]="food">
+        {{food}}
+      </mat-option>
+    </mat-select>
+
+
+    <!--    <app-subcategory-autocomplete-->
+    <!--      (myeventsubcategorydata)="listensubcategoryevent($event)"></app-subcategory-autocomplete>-->
 
     <app-tags-autocomplete (myeventtagsdata)="listentagsyevent($event)"></app-tags-autocomplete>
 
@@ -43,7 +50,6 @@
 
   <tbody>
   <tr *ngFor="let datas of  data">
-
     <td> {{datas.code}}</td>
     <td> {{datas.name}}</td>
     <td> {{datas.marketcap | number:'1.0':'en-US' }}</td>
@@ -58,7 +64,6 @@
     <td> {{datas.yearhighprice}}</td>
     <td> {{datas.yearlowprice}}</td>
     <td> {{ ((datas.yearhighprice - datas.yearlowprice) / datas.yearlowprice)   | number : '1.1-1' }}</td>
-
   </tr>
   </tbody>
 </table>
