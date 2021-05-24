@@ -46,12 +46,18 @@ export class BigchartviewComponent implements OnInit {
     }
     code = fngetcodeonly(code)
     this.code = code
-    this.bigChartRepo.getimages(code, year).subscribe(value => {
-      console.log(value);
-      this.bigcharts = value
-      this.load = false;
-    })
+    // this.bigChartRepo.getimages(code, year).subscribe(value => {
+    //   console.log(value);
+    //   this.bigcharts = value
+    //   this.load = false;
+    // })
+    //
 
+    this.bigChartRepo.getimagesrandomTwoyear(this.code).subscribe(value => {
+      console.log(value);
+      this.load = false;
+      this.bigcharts = value
+    })
 
     this.width = '800;'
     this.buttontext = 'summary'
