@@ -3,7 +3,7 @@ import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
 import {RepoModule} from "../repo/repo.module";
 import {LoginComponent} from './login/login.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AlgoComponent} from './algo/algo.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MaterialModule} from "./material.module";
@@ -210,7 +210,8 @@ const routes = [
     FlexLayoutModule,
     MatInputModule,
     MatFormFieldModule,
-    HighchartsChartModule
+    HighchartsChartModule,
+    ReactiveFormsModule
 
   ],
   providers: [EventService, AuthGuard, AuthService, CookieService, HighChartOption, HighchartSmallOption, CommonFunction],
