@@ -73,10 +73,10 @@ export class CategoryRepo {
     return this.http.get<String[]>(url);
   }
 
-  getSubcategory(): Observable<String[]> {
+  getSubcategory(): Observable<string[]> {
     var url = Config.categoryurl + '/subcategory';
-  //  console.log('--- getSubcategory-----1--' + url);
-    return this.http.get<String[]>(url);
+    //  console.log('--- getSubcategory-----1--' + url);
+    return this.http.get<string[]>(url);
   }
 
 // will return json
@@ -85,7 +85,7 @@ export class CategoryRepo {
     //console.log('---RUN-   getCategoryStock-----1--' + categoryurl);
     return this.http.get<string[]>(categoryurl).pipe(
       tap(value => {
-      //  console.log(value)
+        //  console.log(value)
         return value
       })
     )
