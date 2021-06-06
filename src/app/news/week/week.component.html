@@ -1,0 +1,10 @@
+<table id="example" class="table table-bordered table-hover">
+  <tr *ngFor="let news of   news">
+    <td>
+      <a
+        href="{{news.link}}"
+        target="_blank"
+      >{{news.title}}</a>
+    </td>
+  </tr>
+</table>

@@ -37,6 +37,17 @@ export class NewsRepo {
     )
   }
 
+  getNewsCodebyWeek(code: string): Observable<News[]> {
+    let serverurl = Config.algoturl + 'week/' + code
+    console.log('-----------getNewsCodebyWeek-----url------------' + serverurl);
+
+    return this.http.get<News[]>(serverurl).pipe(
+      tap(value => {
+        console.log(value)
+      })
+    )
+  }
+
   getAllNewsbyDate(date: String, request): Observable<Page<News>> {
     let serverurl = Config.algoturl + '/news/all';
 
