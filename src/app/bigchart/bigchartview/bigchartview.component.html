@@ -8,41 +8,76 @@
   <app-spin-load-icon></app-spin-load-icon>
 </div>
 
-<div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="1px grid" width="100%">
-  <div *ngFor="let imgof of bigcharts" fxFlex style="margin: 1px;">
+<!--<div fxLayout="row wrap" fxLayoutAlign="flex-start" fxLayoutGap="1px grid" width="100%">-->
+<!--  <div *ngFor="let imgof of bigcharts" fxFlex style="margin: 1px;">-->
 
-    <h4>{{imgof.code | uppercase}} || Year : {{imgof.year}} </h4>
+<!--    <h4>{{imgof.code | uppercase}} || Year : {{imgof.year}} - {{imgof.title}} </h4>-->
+<!--    &lt;!&ndash;    <img  alt="Embedded Image" width="700" src="{{imgof.imagedata}}">&ndash;&gt;-->
+<!--    &lt;!&ndash;    <img alt="Embedded Image" src="{{imgof.imagedata}}">&ndash;&gt;-->
+<!--    &lt;!&ndash;    <img alt="Embedded Image" [width]="width" src="{{imgof.imagedata}}">&ndash;&gt;-->
+<!--    &lt;!&ndash;    <img alt="Embedded Image" [style]="width" src="{{imgof.imagedata}}">&ndash;&gt;-->
+<!--    <img alt="Embedded Image" [ngStyle]="{'width':width}" src="{{imgof.imagedata}}">-->
+
+<!--  </div>-->
+<!--  &lt;!&ndash;  <div fxFlex style="margin: 1px;">&ndash;&gt;-->
+<!--  &lt;!&ndash;    <app-tinychart [size]="'large'" [code]="code+'.AX'">&ndash;&gt;-->
+<!--  &lt;!&ndash;    </app-tinychart>&ndash;&gt;-->
+<!--  &lt;!&ndash;  </div>&ndash;&gt;-->
+<!--  &lt;!&ndash;  <div fxFlex style="margin: 1px;">&ndash;&gt;-->
+<!--  &lt;!&ndash;    <app-tinychart [size]="'large'" [year]="3" [code]="code+'.AX'">&ndash;&gt;-->
+<!--  &lt;!&ndash;    </app-tinychart>&ndash;&gt;-->
+<!--  &lt;!&ndash;  </div>&ndash;&gt;-->
+
+<!--  &lt;!&ndash;  <div fxFlex style="margin: 1px;">&ndash;&gt;-->
+<!--  &lt;!&ndash;    <div style="width:1200px;height:1200px">&ndash;&gt;-->
+<!--  &lt;!&ndash;      <app-chartx [codes]="code+'.AX'">&ndash;&gt;-->
+<!--  &lt;!&ndash;      </app-chartx>&ndash;&gt;-->
+<!--  &lt;!&ndash;    </div>&ndash;&gt;-->
+
+<!--  &lt;!&ndash;  </div>&ndash;&gt;-->
+<!--  &lt;!&ndash;  <div fxFlex style="margin: 1px;">&ndash;&gt;-->
+<!--  &lt;!&ndash;    <div style="width:1200px;height:1200px">&ndash;&gt;-->
+<!--  &lt;!&ndash;      <app-chartx [codes]="code+'.AX'" [year]="3">&ndash;&gt;-->
+<!--  &lt;!&ndash;      </app-chartx>&ndash;&gt;-->
+<!--  &lt;!&ndash;    </div>&ndash;&gt;-->
+
+<!--  &lt;!&ndash;  </div>&ndash;&gt;-->
+
+<!--</div>-->
+<div fxLayout="row wrap" fxLayoutGap="32px" fxLayoutAlign="flex-start">
+  <!--  <div fxFlex="20%" style="border: 1px solid black">-->
+  <!--    HELLO-->
+  <!--  </div>-->
+  <!--  <div fxFlex="20%" style="border: 1px solid black">-->
+  <!--    WORLD-->
+  <!--  </div>-->
+
+  <!--  <div fxFlex="20%" style="border: 1px solid black">-->
+  <!--    I-->
+  <!--  </div>-->
+
+  <!--  <div fxFlex="20%" style="border: 1px solid black">-->
+  <!--    AM-->
+  <!--  </div>-->
+
+  <!--  <div fxFlex="20%" style="border: 1px solid black">-->
+  <!--    ROWAN-->
+  <!--  </div>-->
+  <div *ngFor="let imgof of bigcharts" style="border: 1px solid black">
+
+    <h4>{{imgof.code | uppercase}} || Year : {{imgof.year}} - {{imgof.title}} </h4>
     <!--    <img  alt="Embedded Image" width="700" src="{{imgof.imagedata}}">-->
     <!--    <img alt="Embedded Image" src="{{imgof.imagedata}}">-->
     <!--    <img alt="Embedded Image" [width]="width" src="{{imgof.imagedata}}">-->
     <!--    <img alt="Embedded Image" [style]="width" src="{{imgof.imagedata}}">-->
-    <img alt="Embedded Image" [ngStyle]="{'width':width}" src="{{imgof.imagedata}}">
+    <!--    <img alt="Embedded Image" [ngStyle]="{'width':width}" src="{{imgof.imagedata}}">-->
+    &nbsp;&nbsp;&nbsp; <img alt="Embedded Image" [ngStyle]="{'width':width}" src="{{imgof.imagedata}}">
+
 
   </div>
-  <!--  <div fxFlex style="margin: 1px;">-->
-  <!--    <app-tinychart [size]="'large'" [code]="code+'.AX'">-->
-  <!--    </app-tinychart>-->
-  <!--  </div>-->
-  <!--  <div fxFlex style="margin: 1px;">-->
-  <!--    <app-tinychart [size]="'large'" [year]="3" [code]="code+'.AX'">-->
-  <!--    </app-tinychart>-->
-  <!--  </div>-->
-
-  <!--  <div fxFlex style="margin: 1px;">-->
-  <!--    <div style="width:1200px;height:1200px">-->
-  <!--      <app-chartx [codes]="code+'.AX'">-->
-  <!--      </app-chartx>-->
-  <!--    </div>-->
-
-  <!--  </div>-->
-  <!--  <div fxFlex style="margin: 1px;">-->
-  <!--    <div style="width:1200px;height:1200px">-->
-  <!--      <app-chartx [codes]="code+'.AX'" [year]="3">-->
-  <!--      </app-chartx>-->
-  <!--    </div>-->
-
-  <!--  </div>-->
-
 </div>
 
 
+<!--480-->
+<!--1000-->
+<!--2000-->
