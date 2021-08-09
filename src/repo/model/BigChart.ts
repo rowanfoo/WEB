@@ -4,5 +4,6 @@ export class BigChart {
   imagedata: string
   mode: string
   ma: string
+  title: string
 }
 
