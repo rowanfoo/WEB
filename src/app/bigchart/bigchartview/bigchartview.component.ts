@@ -66,8 +66,31 @@ export class BigchartviewComponent implements OnInit {
   }
 
   goClick() {
+    // this.width = '200%;'
+    // this.count++
+    // this.buttontext = 'large'
+
+    // if (this.count == 0) {
+    //   console.log(' widht 100')
+    //   this.width = '200%;'
+    //   this.count++
+    //   this.buttontext = 'large'
+    // } else if (this.count == 1) {
+    //   console.log(' ok ORIGINAL')
+    //   this.width = '2000px;'
+    //   this.count++
+    //   this.buttontext = 'original'
+    // } else {
+    //   console.log('summ')
+    //
+    //   this.count = 0
+    //   this.width = '1000px;'
+    //   this.buttontext = 'summary'
+    // }
+
     if (this.count == 0) {
-      this.width = '100%;'
+      console.log(' widht 100')
+      this.width = '600px;'
       this.count++
       this.buttontext = 'large'
     } else if (this.count == 1) {
@@ -76,10 +99,14 @@ export class BigchartviewComponent implements OnInit {
       this.count++
       this.buttontext = 'original'
     } else {
+      console.log('summ')
+
       this.count = 0
-      this.width = '1000px;'
+      this.width = '800px;'
       this.buttontext = 'summary'
     }
+
+
   }
 
 
