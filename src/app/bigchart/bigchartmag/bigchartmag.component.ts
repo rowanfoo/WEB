@@ -17,7 +17,8 @@ export class BigchartmagComponent implements OnInit {
   }
 
   goClick(data) {
-    this.route.navigate(['algo/bigchart/' + data.value + '/5']);
+    // this.route.navigate(['algo/bigchart/' + data.value + '/5']);
+    this.route.navigate(['bigchart/' + data.value + '/5']);
   }
 
 
