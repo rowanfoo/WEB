@@ -89,8 +89,12 @@ export class TinychartComponent implements OnInit {
     this.core.getDataChart(this.code, myyear).subscribe(value1 => {
       let seriesOptions = fngetClosePrice(value1);
       let percent = this.getpercentage(value1)
+      let mycode = this.code.substring(0, this.code.indexOf("."))
 
-      this.chartOptions = this.highChartOption.createOption(seriesOptions, this.code, percent + '%', mygroup)
+      let text = "<a href=\"https://bigcharts.marketwatch.com/advchart/frames/frames.asp?show=&insttype=&symb=AU%3A" + mycode + "&x=0&y=0&time=8&startdate=1%2F4%2F1999&enddate=6%2F27%2F2018&freq=1&compidx=aaaaa%3A0&comptemptext=&comp=none&ma=1&maval=50&uf=0&lf=268435456&lf2=2&lf3=0&type=2&style=320&size=4&timeFrameToggle=false&compareToToggle=false&indicatorsToggle=false&chartStyleToggle=false&state=11\" target=\"_blank\"><u>" + mycode + "</u></a>"
+
+      console.log(text)
+      this.chartOptions = this.highChartOption.createOption(seriesOptions, text, percent + '%', mygroup)
       this.chartOptions.rangeSelector.enabled = false
     })
   }
