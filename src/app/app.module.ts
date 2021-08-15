@@ -65,6 +65,7 @@ import {HighchartSmallOption} from 'src/etc/HighchartSmallOption';
 import {TinychartComponent} from './chart/tinychart/tinychart.component';
 import {ListtinychartComponent} from './chart/listtinychart/listtinychart.component';
 import {CommonFunction} from 'src/etc/CommonFunction';
+import {WeekComponent} from './news/week/week.component';
 
 const routes = [
   {path: '', component: AppComponent},
@@ -81,8 +82,6 @@ const routes = [
       // {path: 'homepage', component: AlgoComponent},
       {path: 'news', component: NewsAllComponent},
       {path: 'newsall', component: NewsAllComponent},
-      {path: 'bigchartmag', component: BigchartmagComponent},
-      {path: 'bigchart/:code/:year', component: BigchartviewComponent},
       {path: 'bigchartcompare/:code/:year/:mode/:ma', component: BigchartcompareComponent},
       {path: 'bigchartinterval/:codes', component: BigchartintervalComponent},
       {path: 'listminichart/:code', component: ListtinychartComponent},
@@ -115,6 +114,15 @@ const routes = [
     path: 'other/category', component: CategoryListComponent
 
   },
+
+  {
+    path: 'bigchartmag', component: BigchartmagComponent,
+  },
+
+  {
+    path: 'bigchart/:code/:year', component: BigchartviewComponent
+  },
+
 
   // {
   //   path: '/', component: AlgoComponent
@@ -197,6 +205,7 @@ const routes = [
     ChartxComponent,
     TinychartComponent,
     ListtinychartComponent,
+    WeekComponent,
   ],
   imports: [
     BrowserModule,
