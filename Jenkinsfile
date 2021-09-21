@@ -28,7 +28,7 @@ pipeline {
             steps{
                 script {
                    image_name="localhost:5000 rowanf/webmain"
-                   dockerImage =  docker.build image_name
+                   dockerImage =  docker.build (image_name)
                     sh 'pwd'
                      dockerImage.push()
 
