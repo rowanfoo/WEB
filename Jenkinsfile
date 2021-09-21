@@ -20,6 +20,7 @@ pipeline {
             steps {
                 sh 'echo hello internal deploy'
                 sh 'pwd'
+                sh docker ps -a
             }
         }
 
@@ -29,6 +30,8 @@ pipeline {
                    image_name="localhost:5000 rowanf/webmain"
                    dockerImage =  docker.build image_name
                     sh 'pwd'
+                     dockerImage.push()
+
                 }
             }
         }
@@ -36,10 +39,7 @@ pipeline {
         stage('DEPLOY '){
             steps{
                 script {
-                    docker.withRegistry() {
-                        dockerImage.push()
-                    }
-
+                     dockerImage.push()
                 }
             }
         }
