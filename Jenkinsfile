@@ -18,7 +18,7 @@ pipeline {
     stages {
         stage('Check out') {
             steps {
-                sh 'echo hello'
+                sh 'echo hello internal deploy'
                 sh 'pwd'
             }
         }
