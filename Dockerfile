@@ -4,7 +4,8 @@ WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
 # install and app dependencies
 COPY package.json /app/package.json
-RUN npm install@6.14.8
+RUN npm install
+RUN npm version
 RUN npm install -g @angular/cli
 # add app
 COPY . /app
