@@ -1,14 +1,14 @@
 # Nodejs Base image
-FROM node
+FROM node:14-apline
 WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
 # install and app dependencies
 COPY package.json /app/package.json
 
 RUN npm version
-RUN npm install npm@6.14.8
-RUN rm -rf /usr/local/lib/node_modules/npm
-RUN mv node_modules/npm /usr/local/lib/node_modules/npm
+#RUN npm install npm@6.14.8
+#RUN rm -rf /usr/local/lib/node_modules/npm
+#RUN mv node_modules/npm /usr/local/lib/node_modules/npm
 
 RUN npm version
 RUN npm install
