@@ -26,7 +26,7 @@ pipeline {
          stage('DOCKER TIME'){
             steps{
                 script {
-                   image_name="rowanf/webmain:$BUILD_NUMBER"
+                   image_name="localhost:5000 rowanf/webmain"
                    dockerImage =  docker.build image_name
                     sh 'pwd'
                 }
@@ -36,9 +36,10 @@ pipeline {
         stage('DEPLOY '){
             steps{
                 script {
-                    docker.withRegistry( '', "mydocker-cred" ) {
+                    docker.withRegistry() {
                         dockerImage.push()
                     }
+
                 }
             }
         }
@@ -46,8 +47,7 @@ pipeline {
 
         stage('Build') {
                     steps {
-                        sh 'ssh -p 1600 root@192.168.0.10 date'
-                         sh "ssh -p 1600 root@192.168.0.10 ansible-playbook -vvv /home/rowan/myplaybook.yaml -e \"name=${name}\"  -e \"image_name=${image_name}\" -e \"portno=${portno}\" -e \"targetport=${targetport}\"  "
+                      sh 'All work done '
                     }
                }
 
