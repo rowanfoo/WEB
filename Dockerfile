@@ -1,5 +1,5 @@
 # Nodejs Base image
-FROM node
+FROM node:16
 WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
 # install and app dependencies
