@@ -1,9 +1,14 @@
 # Nodejs Base image
-FROM node:16.9
+FROM node
 WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
 # install and app dependencies
 COPY package.json /app/package.json
+
+RUN npm install npm@6.14.8
+RUN rm -rf /usr/local/lib/node_modules/npm
+RUN mv node_modules/npm /usr/local/lib/node_modules/npm
+
 RUN npm version
 RUN npm install
 RUN npm install -g @angular/cli
