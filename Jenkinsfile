@@ -36,13 +36,7 @@ pipeline {
             }
         }
 
-        stage('DEPLOY '){
-            steps{
-                script {
-                     dockerImage.push()
-                }
-            }
-        }
+
 
 
         stage('Build') {
