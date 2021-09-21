@@ -1,5 +1,5 @@
 # Nodejs Base image
-FROM node:14-apline
+FROM node:current
 WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
 # install and app dependencies
