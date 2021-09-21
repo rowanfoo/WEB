@@ -1,5 +1,5 @@
 # Nodejs Base image
-FROM node:current
+FROM node:16.9.1-alpine3.14
 WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
 # install and app dependencies
