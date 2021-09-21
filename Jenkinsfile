@@ -20,6 +20,7 @@ pipeline {
             steps {
                 sh 'echo hello internal deploy'
                 sh 'pwd'
+                 sh 'docker ps -a'
             }
         }
 
