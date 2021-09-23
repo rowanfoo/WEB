@@ -44,7 +44,7 @@ pipeline {
                            echo "ALL IS DONE"
                              script {
                                 sh 'docker rm -f webmain'
-                                sh """docker run -d  --restart=unless-stopped --name webmain  -p 11000:4200 -e SPRING_DATASOURCE_URL=${env.dburl}   -e SPRING_DATASOURCE_USERNAME=postgres   -e SPRING_DATASOURCE_PASSWORD=${MY_CREDS_PSW} -e SPRING_MAIL_USERNAME=${env.gmail}  -e SPRING_MAIL_PASSWORD=${MY_CREDS_PSW}  localhost:5000/rowanf/webmain"""
+                                sh """docker run  --restart=unless-stopped --name webmain  -p 11000:4200 localhost:5000/rowanf/webmain"""
 
                             }
                         }
