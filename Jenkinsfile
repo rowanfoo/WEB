@@ -34,7 +34,7 @@ pipeline {
                 script {
                    image_name="localhost:5000/rowanf/webmain"
                    dockerImage =  docker.build (image_name)
-                    sh 'pwd'
+                    bat 'cd ,'
                      dockerImage.push()
 
                 }
