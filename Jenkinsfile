@@ -50,9 +50,12 @@ pipeline {
                              script {
 //                                sh 'docker rm -f webmain'
   //                              sh """docker run -d --restart=unless-stopped --name webmain  -p 11000:4200 localhost:5000/rowanf/webmain"""
-
+echo 'Helo 1'
                                 bat 'docker rm -f webmain'
+echo 'Helo 2'
+
                                 bat """docker run -d --restart=unless-stopped --name webmain  -p 11000:4200 localhost:5000/rowanf/webmain"""
+echo 'Helo 3'
 
                             }
                         }
