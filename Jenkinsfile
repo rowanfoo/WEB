@@ -18,9 +18,14 @@ pipeline {
     stages {
         stage('Check out') {
             steps {
-                sh 'echo hello internal deploy'
-                sh 'pwd'
-                 sh 'docker ps -a'
+//                 sh 'echo hello internal deploy'
+//                 sh 'pwd'
+//                  sh 'docker ps -a'
+//                             sh 'echo hello internal deploy'
+                      echo 'deploy webserver'
+                      bat 'cd ,'
+                      bat 'docker ps -a'
+
             }
         }
 
@@ -43,8 +48,11 @@ pipeline {
                         steps {
                            echo "ALL IS DONE"
                              script {
-                                sh 'docker rm -f webmain'
-                                sh """docker run  --restart=unless-stopped --name webmain  -p 11000:4200 localhost:5000/rowanf/webmain"""
+//                                sh 'docker rm -f webmain'
+  //                              sh """docker run -d --restart=unless-stopped --name webmain  -p 11000:4200 localhost:5000/rowanf/webmain"""
+
+                                bat 'docker rm -f webmain'
+                                bat """docker run -d --restart=unless-stopped --name webmain  -p 11000:4200 localhost:5000/rowanf/webmain"""
 
                             }
                         }
