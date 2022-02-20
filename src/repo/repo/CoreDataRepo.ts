@@ -31,6 +31,20 @@ export class CoreDataRepo {
 
   }
 
+  getDataWeek(code: string, date: string): Observable<CoreData[]> {
+    //getData(): Observable<CoreData[]> {
+    console.log('---------getDataDate-------');
+    var url = Config.algoturl
+    var codeurl = url + 'week/dategt?' + 'date=' + date + '&code=' + code;
+    console.log('---------getDataDate-------' + codeurl);
+    return this.http.get<CoreData[]>(codeurl).pipe(
+      map(value => {
+        return value
+      })
+    );
+
+
+  }
 
   // getDataChart(code: string, date: string): [ChartData[]] {
   //   let seriesOptions: [ChartData[]] = [[]];
@@ -129,6 +143,51 @@ export class CoreDataRepo {
 
 
     //  return seriesOptions;
+
+  }
+
+
+  getDataChartWeek(code: string, date: string): Observable<any> {
+    // getDataChart(code: string, date: string): Observable<[ChartData[]]> {
+//    let seriesOptions: [ChartData[]] = [[]];
+    let seriesOptions = [];
+    // @ts-ignore
+    return this.getDataWeek(code, date).pipe(map(value => {
+      // return [
+      //   new ChartData(
+      //     new Date(value.date).getTime(), // the date
+      //     value.open, // open
+      //     value.high, // high
+      //     value.low, // low
+      //     value.close// close
+      //   )
+      //
+      // ]
+
+      // value.forEach(value => {
+      //   seriesOptions.push([
+      //     new ChartData(
+      //       new Date(value.date).getTime(), // the date
+      //       value.open, // open
+      //       value.high, // high
+      //       value.low, // low
+      //       value.close// close
+      //     )]);
+      // });
+
+      value.forEach(value => {
+        seriesOptions.push([
+          new Date(value.date).getTime(), // the date
+          value.open, // open
+          value.high, // high
+          value.low, // low
+          value.close,// close
+          value.volume// close
+        ]);
+      });
+      return seriesOptions;
+    }))
+
 
   }
 
