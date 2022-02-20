@@ -28,6 +28,7 @@ export class TinychartComponent implements OnInit {
   // seriesOptions
   chartCallback
   chart;
+  mode = "daily"
 
   constructor(private  core: CoreDataRepo, private highChartOption: HighchartSmallOption) {
     console.log('----------TinychartComponent-------------')
