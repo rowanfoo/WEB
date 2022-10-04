@@ -8,7 +8,7 @@
     </mat-select>
 
 
-    <mat-select placeholder="Select your sub-category" (selectionChange)="onSelection($event)">
+    <mat-select placeholder="Select your sub-category" (selectionChange)="onSelectionSub($event)">
       <mat-option *ngFor=" let food of subcategory" [value]="food">
         {{food}}
       </mat-option>

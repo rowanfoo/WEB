@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {CategoryRepo} from "../../../repo/repo/CategoryRepo";
 import {Subject} from "rxjs";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-category-list',
@@ -9,8 +10,8 @@ import {Subject} from "rxjs";
 })
 export class CategoryListComponent implements OnInit {
 
-  constructor(private categoryRepo: CategoryRepo) {
-   }
+  constructor(private categoryRepo: CategoryRepo, private route: Router) {
+  }
 
   category: string[]
   subcategory: string[]
@@ -58,19 +59,46 @@ export class CategoryListComponent implements OnInit {
 
   }
 
+  onSelectionSub(event: any) {
+    let valx = event.value
+    this.categoryRepo.getCategoryStock('subcategory', valx).subscribe(value => {
+      this.data = value
+      console.log(value.length)
+    })
+
+  }
+
+
   listensubcategoryevent(event) {
     this.tabledata('subcategory', event.value)
   }
 
   listentagsyevent(event) {
-    this.tabledata('tags', event)
+
+    console.log('-----listentagsyevent------------')
+    //this.tabledata('tags', event)
+
+    this.categoryRepo.getCatetoryCodes('tags', event).subscribe(value => {
+
+      console.log('-----getCatetoryCodes-------')
+      console.log(value)
+      let s = value.join(',');
+      console.log('--------------------------')
+      console.log(s)
+      this.route.navigate(["other/category/wishlistdetail/" + s]);
+    })
+
   }
 
   tabledata(mode: string, name: string) {
-     this.categoryRepo.getCategoryStock(mode, name).subscribe(value => {
+    // this.route.navigate(["wishlist/wishlistdetail/" + mycode]);
+
+    this.categoryRepo.getCategoryStock(mode, name).subscribe(value => {
       this.data = value
       console.log(value.length)
       this.code(this.data)
+      console.log('-----listentagsyevent---DATA-----')
+      console.log(value)
       this.dtTrigger.next()
     })
 
